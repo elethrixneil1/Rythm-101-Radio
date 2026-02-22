@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rhythm 101 - Connecting...</title>
+    <title>Rhythm 101 Online</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     
     <style>
@@ -505,11 +505,9 @@
                         const title = data.streamTitle;
                         titleEl.innerText = title;
                         titleEl.title = title; // Tooltip to see full title on hover
-                        document.title = title + " - Rhythm 101"; // Update Window/Tab Title
                     } else {
-                        titleEl.innerText = "Off Air";
-                        titleEl.title = "Off Air";
-                        document.title = "Off Air - Rhythm 101"; // Update Window/Tab Title
+                        titleEl.innerText = "Disconnected";
+                        titleEl.title = "Disconnected";
                     }
                 } catch (e) {
                     console.error("Error parsing metadata:", e);
@@ -518,8 +516,7 @@
 
             source.onerror = function(error) {
                 console.error("SSE Error:", error);
-                titleEl.innerText = "Off Air";
-                document.title = "Off Air - Rhythm 101";
+                titleEl.innerText = "Disconnected";
                 // EventSource will automatically try to reconnect, so we don't need setTimeout here
             };
         }
