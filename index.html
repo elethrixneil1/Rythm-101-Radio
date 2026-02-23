@@ -600,123 +600,141 @@
         setInterval(updateClocks, 1000); updateClocks();
 
         // --- FIREBASE CHATBOX LOGIC ---
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        let currentUser = null;
-        let unsubscribeMessages = null;
+        // ⚠️ THIS IS YOUR ACTUAL FIREBASE CONFIGURATION
+        const myFirebaseConfig = {
+            apiKey: "AIzaSyDDjVL_LMCtFa2XGUJWS05XNyBHKTbKEaM",
+            authDomain: "rhythm-101-broadcast.firebaseapp.com",
+            projectId: "rhythm-101-broadcast",
+            storageBucket: "rhythm-101-broadcast.firebasestorage.app",
+            messagingSenderId: "143958198688",
+            appId: "1:143958198688:web:89216f28c3b151dec0fcc5",
+            measurementId: "G-0EXPY7CV3C"
+        };
 
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : myFirebaseConfig;
+        
         const chatMessagesEl = document.getElementById('chatMessages');
         const chatInput = document.getElementById('chatInput');
         const sendBtn = document.getElementById('sendBtn');
+        let currentUser = null;
+        let unsubscribeMessages = null;
 
-        const initAuth = async () => {
-            if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                await signInWithCustomToken(auth, __initial_auth_token);
-            } else {
-                await signInAnonymously(auth);
-            }
-        };
+        if (!firebaseConfig.apiKey || firebaseConfig.apiKey === "YOUR_API_KEY") {
+            // Display an error message if Firebase is not configured on the live deployment
+            chatMessagesEl.innerHTML = '<div style="color:#ff5e62; text-align:center; padding: 20px; font-size: 0.85rem; line-height: 1.5;">⚠️ <b>Live Chat is Offline</b><br><br>The chat database is not connected. To fix this on Vercel, you need to create a free Firebase project and paste your <b>firebaseConfig</b> into the code.</div>';
+            chatInput.disabled = true;
+            sendBtn.disabled = true;
+        } else {
+            const app = initializeApp(firebaseConfig);
+            const auth = getAuth(app);
+            const db = getFirestore(app);
+            const appId = typeof __app_id !== 'undefined' ? __app_id : 'rhythm-101-radio';
 
-        onAuthStateChanged(auth, (user) => {
-            currentUser = user;
-            if (user) {
-                subscribeToMessages();
-                chatInput.disabled = false;
-                sendBtn.disabled = false;
-            } else {
-                if(unsubscribeMessages) unsubscribeMessages();
-            }
-        });
+            const initAuth = async () => {
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+            };
 
-        function subscribeToMessages() {
-            if (!currentUser) return;
-            const messagesRef = collection(db, 'artifacts', appId, 'public', 'data', 'requests');
-            
-            unsubscribeMessages = onSnapshot(messagesRef, (snapshot) => {
-                const now = Date.now();
-                const oneDayMs = 24 * 60 * 60 * 1000;
-                const messages = [];
-
-                snapshot.forEach(docSnap => {
-                    const data = docSnap.data();
-                    
-                    // Enforce 24-hour Auto Delete Rule
-                    if (now - data.timestamp > oneDayMs) {
-                        // Delete expired document from database entirely
-                        deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'requests', docSnap.id)).catch(err => console.error(err));
-                    } else {
-                        messages.push({ id: docSnap.id, ...data });
-                    }
-                });
-
-                // Sort messages chronologically
-                messages.sort((a, b) => a.timestamp - b.timestamp);
-                renderMessages(messages);
-            }, (error) => {
-                console.error("Error fetching messages:", error);
-                chatMessagesEl.innerHTML = '<div style="color:red; text-align:center;">Failed to load chat.</div>';
+            onAuthStateChanged(auth, (user) => {
+                currentUser = user;
+                if (user) {
+                    subscribeToMessages();
+                    chatInput.disabled = false;
+                    sendBtn.disabled = false;
+                } else {
+                    if(unsubscribeMessages) unsubscribeMessages();
+                }
             });
-        }
 
-        function renderMessages(messages) {
-            if (messages.length === 0) {
-                chatMessagesEl.innerHTML = '<div style="opacity: 0.5; text-align: center; margin-top: auto; margin-bottom: auto;">No active requests yet. Be the first!</div>';
-                return;
-            }
-
-            chatMessagesEl.innerHTML = '';
-            messages.forEach(msg => {
-                const isSelf = currentUser && msg.userId === currentUser.uid;
-                
-                const wrapper = document.createElement('div');
-                wrapper.className = `chat-message ${isSelf ? 'self' : 'other'}`;
-                
-                const textDiv = document.createElement('div');
-                textDiv.textContent = msg.text; 
-
-                const timeSpan = document.createElement('span');
-                timeSpan.className = 'chat-time';
-                const date = new Date(msg.timestamp);
-                timeSpan.textContent = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-
-                wrapper.appendChild(textDiv);
-                wrapper.appendChild(timeSpan);
-                chatMessagesEl.appendChild(wrapper);
-            });
-            
-            // Auto scroll to bottom
-            chatMessagesEl.scrollTop = chatMessagesEl.scrollHeight;
-        }
-
-        async function handleSendMessage() {
-            const text = chatInput.value.trim();
-            if (!text || !currentUser) return;
-            
-            chatInput.value = ''; // Clear input immediately for UX
-            
-            try {
+            function subscribeToMessages() {
+                if (!currentUser) return;
                 const messagesRef = collection(db, 'artifacts', appId, 'public', 'data', 'requests');
-                await addDoc(messagesRef, {
-                    text: text,
-                    timestamp: Date.now(),
-                    userId: currentUser.uid
+                
+                unsubscribeMessages = onSnapshot(messagesRef, (snapshot) => {
+                    const now = Date.now();
+                    const oneDayMs = 24 * 60 * 60 * 1000;
+                    const messages = [];
+
+                    snapshot.forEach(docSnap => {
+                        const data = docSnap.data();
+                        
+                        // Enforce 24-hour Auto Delete Rule
+                        if (now - data.timestamp > oneDayMs) {
+                            deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'requests', docSnap.id)).catch(err => console.error(err));
+                        } else {
+                            messages.push({ id: docSnap.id, ...data });
+                        }
+                    });
+
+                    // Sort messages chronologically
+                    messages.sort((a, b) => a.timestamp - b.timestamp);
+                    renderMessages(messages);
+                }, (error) => {
+                    console.error("Error fetching messages:", error);
+                    chatMessagesEl.innerHTML = '<div style="color:red; text-align:center;">Failed to load chat.</div>';
                 });
-            } catch (error) {
-                console.error("Error sending request:", error);
-                alert("Could not send request. Please try again.");
             }
+
+            function renderMessages(messages) {
+                if (messages.length === 0) {
+                    chatMessagesEl.innerHTML = '<div style="opacity: 0.5; text-align: center; margin-top: auto; margin-bottom: auto;">No active requests yet. Be the first!</div>';
+                    return;
+                }
+
+                chatMessagesEl.innerHTML = '';
+                messages.forEach(msg => {
+                    const isSelf = currentUser && msg.userId === currentUser.uid;
+                    
+                    const wrapper = document.createElement('div');
+                    wrapper.className = `chat-message ${isSelf ? 'self' : 'other'}`;
+                    
+                    const textDiv = document.createElement('div');
+                    textDiv.textContent = msg.text; 
+
+                    const timeSpan = document.createElement('span');
+                    timeSpan.className = 'chat-time';
+                    const date = new Date(msg.timestamp);
+                    timeSpan.textContent = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+                    wrapper.appendChild(textDiv);
+                    wrapper.appendChild(timeSpan);
+                    chatMessagesEl.appendChild(wrapper);
+                });
+                
+                // Auto scroll to bottom
+                chatMessagesEl.scrollTop = chatMessagesEl.scrollHeight;
+            }
+
+            async function handleSendMessage() {
+                const text = chatInput.value.trim();
+                if (!text || !currentUser) return;
+                
+                chatInput.value = ''; // Clear input immediately for UX
+                
+                try {
+                    const messagesRef = collection(db, 'artifacts', appId, 'public', 'data', 'requests');
+                    await addDoc(messagesRef, {
+                        text: text,
+                        timestamp: Date.now(),
+                        userId: currentUser.uid
+                    });
+                } catch (error) {
+                    console.error("Error sending request:", error);
+                    alert("Could not send request. Please try again.");
+                }
+            }
+
+            sendBtn.addEventListener('click', handleSendMessage);
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') handleSendMessage();
+            });
+
+            // Initialize connection
+            initAuth();
         }
-
-        sendBtn.addEventListener('click', handleSendMessage);
-        chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') handleSendMessage();
-        });
-
-        // Initialize connection
-        initAuth();
     </script>
 </body>
 </html>
