@@ -171,7 +171,7 @@
             display: flex;
             flex-direction: row;
             gap: 30px;
-            max-width: 1300px; /* Increased to accommodate 3 cards comfortably */
+            max-width: 1300px;
             width: 100%;
             flex-wrap: wrap;
             justify-content: center;
@@ -198,9 +198,7 @@
             transition: background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
         }
 
-        .player-card {
-            text-align: center;
-        }
+        .player-card { text-align: center; }
 
         h1 { font-size: 2rem; background: var(--h1-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
         h2 { font-size: 1.5rem; color: var(--secondary-color); margin-bottom: 15px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px; transition: color 0.5s ease, border-color 0.5s ease; }
@@ -227,43 +225,14 @@
         .playing .status-dot { background-color: #00ff00; box-shadow: 0 0 10px #00ff00; }
 
         /* Logo Area */
-        .station-logo {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 15px auto;
-            display: block;
-            border-radius: 50%;
-            object-fit: contain;
-            background: #ffffff;
-            padding: 15px;
-            box-shadow: 0 8px 20px var(--card-shadow);
-            transition: transform 0.3s ease;
-        }
-        .station-logo:hover {
-            transform: scale(1.05);
-        }
+        .station-logo { width: 120px; height: 120px; margin: 0 auto 15px auto; display: block; border-radius: 50%; object-fit: contain; background: #ffffff; padding: 15px; box-shadow: 0 8px 20px var(--card-shadow); transition: transform 0.3s ease; }
+        .station-logo:hover { transform: scale(1.05); }
         .logo-area p { font-size: 0.9rem; opacity: 0.7; margin-top: 5px; }
 
         /* Now Playing Metadata */
-        .now-playing-container {
-            margin-top: 15px;
-            background: var(--pill-bg);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            max-width: 100%;
-            transition: background 0.5s ease;
-        }
+        .now-playing-container { margin-top: 15px; background: var(--pill-bg); padding: 8px 15px; border-radius: 20px; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; max-width: 100%; transition: background 0.5s ease; }
         .now-playing-label { font-size: 0.7rem; font-weight: bold; text-transform: uppercase; color: var(--primary-color); white-space: nowrap; }
-        
-        .marquee-wrapper {
-            flex: 1; overflow: hidden; white-space: nowrap;
-            mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-            -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-        }
+        .marquee-wrapper { flex: 1; overflow: hidden; white-space: nowrap; mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent); }
         .now-playing-text { display: inline-block; color: var(--secondary-color); font-weight: 500; padding-left: 100%; animation: marquee 15s linear infinite; }
         @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
@@ -289,60 +258,20 @@
         .fb-embed-wrapper { flex: 1; width: 100%; border-radius: 10px; overflow: hidden; background: #ffffff; min-height: 350px; margin-top: 25px; }
 
         /* Chatbox Specific Styles */
-        .chat-card {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-        .chat-messages {
-            flex: 1;
-            min-height: 350px;
-            max-height: 450px;
-            overflow-y: auto;
-            margin-bottom: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            padding-right: 5px;
-        }
-        .chat-message {
-            background: var(--pill-bg);
-            padding: 12px 16px;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            color: var(--text-color);
-            word-wrap: break-word;
-            max-width: 85%;
-            animation: fadeIn 0.3s ease;
-        }
+        .chat-card { display: flex; flex-direction: column; justify-content: flex-start; }
+        .chat-messages { flex: 1; min-height: 350px; max-height: 450px; overflow-y: auto; margin-bottom: 15px; display: flex; flex-direction: column; gap: 12px; padding-right: 5px; }
+        .chat-message { background: var(--pill-bg); padding: 12px 16px; border-radius: 15px; font-size: 0.85rem; color: var(--text-color); word-wrap: break-word; max-width: 85%; animation: fadeIn 0.3s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
-        .chat-message.self {
-            background: rgba(255, 0, 85, 0.4);
-            align-self: flex-end;
-            border-bottom-right-radius: 0;
-        }
-        .chat-message.other {
-            background: rgba(0, 212, 255, 0.2);
-            align-self: flex-start;
-            border-bottom-left-radius: 0;
-        }
-        .chat-time {
-            font-size: 0.65rem;
-            opacity: 0.6;
-            margin-top: 6px;
-            display: block;
-            text-align: right;
-        }
-        .chat-message.other .chat-time {
-            text-align: left;
-        }
-        .chat-input-container {
-            display: flex;
-            gap: 10px;
-        }
+        .chat-message.self { background: rgba(255, 0, 85, 0.4); align-self: flex-end; border-bottom-right-radius: 0; }
+        .chat-message.other { background: rgba(0, 212, 255, 0.2); align-self: flex-start; border-bottom-left-radius: 0; }
+        .chat-time { font-size: 0.65rem; opacity: 0.6; margin-top: 6px; display: block; text-align: right; }
+        .chat-message.other .chat-time { text-align: left; }
+        
+        .chat-input-container { display: flex; gap: 10px; width: 100%; }
         .chat-input {
             flex: 1;
+            min-width: 0; /* Important for flexbox shrinking on mobile */
             padding: 12px 15px;
             border-radius: 20px;
             border: 1px solid var(--glass-border);
@@ -353,6 +282,7 @@
         }
         .chat-input::placeholder { color: rgba(255,255,255,0.5); }
         .light-mode .chat-input::placeholder { color: rgba(0,0,0,0.5); }
+        
         .chat-send-btn {
             background: linear-gradient(45deg, var(--primary-color), #ff5e62);
             color: white;
@@ -363,6 +293,7 @@
             font-weight: 600;
             font-family: 'Poppins', sans-serif;
             transition: transform 0.2s, box-shadow 0.2s;
+            white-space: nowrap; /* Prevent button text from wrapping */
         }
         .chat-send-btn:hover { transform: scale(1.05); box-shadow: 0 4px 15px rgba(255, 0, 85, 0.4); }
         .chat-send-btn:disabled { opacity: 0.5; cursor: not-allowed; }
@@ -372,6 +303,19 @@
         .chat-messages::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); border-radius: 3px; }
         .chat-messages::-webkit-scrollbar-thumb { background: var(--secondary-color); border-radius: 3px; }
 
+        /* --- MOBILE RESPONSIVENESS (FIXES THE UI) --- */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .card-base { 
+                padding: 25px 15px; /* Reduced padding on mobile so content fits */
+            }
+            .chat-input { padding: 10px 12px; font-size: 0.85rem; }
+            .chat-send-btn { padding: 10px 15px; font-size: 0.85rem; }
+            h1 { font-size: 1.6rem; }
+            h2 { font-size: 1.3rem; }
+            .station-logo { width: 90px; height: 90px; }
+            .chat-messages { min-height: 250px; }
+        }
     </style>
 </head>
 <body>
@@ -461,7 +405,6 @@
         <div class="card-base chat-card">
             <h2 id="chatTitle" style="cursor: pointer;" title="Double-click for Admin Access">Live Requests</h2>
             <div class="chat-messages" id="chatMessages">
-                <!-- Messages will load dynamically here -->
                 <div style="opacity: 0.5; text-align: center; font-size: 0.8rem; margin-top: auto; margin-bottom: auto;">Connecting to live chat...</div>
             </div>
             <div class="chat-input-container">
@@ -488,7 +431,6 @@
 
     <!-- MAIN SCRIPT (Module to support Firebase) -->
     <script type="module">
-        // Firebase Imports
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, collection, addDoc, onSnapshot, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
@@ -600,7 +542,6 @@
         setInterval(updateClocks, 1000); updateClocks();
 
         // --- FIREBASE CHATBOX LOGIC ---
-        // ⚠️ THIS IS YOUR ACTUAL FIREBASE CONFIGURATION
         const myFirebaseConfig = {
             apiKey: "AIzaSyDDjVL_LMCtFa2XGUJWS05XNyBHKTbKEaM",
             authDomain: "rhythm-101-broadcast.firebaseapp.com",
@@ -626,7 +567,7 @@
         chatTitle.addEventListener('dblclick', () => {
             if (!isAdmin) {
                 const pwd = prompt("Enter Admin Password to enable deletion:");
-                if (pwd === "rhythm101") { // Default Admin Password
+                if (pwd === "rhythm101") { 
                     isAdmin = true;
                     localStorage.setItem('rhythmAdmin', 'true');
                     alert("Admin mode enabled. You can now delete messages.");
@@ -644,7 +585,6 @@
         });
 
         if (!firebaseConfig.apiKey || firebaseConfig.apiKey === "YOUR_API_KEY") {
-            // Display an error message if Firebase is not configured on the live deployment
             chatMessagesEl.innerHTML = '<div style="color:#ff5e62; text-align:center; padding: 20px; font-size: 0.85rem; line-height: 1.5;">⚠️ <b>Live Chat is Offline</b><br><br>The chat database is not connected. To fix this on Vercel, you need to create a free Firebase project and paste your <b>firebaseConfig</b> into the code.</div>';
             chatInput.disabled = true;
             sendBtn.disabled = true;
@@ -684,8 +624,6 @@
 
                     snapshot.forEach(docSnap => {
                         const data = docSnap.data();
-                        
-                        // Enforce 24-hour Auto Delete Rule
                         if (now - data.timestamp > oneDayMs) {
                             deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'requests', docSnap.id)).catch(err => console.error(err));
                         } else {
@@ -693,7 +631,6 @@
                         }
                     });
 
-                    // Sort messages chronologically
                     messages.sort((a, b) => a.timestamp - b.timestamp);
                     currentMessages = messages;
                     renderMessages(currentMessages);
@@ -734,7 +671,6 @@
 
                     metaDiv.appendChild(timeSpan);
 
-                    // Add Delete Button if Admin
                     if (isAdmin) {
                         const delBtn = document.createElement('span');
                         delBtn.textContent = '🗑️';
@@ -759,7 +695,6 @@
                     chatMessagesEl.appendChild(wrapper);
                 });
                 
-                // Auto scroll to bottom
                 chatMessagesEl.scrollTop = chatMessagesEl.scrollHeight;
             }
 
@@ -767,7 +702,7 @@
                 const text = chatInput.value.trim();
                 if (!text || !currentUser) return;
                 
-                chatInput.value = ''; // Clear input immediately for UX
+                chatInput.value = ''; 
                 
                 try {
                     const messagesRef = collection(db, 'artifacts', appId, 'public', 'data', 'requests');
@@ -787,7 +722,6 @@
                 if (e.key === 'Enter') handleSendMessage();
             });
 
-            // Initialize connection
             initAuth();
         }
     </script>
