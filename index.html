@@ -29,7 +29,7 @@
         }
 
         body.light-mode {
-            --primary-color: #d10045; /* Medyo madilim para mas malinaw sa light mode */
+            --primary-color: #d10045; /* Slightly darker for better contrast in light mode */
             --secondary-color: #009dbf;
             --bg-color-1: #e0e5ec;
             --bg-color-2: #f4f7f6;
@@ -117,7 +117,7 @@
             animation: pulse-text 1.5s infinite;
         }
 
-        /* Istilo para sa No Internet Message */
+        /* Styles for No Internet Message */
         .offline-message {
             font-size: 1.2rem;
             font-weight: 700;
@@ -126,7 +126,7 @@
             letter-spacing: 2px;
             text-align: center;
             animation: pulse-text 1.5s infinite;
-            display: none; /* Itatago by default */
+            display: none; /* Hidden by default */
         }
 
         @keyframes pulse-text {
@@ -176,7 +176,7 @@
             width: 100%;
             flex-wrap: wrap;
             justify-content: center;
-            /* Animation properties kapag tapos na mag-load */
+            /* Animation properties for when loading finishes */
             opacity: 0;
             transform: translateY(40px);
             transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
@@ -439,9 +439,9 @@
             <div class="loader-bar"></div>
         </div>
         <div class="preloader-text" id="preloaderText">TUNING IN...</div>
-        <!-- Idinagdag ang mensahe kung walang internet -->
+        <!-- Added offline message -->
         <div class="offline-message" id="offlineMessage">
-            ⚠️ WALANG INTERNET CONNECTION
+            ⚠️ NO INTERNET CONNECTION
         </div>
     </div>
 
@@ -474,12 +474,12 @@
 
             <audio id="audioStream" crossorigin="anonymous">
                 <source src="https://stream.zeno.fm/tzn3ovjs0nbvv" type="audio/mpeg">
-                Hindi suportado ng iyong browser ang audio element.
+                Your browser does not support the audio element.
             </audio>
 
             <div class="status-badge">
                 <div class="status-dot"></div>
-                <span id="statusText">Handa nang Mag-play</span>
+                <span id="statusText">Ready to Play</span>
             </div>
 
             <button class="play-btn" onclick="togglePlay()" id="playBtn">
@@ -494,11 +494,11 @@
 
             <div class="clock-container">
                 <div class="clock">
-                    <span class="clock-label">Iyong Oras</span>
+                    <span class="clock-label">Your Time</span>
                     <span class="clock-time" id="localTime">--:--:--</span>
                 </div>
                 <div class="clock">
-                    <span class="clock-label">Pilipinas</span>
+                    <span class="clock-label">Philippines</span>
                     <span class="clock-time" id="phTime">--:--:--</span>
                 </div>
             </div>
@@ -511,9 +511,9 @@
         </div>
 
         <div class="info-card">
-            <h2>Tungkol sa Amin</h2>
+            <h2>About Us</h2>
             <div class="station-info">
-                Maligayang pagdating sa Rhythm 101, ang nangungunang online radio station na nagbo-broadcast nang live mula sa magandang Rehiyon ng Bicol sa Pilipinas. Kami ang inyong numero unong pinagmumulan ng mahahalagang musika, entertainment, at mga pinakabagong hit. Layunin naming ikonekta ang mga tagapakinig saanman gamit ang mataas na kalidad ng audio at iba't ibang playlist na babagay sa bawat mood. Tumutok na at damhin ang kumpas!
+                Welcome to Rhythm 101, the premier online radio station broadcasting live from the beautiful Bicol Region in the Philippines. We are your number one source for essential music, entertainment, and the latest hits. Our goal is to connect listeners everywhere with high-quality audio and a diverse playlist that suits every mood. Tune in and feel the beat!
             </div>
             
             <div class="fb-embed-wrapper">
@@ -523,7 +523,7 @@
     </div>
 
     <script>
-        // --- LOGIKA PARA SA PRELOADER AT INTERNET ---
+        // --- PRELOADER AND INTERNET LOGIC ---
         const preloader = document.getElementById('preloader');
         const mainContent = document.getElementById('mainAppContent');
         const preloaderText = document.getElementById('preloaderText');
@@ -532,23 +532,23 @@
         
         let isWindowLoaded = false;
 
-        function suriinAngInternet() {
+        function checkInternetConnection() {
             if (!navigator.onLine) {
-                // Kapag walang internet
+                // If offline
                 loaderBars.style.display = 'none';
                 preloaderText.style.display = 'none';
                 offlineMessage.style.display = 'block';
             } else {
-                // Kapag may internet
+                // If online
                 loaderBars.style.display = 'flex';
                 preloaderText.style.display = 'block';
                 offlineMessage.style.display = 'none';
                 
-                // Kung tapos na mag-load ang page, itago ang preloader
+                // If window has finished loading, hide the preloader
                 if (isWindowLoaded) {
                     setTimeout(() => {
                         preloader.classList.add('hidden');
-                        mainContent.classList.add('show-content'); // Papaganahin ang slide-up fade-in effect
+                        mainContent.classList.add('show-content'); // Triggers slide-up fade-in effect
                     }, 800); 
                 }
             }
@@ -556,12 +556,12 @@
 
         window.addEventListener('load', () => {
             isWindowLoaded = true;
-            suriinAngInternet();
+            checkInternetConnection();
         });
 
-        // Pakinggan kung nawalan o nagkaroon ulit ng internet ang user
-        window.addEventListener('online', suriinAngInternet);
-        window.addEventListener('offline', suriinAngInternet);
+        // Listen for online and offline status changes
+        window.addEventListener('online', checkInternetConnection);
+        window.addEventListener('offline', checkInternetConnection);
         // -----------------------
 
         const audio = document.getElementById('audioStream');
@@ -573,7 +573,7 @@
         const volIcon = document.getElementById('volIcon');
         const themeToggleBtn = document.getElementById('themeToggle');
 
-        // Logika para sa Theme Toggle
+        // Theme Toggle Logic
         if (localStorage.getItem('theme') === 'light') {
             document.body.classList.add('light-mode');
             themeToggleBtn.innerText = '🌙';
@@ -590,12 +590,12 @@
             }
         });
 
-        // Listener para sa volume control
+        // Volume control listener
         volumeControl.addEventListener('input', (e) => {
             const vol = parseFloat(e.target.value);
             audio.volume = vol;
             
-            // Dynamic na volume icon
+            // Dynamic volume icon
             if (vol === 0) volIcon.innerText = "🔇";
             else if (vol < 0.5) volIcon.innerText = "🔉";
             else volIcon.innerText = "🔊";
@@ -603,12 +603,12 @@
 
         function togglePlay() {
             if (audio.paused) {
-                // Mobile fix: I-load ulit ang source kung na-stuck
+                // Mobile fix: Re-load the source if it's stuck
                 if (audio.readyState === 0) {
                     audio.load();
                 }
 
-                statusText.innerText = "Nagko-connect...";
+                statusText.innerText = "Connecting...";
                 
                 audio.play()
                     .then(() => {
@@ -619,25 +619,25 @@
                     })
                     .catch(err => {
                         console.error("Playback failed:", err);
-                        statusText.innerText = "Offline / Naka-block";
-                        alert("Error: Maaaring naka-block ang 'Insecure Content' (HTTP) sa iyong mobile browser o offline ang station.");
+                        statusText.innerText = "Offline / Blocked";
+                        alert("Error: 'Insecure Content' (HTTP) might be blocked in your mobile browser or the station is offline.");
                     });
             } else {
                 audio.pause();
                 playIcon.style.display = 'block';
                 pauseIcon.style.display = 'none';
                 container.classList.remove('playing');
-                statusText.innerText = "Naka-pause";
+                statusText.innerText = "Paused";
             }
         }
 
-        // Kapag may error sa Audio (hal. nag-down ang source)
+        // Handle Audio Errors (e.g. source goes down)
         audio.addEventListener('error', function(e) {
-            statusText.innerText = "Offline ang Station";
+            statusText.innerText = "Station Offline";
             container.classList.remove('playing');
         });
 
-        // Kumuha ng Metadata gamit ang EventSource (Standard para sa Server-Sent Events)
+        // Fetch Metadata using EventSource (Standard way for Server-Sent Events)
         function fetchMetadata() {
             const source = new EventSource('https://api.zeno.fm/mounts/metadata/subscribe/tzn3ovjs0nbvv');
             const titleEl = document.getElementById('nowPlayingText');
@@ -646,42 +646,42 @@
                 try {
                     const data = JSON.parse(event.data);
                     
-                    // Suriin kung may streamTitle at hindi ito walang laman
+                    // Check if streamTitle exists and is not empty
                     if (data.streamTitle && data.streamTitle.trim() !== "") {
                         const title = data.streamTitle;
                         titleEl.innerText = title;
-                        titleEl.title = title; // Tooltip para makita ang buong title kapag nai-hover
+                        titleEl.title = title; // Tooltip to see full title on hover
                     } else {
-                        titleEl.innerText = "Na-disconnect";
-                        titleEl.title = "Na-disconnect";
+                        titleEl.innerText = "Disconnected";
+                        titleEl.title = "Disconnected";
                     }
                 } catch (e) {
-                    console.error("Error sa pag-parse ng metadata:", e);
+                    console.error("Error parsing metadata:", e);
                 }
             };
 
             source.onerror = function(error) {
                 console.error("SSE Error:", error);
-                titleEl.innerText = "Na-disconnect";
-                // Ang EventSource ay awtomatikong susubok na mag-reconnect
+                titleEl.innerText = "Disconnected";
+                // EventSource will automatically try to reconnect
             };
         }
 
-        // Simulan ang metadata stream
+        // Initialize metadata stream
         fetchMetadata();
 
-        // Logika sa pag-update ng Orasan
+        // Clocks Update Logic
         function updateClocks() {
             const now = new Date();
             
-            // Lokal na Oras (Oras sa device ng user)
+            // Local Time (User's device time)
             document.getElementById('localTime').innerText = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
             
-            // Oras sa Pilipinas (Asia/Manila)
+            // Philippine Time (Asia/Manila)
             document.getElementById('phTime').innerText = now.toLocaleTimeString('en-US', { timeZone: 'Asia/Manila', hour: '2-digit', minute: '2-digit', second: '2-digit' });
         }
         
-        // Simulan ang orasan at i-update kada segundo
+        // Start clocks and update every second
         setInterval(updateClocks, 1000);
         updateClocks();
     </script>
