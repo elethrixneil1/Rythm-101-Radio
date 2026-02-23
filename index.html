@@ -29,7 +29,7 @@
         }
 
         body.light-mode {
-            --primary-color: #d10045; /* Slightly darker for better contrast in light mode */
+            --primary-color: #d10045; 
             --secondary-color: #009dbf;
             --bg-color-1: #e0e5ec;
             --bg-color-2: #f4f7f6;
@@ -126,14 +126,13 @@
             letter-spacing: 2px;
             text-align: center;
             animation: pulse-text 1.5s infinite;
-            display: none; /* Hidden by default */
+            display: none; 
         }
 
         @keyframes pulse-text {
             0%, 100% { opacity: 0.5; }
             50% { opacity: 1; }
         }
-        /* ----------------------------------- */
 
         /* Theme Toggle Button */
         .theme-toggle {
@@ -172,11 +171,10 @@
             display: flex;
             flex-direction: row;
             gap: 30px;
-            max-width: 1000px; 
+            max-width: 1300px; /* Increased to accommodate 3 cards comfortably */
             width: 100%;
             flex-wrap: wrap;
             justify-content: center;
-            /* Animation properties for when loading finishes */
             opacity: 0;
             transform: translateY(40px);
             transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
@@ -187,21 +185,25 @@
             transform: translateY(0);
         }
 
-        /* Player Card Styling */
-        .player-card {
+        /* Card Base Styling */
+        .card-base {
             background: var(--glass-bg);
             backdrop-filter: blur(15px);
             border: 1px solid var(--glass-border);
             padding: 40px;
             border-radius: 20px;
-            text-align: center;
             width: 100%;
             max-width: 400px;
             box-shadow: 0 15px 35px var(--card-shadow);
             transition: background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
         }
 
+        .player-card {
+            text-align: center;
+        }
+
         h1 { font-size: 2rem; background: var(--h1-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        h2 { font-size: 1.5rem; color: var(--secondary-color); margin-bottom: 15px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px; transition: color 0.5s ease, border-color 0.5s ease; }
 
         /* Visualizer */
         .visualizer { display: flex; justify-content: center; align-items: flex-end; height: 50px; margin-bottom: 30px; gap: 5px; }
@@ -255,176 +257,121 @@
             max-width: 100%;
             transition: background 0.5s ease;
         }
-        .now-playing-label {
-            font-size: 0.7rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            color: var(--primary-color);
-            white-space: nowrap;
-        }
+        .now-playing-label { font-size: 0.7rem; font-weight: bold; text-transform: uppercase; color: var(--primary-color); white-space: nowrap; }
         
         .marquee-wrapper {
-            flex: 1;
-            overflow: hidden;
-            white-space: nowrap;
+            flex: 1; overflow: hidden; white-space: nowrap;
             mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
             -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
         }
-        
-        .now-playing-text {
-            display: inline-block;
-            color: var(--secondary-color);
-            font-weight: 500;
-            padding-left: 100%;
-            animation: marquee 15s linear infinite;
-        }
-        
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
-        }
+        .now-playing-text { display: inline-block; color: var(--secondary-color); font-weight: 500; padding-left: 100%; animation: marquee 15s linear infinite; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
         /* Volume Slider Styling */
-        .volume-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            justify-content: center;
-            margin: 10px auto 0;
-            background: var(--vol-bg);
-            padding: 8px 20px;
-            border-radius: 20px;
-            width: fit-content;
-            transition: background 0.5s ease;
-        }
-
-        .volume-slider {
-            -webkit-appearance: none;
-            width: 100px;
-            height: 4px;
-            background: var(--slider-track);
-            border-radius: 5px;
-            outline: none;
-            transition: background 0.5s ease;
-        }
-
-        .volume-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: var(--secondary-color);
-            cursor: pointer;
-            box-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
-            transition: 0.2s;
-        }
-
-        .volume-slider::-webkit-slider-thumb:hover {
-            transform: scale(1.2);
-            background: var(--primary-color);
-            box-shadow: 0 0 10px rgba(255, 0, 85, 0.6);
-        }
+        .volume-container { display: flex; align-items: center; gap: 12px; justify-content: center; margin: 10px auto 0; background: var(--vol-bg); padding: 8px 20px; border-radius: 20px; width: fit-content; transition: background 0.5s ease; }
+        .volume-slider { -webkit-appearance: none; width: 100px; height: 4px; background: var(--slider-track); border-radius: 5px; outline: none; transition: background 0.5s ease; }
+        .volume-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--secondary-color); cursor: pointer; box-shadow: 0 0 8px rgba(0, 212, 255, 0.5); transition: 0.2s; }
+        .volume-slider::-webkit-slider-thumb:hover { transform: scale(1.2); background: var(--primary-color); box-shadow: 0 0 10px rgba(255, 0, 85, 0.6); }
 
         /* Clocks Styling */
-        .clock-container {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 25px;
-            padding-top: 15px;
-            border-top: 1px solid var(--glass-border);
-            transition: border-color 0.5s ease;
-        }
-        
-        .clock {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .clock-label {
-            font-size: 0.65rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            color: var(--primary-color);
-            letter-spacing: 1px;
-            margin-bottom: 2px;
-            transition: color 0.5s ease;
-        }
-        
-        .clock-time {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-color);
-            font-variant-numeric: tabular-nums; 
-            transition: color 0.5s ease;
-        }
+        .clock-container { display: flex; justify-content: space-around; margin-top: 25px; padding-top: 15px; border-top: 1px solid var(--glass-border); transition: border-color 0.5s ease; }
+        .clock { display: flex; flex-direction: column; align-items: center; }
+        .clock-label { font-size: 0.65rem; font-weight: bold; text-transform: uppercase; color: var(--primary-color); letter-spacing: 1px; margin-bottom: 2px; transition: color 0.5s ease; }
+        .clock-time { font-size: 0.9rem; font-weight: 500; color: var(--text-color); font-variant-numeric: tabular-nums; transition: color 0.5s ease; }
 
-        /* Contact Email Styling */
-        .contact-email {
-            margin-top: 20px;
-            font-size: 0.8rem;
-            color: var(--text-color);
-            transition: color 0.5s ease;
-        }
-        .contact-email a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .contact-email a:hover {
-            color: var(--primary-color);
-        }
+        /* Contact & Station Info */
+        .contact-email { margin-top: 20px; font-size: 0.8rem; color: var(--text-color); transition: color 0.5s ease; text-align: center; }
+        .contact-email a { color: var(--secondary-color); text-decoration: none; transition: color 0.3s ease; display: inline-flex; align-items: center; gap: 5px; }
+        .contact-email a:hover { color: var(--primary-color); }
+        .station-info { font-size: 0.85rem; line-height: 1.8; color: var(--text-color); opacity: 0.85; font-weight: 300; transition: color 0.5s ease; text-align: justify; }
+        
+        /* FB Embed Styling */
+        .fb-embed-wrapper { flex: 1; width: 100%; border-radius: 10px; overflow: hidden; background: #ffffff; min-height: 350px; margin-top: 25px; }
 
-        /* Info Card Styling */
-        .info-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(15px);
-            border: 1px solid var(--glass-border);
-            padding: 40px;
-            border-radius: 20px;
-            text-align: left;
-            width: 100%;
-            max-width: 400px;
-            box-shadow: 0 15px 35px var(--card-shadow);
-            transition: background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+        /* Chatbox Specific Styles */
+        .chat-card {
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
         }
-
-        .info-card h2 {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-            border-bottom: 1px solid var(--glass-border);
-            padding-bottom: 10px;
-            transition: color 0.5s ease, border-color 0.5s ease;
-        }
-
-        /* FB Embed Styling */
-        .fb-embed-wrapper {
+        .chat-messages {
             flex: 1;
-            width: 100%;
-            border-radius: 10px;
-            overflow: hidden;
-            background: #ffffff; 
             min-height: 350px;
-            margin-top: 25px;
+            max-height: 450px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding-right: 5px;
         }
-
-        /* Station Info Styling */
-        .station-info {
+        .chat-message {
+            background: var(--pill-bg);
+            padding: 12px 16px;
+            border-radius: 15px;
             font-size: 0.85rem;
-            line-height: 1.8;
             color: var(--text-color);
-            opacity: 0.85;
-            font-weight: 300;
-            transition: color 0.5s ease;
-            text-align: justify;
+            word-wrap: break-word;
+            max-width: 85%;
+            animation: fadeIn 0.3s ease;
         }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .chat-message.self {
+            background: rgba(255, 0, 85, 0.4);
+            align-self: flex-end;
+            border-bottom-right-radius: 0;
+        }
+        .chat-message.other {
+            background: rgba(0, 212, 255, 0.2);
+            align-self: flex-start;
+            border-bottom-left-radius: 0;
+        }
+        .chat-time {
+            font-size: 0.65rem;
+            opacity: 0.6;
+            margin-top: 6px;
+            display: block;
+            text-align: right;
+        }
+        .chat-message.other .chat-time {
+            text-align: left;
+        }
+        .chat-input-container {
+            display: flex;
+            gap: 10px;
+        }
+        .chat-input {
+            flex: 1;
+            padding: 12px 15px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            background: var(--vol-bg);
+            color: var(--text-color);
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+        }
+        .chat-input::placeholder { color: rgba(255,255,255,0.5); }
+        .light-mode .chat-input::placeholder { color: rgba(0,0,0,0.5); }
+        .chat-send-btn {
+            background: linear-gradient(45deg, var(--primary-color), #ff5e62);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .chat-send-btn:hover { transform: scale(1.05); box-shadow: 0 4px 15px rgba(255, 0, 85, 0.4); }
+        .chat-send-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        /* Custom Scrollbar */
+        .chat-messages::-webkit-scrollbar { width: 6px; }
+        .chat-messages::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); border-radius: 3px; }
+        .chat-messages::-webkit-scrollbar-thumb { background: var(--secondary-color); border-radius: 3px; }
+
     </style>
 </head>
 <body>
@@ -439,7 +386,6 @@
             <div class="loader-bar"></div>
         </div>
         <div class="preloader-text" id="preloaderText">TUNING IN...</div>
-        <!-- Added offline message -->
         <div class="offline-message" id="offlineMessage">
             ⚠️ NO INTERNET CONNECTION
         </div>
@@ -453,7 +399,8 @@
     </div>
 
     <div class="main-container" id="mainAppContent">
-        <div class="player-card" id="playerContainer">
+        <!-- PLAYER CARD -->
+        <div class="card-base player-card" id="playerContainer">
             <div class="logo-area">
                 <img src="441510909_122141243984227757_7243628959601385331_n (3).jpg" alt="Rhythm 101 Logo" class="station-logo" onerror="this.style.display='none'">
                 <h1>Rhythm 101</h1>
@@ -482,7 +429,7 @@
                 <span id="statusText">Ready to Play</span>
             </div>
 
-            <button class="play-btn" onclick="togglePlay()" id="playBtn">
+            <button class="play-btn" id="playBtn">
                 <svg id="playIcon" width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
                 <svg id="pauseIcon" width="24" height="24" viewBox="0 0 24 24" fill="white" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
             </button>
@@ -502,7 +449,7 @@
                     <span class="clock-time" id="phTime">--:--:--</span>
                 </div>
             </div>
-
+            
             <div class="contact-email">
                 <a href="mailto:rhythm101fm@gmail.com">
                     <span>✉️</span> rhythm101fm@gmail.com
@@ -510,7 +457,24 @@
             </div>
         </div>
 
-        <div class="info-card">
+        <!-- LIVE REQUESTS CHAT CARD -->
+        <div class="card-base chat-card">
+            <h2>Live Requests</h2>
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages will load dynamically here -->
+                <div style="opacity: 0.5; text-align: center; font-size: 0.8rem; margin-top: auto; margin-bottom: auto;">Connecting to live chat...</div>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" id="chatInput" class="chat-input" placeholder="Type a song request..." autocomplete="off">
+                <button id="sendBtn" class="chat-send-btn">Send</button>
+            </div>
+            <div style="font-size: 0.65rem; opacity: 0.5; text-align: center; margin-top: 10px;">
+                Messages auto-delete after 24 hours.
+            </div>
+        </div>
+
+        <!-- INFO / FB CARD -->
+        <div class="card-base">
             <h2>About Us</h2>
             <div class="station-info">
                 Welcome to Rhythm 101, the premier online radio station broadcasting live from the beautiful Bicol Region in the Philippines. We are your number one source for essential music, entertainment, and the latest hits. Our goal is to connect listeners everywhere with high-quality audio and a diverse playlist that suits every mood. Tune in and feel the beat!
@@ -522,49 +486,45 @@
         </div>
     </div>
 
-    <script>
+    <!-- MAIN SCRIPT (Module to support Firebase) -->
+    <script type="module">
+        // Firebase Imports
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, onSnapshot, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
         // --- PRELOADER AND INTERNET LOGIC ---
         const preloader = document.getElementById('preloader');
         const mainContent = document.getElementById('mainAppContent');
         const preloaderText = document.getElementById('preloaderText');
         const loaderBars = document.getElementById('loaderBars');
         const offlineMessage = document.getElementById('offlineMessage');
-        
         let isWindowLoaded = false;
 
         function checkInternetConnection() {
             if (!navigator.onLine) {
-                // If offline
                 loaderBars.style.display = 'none';
                 preloaderText.style.display = 'none';
                 offlineMessage.style.display = 'block';
             } else {
-                // If online
                 loaderBars.style.display = 'flex';
                 preloaderText.style.display = 'block';
                 offlineMessage.style.display = 'none';
-                
-                // If window has finished loading, hide the preloader
                 if (isWindowLoaded) {
                     setTimeout(() => {
                         preloader.classList.add('hidden');
-                        mainContent.classList.add('show-content'); // Triggers slide-up fade-in effect
+                        mainContent.classList.add('show-content'); 
                     }, 800); 
                 }
             }
         }
-
-        window.addEventListener('load', () => {
-            isWindowLoaded = true;
-            checkInternetConnection();
-        });
-
-        // Listen for online and offline status changes
+        window.addEventListener('load', () => { isWindowLoaded = true; checkInternetConnection(); });
         window.addEventListener('online', checkInternetConnection);
         window.addEventListener('offline', checkInternetConnection);
-        // -----------------------
 
+        // --- THEME & PLAYER LOGIC ---
         const audio = document.getElementById('audioStream');
+        const playBtn = document.getElementById('playBtn');
         const playIcon = document.getElementById('playIcon');
         const pauseIcon = document.getElementById('pauseIcon');
         const container = document.getElementById('playerContainer');
@@ -573,117 +533,190 @@
         const volIcon = document.getElementById('volIcon');
         const themeToggleBtn = document.getElementById('themeToggle');
 
-        // Theme Toggle Logic
-        if (localStorage.getItem('theme') === 'light') {
-            document.body.classList.add('light-mode');
-            themeToggleBtn.innerText = '🌙';
-        }
-
+        if (localStorage.getItem('theme') === 'light') { document.body.classList.add('light-mode'); themeToggleBtn.innerText = '🌙'; }
         themeToggleBtn.addEventListener('click', () => {
             document.body.classList.toggle('light-mode');
             if (document.body.classList.contains('light-mode')) {
-                themeToggleBtn.innerText = '🌙';
-                localStorage.setItem('theme', 'light');
+                themeToggleBtn.innerText = '🌙'; localStorage.setItem('theme', 'light');
             } else {
-                themeToggleBtn.innerText = '🌞';
-                localStorage.setItem('theme', 'dark');
+                themeToggleBtn.innerText = '🌞'; localStorage.setItem('theme', 'dark');
             }
         });
 
-        // Volume control listener
         volumeControl.addEventListener('input', (e) => {
             const vol = parseFloat(e.target.value);
             audio.volume = vol;
-            
-            // Dynamic volume icon
             if (vol === 0) volIcon.innerText = "🔇";
             else if (vol < 0.5) volIcon.innerText = "🔉";
             else volIcon.innerText = "🔊";
         });
 
-        function togglePlay() {
+        playBtn.addEventListener('click', () => {
             if (audio.paused) {
-                // Mobile fix: Re-load the source if it's stuck
-                if (audio.readyState === 0) {
-                    audio.load();
-                }
-
+                if (audio.readyState === 0) audio.load();
                 statusText.innerText = "Connecting...";
-                
-                audio.play()
-                    .then(() => {
-                        playIcon.style.display = 'none';
-                        pauseIcon.style.display = 'block';
-                        container.classList.add('playing');
-                        statusText.innerText = "On Air • Live";
-                    })
-                    .catch(err => {
-                        console.error("Playback failed:", err);
-                        statusText.innerText = "Offline / Blocked";
-                        alert("Error: 'Insecure Content' (HTTP) might be blocked in your mobile browser or the station is offline.");
-                    });
+                audio.play().then(() => {
+                    playIcon.style.display = 'none'; pauseIcon.style.display = 'block';
+                    container.classList.add('playing'); statusText.innerText = "On Air • Live";
+                }).catch(err => {
+                    statusText.innerText = "Offline / Blocked";
+                    alert("Error: 'Insecure Content' (HTTP) might be blocked in your mobile browser or the station is offline.");
+                });
             } else {
                 audio.pause();
-                playIcon.style.display = 'block';
-                pauseIcon.style.display = 'none';
-                container.classList.remove('playing');
-                statusText.innerText = "Paused";
+                playIcon.style.display = 'block'; pauseIcon.style.display = 'none';
+                container.classList.remove('playing'); statusText.innerText = "Paused";
             }
-        }
-
-        // Handle Audio Errors (e.g. source goes down)
-        audio.addEventListener('error', function(e) {
-            statusText.innerText = "Station Offline";
-            container.classList.remove('playing');
         });
 
-        // Fetch Metadata using EventSource (Standard way for Server-Sent Events)
+        audio.addEventListener('error', function(e) {
+            statusText.innerText = "Station Offline"; container.classList.remove('playing');
+        });
+
+        // --- ZENO FM METADATA ---
         function fetchMetadata() {
             const source = new EventSource('https://api.zeno.fm/mounts/metadata/subscribe/tzn3ovjs0nbvv');
             const titleEl = document.getElementById('nowPlayingText');
-
             source.onmessage = function(event) {
                 try {
                     const data = JSON.parse(event.data);
-                    
-                    // Check if streamTitle exists and is not empty
                     if (data.streamTitle && data.streamTitle.trim() !== "") {
-                        const title = data.streamTitle;
-                        titleEl.innerText = title;
-                        titleEl.title = title; // Tooltip to see full title on hover
+                        titleEl.innerText = data.streamTitle; titleEl.title = data.streamTitle; 
                     } else {
-                        titleEl.innerText = "Disconnected";
-                        titleEl.title = "Disconnected";
+                        titleEl.innerText = "Disconnected"; titleEl.title = "Disconnected";
                     }
-                } catch (e) {
-                    console.error("Error parsing metadata:", e);
-                }
+                } catch (e) { }
             };
-
-            source.onerror = function(error) {
-                console.error("SSE Error:", error);
-                titleEl.innerText = "Disconnected";
-                // EventSource will automatically try to reconnect
-            };
+            source.onerror = function(error) { titleEl.innerText = "Disconnected"; };
         }
-
-        // Initialize metadata stream
         fetchMetadata();
 
-        // Clocks Update Logic
+        // --- CLOCKS ---
         function updateClocks() {
             const now = new Date();
-            
-            // Local Time (User's device time)
             document.getElementById('localTime').innerText = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-            
-            // Philippine Time (Asia/Manila)
             document.getElementById('phTime').innerText = now.toLocaleTimeString('en-US', { timeZone: 'Asia/Manila', hour: '2-digit', minute: '2-digit', second: '2-digit' });
         }
-        
-        // Start clocks and update every second
-        setInterval(updateClocks, 1000);
-        updateClocks();
+        setInterval(updateClocks, 1000); updateClocks();
+
+        // --- FIREBASE CHATBOX LOGIC ---
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        let currentUser = null;
+        let unsubscribeMessages = null;
+
+        const chatMessagesEl = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const sendBtn = document.getElementById('sendBtn');
+
+        const initAuth = async () => {
+            if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                await signInWithCustomToken(auth, __initial_auth_token);
+            } else {
+                await signInAnonymously(auth);
+            }
+        };
+
+        onAuthStateChanged(auth, (user) => {
+            currentUser = user;
+            if (user) {
+                subscribeToMessages();
+                chatInput.disabled = false;
+                sendBtn.disabled = false;
+            } else {
+                if(unsubscribeMessages) unsubscribeMessages();
+            }
+        });
+
+        function subscribeToMessages() {
+            if (!currentUser) return;
+            const messagesRef = collection(db, 'artifacts', appId, 'public', 'data', 'requests');
+            
+            unsubscribeMessages = onSnapshot(messagesRef, (snapshot) => {
+                const now = Date.now();
+                const oneDayMs = 24 * 60 * 60 * 1000;
+                const messages = [];
+
+                snapshot.forEach(docSnap => {
+                    const data = docSnap.data();
+                    
+                    // Enforce 24-hour Auto Delete Rule
+                    if (now - data.timestamp > oneDayMs) {
+                        // Delete expired document from database entirely
+                        deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'requests', docSnap.id)).catch(err => console.error(err));
+                    } else {
+                        messages.push({ id: docSnap.id, ...data });
+                    }
+                });
+
+                // Sort messages chronologically
+                messages.sort((a, b) => a.timestamp - b.timestamp);
+                renderMessages(messages);
+            }, (error) => {
+                console.error("Error fetching messages:", error);
+                chatMessagesEl.innerHTML = '<div style="color:red; text-align:center;">Failed to load chat.</div>';
+            });
+        }
+
+        function renderMessages(messages) {
+            if (messages.length === 0) {
+                chatMessagesEl.innerHTML = '<div style="opacity: 0.5; text-align: center; margin-top: auto; margin-bottom: auto;">No active requests yet. Be the first!</div>';
+                return;
+            }
+
+            chatMessagesEl.innerHTML = '';
+            messages.forEach(msg => {
+                const isSelf = currentUser && msg.userId === currentUser.uid;
+                
+                const wrapper = document.createElement('div');
+                wrapper.className = `chat-message ${isSelf ? 'self' : 'other'}`;
+                
+                const textDiv = document.createElement('div');
+                textDiv.textContent = msg.text; 
+
+                const timeSpan = document.createElement('span');
+                timeSpan.className = 'chat-time';
+                const date = new Date(msg.timestamp);
+                timeSpan.textContent = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+                wrapper.appendChild(textDiv);
+                wrapper.appendChild(timeSpan);
+                chatMessagesEl.appendChild(wrapper);
+            });
+            
+            // Auto scroll to bottom
+            chatMessagesEl.scrollTop = chatMessagesEl.scrollHeight;
+        }
+
+        async function handleSendMessage() {
+            const text = chatInput.value.trim();
+            if (!text || !currentUser) return;
+            
+            chatInput.value = ''; // Clear input immediately for UX
+            
+            try {
+                const messagesRef = collection(db, 'artifacts', appId, 'public', 'data', 'requests');
+                await addDoc(messagesRef, {
+                    text: text,
+                    timestamp: Date.now(),
+                    userId: currentUser.uid
+                });
+            } catch (error) {
+                console.error("Error sending request:", error);
+                alert("Could not send request. Please try again.");
+            }
+        }
+
+        sendBtn.addEventListener('click', handleSendMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleSendMessage();
+        });
+
+        // Initialize connection
+        initAuth();
     </script>
 </body>
 </html>
