@@ -459,7 +459,7 @@
 
         <!-- LIVE REQUESTS CHAT CARD -->
         <div class="card-base chat-card">
-            <h2>Live Requests</h2>
+            <h2 id="chatTitle" style="cursor: pointer;" title="Double-click for Admin Access">Live Requests</h2>
             <div class="chat-messages" id="chatMessages">
                 <!-- Messages will load dynamically here -->
                 <div style="opacity: 0.5; text-align: center; font-size: 0.8rem; margin-top: auto; margin-bottom: auto;">Connecting to live chat...</div>
@@ -616,8 +616,32 @@
         const chatMessagesEl = document.getElementById('chatMessages');
         const chatInput = document.getElementById('chatInput');
         const sendBtn = document.getElementById('sendBtn');
+        const chatTitle = document.getElementById('chatTitle');
         let currentUser = null;
         let unsubscribeMessages = null;
+        let currentMessages = [];
+        let isAdmin = localStorage.getItem('rhythmAdmin') === 'true';
+
+        // Admin Secret Login
+        chatTitle.addEventListener('dblclick', () => {
+            if (!isAdmin) {
+                const pwd = prompt("Enter Admin Password to enable deletion:");
+                if (pwd === "rhythm101") { // Default Admin Password
+                    isAdmin = true;
+                    localStorage.setItem('rhythmAdmin', 'true');
+                    alert("Admin mode enabled. You can now delete messages.");
+                    renderMessages(currentMessages);
+                } else if (pwd !== null) {
+                    alert("Incorrect password.");
+                }
+            } else {
+                if (confirm("Disable Admin mode?")) {
+                    isAdmin = false;
+                    localStorage.removeItem('rhythmAdmin');
+                    renderMessages(currentMessages);
+                }
+            }
+        });
 
         if (!firebaseConfig.apiKey || firebaseConfig.apiKey === "YOUR_API_KEY") {
             // Display an error message if Firebase is not configured on the live deployment
@@ -671,7 +695,8 @@
 
                     // Sort messages chronologically
                     messages.sort((a, b) => a.timestamp - b.timestamp);
-                    renderMessages(messages);
+                    currentMessages = messages;
+                    renderMessages(currentMessages);
                 }, (error) => {
                     console.error("Error fetching messages:", error);
                     chatMessagesEl.innerHTML = '<div style="color:red; text-align:center;">Failed to load chat.</div>';
@@ -694,13 +719,43 @@
                     const textDiv = document.createElement('div');
                     textDiv.textContent = msg.text; 
 
+                    const metaDiv = document.createElement('div');
+                    metaDiv.style.display = 'flex';
+                    metaDiv.style.justifyContent = isSelf ? 'flex-end' : 'flex-start';
+                    metaDiv.style.alignItems = 'center';
+                    metaDiv.style.gap = '10px';
+                    metaDiv.style.marginTop = '6px';
+
                     const timeSpan = document.createElement('span');
                     timeSpan.className = 'chat-time';
+                    timeSpan.style.marginTop = '0';
                     const date = new Date(msg.timestamp);
                     timeSpan.textContent = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
+                    metaDiv.appendChild(timeSpan);
+
+                    // Add Delete Button if Admin
+                    if (isAdmin) {
+                        const delBtn = document.createElement('span');
+                        delBtn.textContent = '🗑️';
+                        delBtn.style.cursor = 'pointer';
+                        delBtn.style.fontSize = '0.85rem';
+                        delBtn.title = "Delete Request";
+                        delBtn.onclick = async () => {
+                            if(confirm("Delete this request?")) {
+                                try {
+                                    await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'requests', msg.id));
+                                } catch(e) {
+                                    console.error("Error deleting:", e);
+                                    alert("Failed to delete message.");
+                                }
+                            }
+                        };
+                        metaDiv.appendChild(delBtn);
+                    }
+
                     wrapper.appendChild(textDiv);
-                    wrapper.appendChild(timeSpan);
+                    wrapper.appendChild(metaDiv);
                     chatMessagesEl.appendChild(wrapper);
                 });
                 
