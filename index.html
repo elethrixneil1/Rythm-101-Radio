@@ -56,7 +56,72 @@
             color: var(--text-color);
             padding: 20px;
             transition: background 0.5s ease, color 0.5s ease;
+            overflow-x: hidden;
         }
+
+        /* --- PRELOADER ANIMATION STYLES --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--bg-color-1), var(--bg-color-2), var(--bg-color-3));
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        #preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-bars {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 60px;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .loader-bar {
+            width: 12px;
+            background: var(--primary-color);
+            border-radius: 6px;
+            animation: preloader-bounce 0.6s infinite ease-in-out alternate;
+        }
+
+        .loader-bar:nth-child(2) { animation-delay: 0.1s; background: var(--secondary-color); }
+        .loader-bar:nth-child(3) { animation-delay: 0.2s; }
+        .loader-bar:nth-child(4) { animation-delay: 0.3s; background: var(--secondary-color); }
+        .loader-bar:nth-child(5) { animation-delay: 0.4s; }
+
+        @keyframes preloader-bounce {
+            0% { height: 15px; }
+            100% { height: 60px; }
+        }
+
+        .preloader-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--h1-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 3px;
+            animation: pulse-text 1.5s infinite;
+        }
+
+        @keyframes pulse-text {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        /* ----------------------------------- */
 
         /* Theme Toggle Button */
         .theme-toggle {
@@ -95,10 +160,19 @@
             display: flex;
             flex-direction: row;
             gap: 30px;
-            max-width: 1000px; /* Adjusted back for 2 balanced cards */
+            max-width: 1000px; 
             width: 100%;
             flex-wrap: wrap;
             justify-content: center;
+            /* Animation properties for when loading finishes */
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        
+        .main-container.show-content {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Player Card Styling */
@@ -181,7 +255,6 @@
             flex: 1;
             overflow: hidden;
             white-space: nowrap;
-            /* Creates a slight fade effect on the left and right edges */
             mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
             -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
         }
@@ -190,7 +263,7 @@
             display: inline-block;
             color: var(--secondary-color);
             font-weight: 500;
-            padding-left: 100%; /* Pushes text off-screen to start */
+            padding-left: 100%;
             animation: marquee 15s linear infinite;
         }
         
@@ -270,7 +343,7 @@
             font-size: 0.9rem;
             font-weight: 500;
             color: var(--text-color);
-            font-variant-numeric: tabular-nums; /* Prevents text shifting when seconds change */
+            font-variant-numeric: tabular-nums; 
             transition: color 0.5s ease;
         }
 
@@ -325,7 +398,7 @@
             width: 100%;
             border-radius: 10px;
             overflow: hidden;
-            background: #ffffff; /* FB plugin needs a solid background to look clean */
+            background: #ffffff; 
             min-height: 350px;
             margin-top: 25px;
         }
@@ -344,6 +417,18 @@
 </head>
 <body>
 
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="loader-bars">
+            <div class="loader-bar"></div>
+            <div class="loader-bar"></div>
+            <div class="loader-bar"></div>
+            <div class="loader-bar"></div>
+            <div class="loader-bar"></div>
+        </div>
+        <div class="preloader-text">TUNING IN...</div>
+    </div>
+
     <button id="themeToggle" class="theme-toggle" title="Toggle Theme">🌞</button>
 
     <div class="background-shapes">
@@ -351,7 +436,7 @@
         <div class="shape-2"></div>
     </div>
 
-    <div class="main-container">
+    <div class="main-container" id="mainAppContent">
         <div class="player-card" id="playerContainer">
             <div class="logo-area">
                 <img src="441510909_122141243984227757_7243628959601385331_n (3).jpg" alt="Rhythm 101 Logo" class="station-logo" onerror="this.style.display='none'">
@@ -422,6 +507,19 @@
     </div>
 
     <script>
+        // --- PRELOADER LOGIC ---
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            const mainContent = document.getElementById('mainAppContent');
+            
+            // Add a small 800ms delay to let the user enjoy the animation
+            setTimeout(() => {
+                preloader.classList.add('hidden');
+                mainContent.classList.add('show-content'); // Triggers the slide-up fade-in effect
+            }, 800); 
+        });
+        // -----------------------
+
         const audio = document.getElementById('audioStream');
         const playIcon = document.getElementById('playIcon');
         const pauseIcon = document.getElementById('pauseIcon');
