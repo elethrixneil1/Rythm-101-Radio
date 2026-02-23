@@ -266,6 +266,9 @@
         .chat-time { font-size: 0.65rem; opacity: 0.6; margin-top: 6px; display: block; text-align: right; }
         .chat-message.other .chat-time { text-align: left; }
         
+        .chat-sender-name { font-size: 0.7rem; font-weight: 700; margin-bottom: 4px; color: var(--secondary-color); }
+        .self .chat-sender-name { color: #ffffff; opacity: 0.9; }
+        
         .chat-input-container { display: flex; gap: 10px; width: 100%; }
         .chat-input {
             flex: 1;
@@ -405,9 +408,12 @@
             <div class="chat-messages" id="chatMessages">
                 <div style="opacity: 0.5; text-align: center; font-size: 0.8rem; margin-top: auto; margin-bottom: auto;">Connecting to live chat...</div>
             </div>
-            <div class="chat-input-container">
-                <input type="text" id="chatInput" class="chat-input" placeholder="Type a song request..." autocomplete="off">
-                <button id="sendBtn" class="chat-send-btn">Send</button>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <input type="text" id="chatName" class="chat-input" placeholder="Real Full Name (First & Last Name)" maxlength="50" style="padding: 8px 15px; font-size: 0.85rem;">
+                <div class="chat-input-container">
+                    <input type="text" id="chatInput" class="chat-input" placeholder="Type a song request..." autocomplete="off">
+                    <button id="sendBtn" class="chat-send-btn">Send</button>
+                </div>
             </div>
             <div style="font-size: 0.65rem; opacity: 0.5; text-align: center; margin-top: 10px;">
                 Messages auto-delete after 24 hours.
@@ -608,6 +614,7 @@
         const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : myFirebaseConfig;
         
         const chatMessagesEl = document.getElementById('chatMessages');
+        const chatName = document.getElementById('chatName');
         const chatInput = document.getElementById('chatInput');
         const sendBtn = document.getElementById('sendBtn');
         const chatTitle = document.getElementById('chatTitle');
@@ -706,6 +713,13 @@
                     const wrapper = document.createElement('div');
                     wrapper.className = `chat-message ${isSelf ? 'self' : 'other'}`;
                     
+                    if (msg.name) {
+                        const nameDiv = document.createElement('div');
+                        nameDiv.className = 'chat-sender-name';
+                        nameDiv.textContent = isSelf ? 'You' : msg.name;
+                        wrapper.appendChild(nameDiv);
+                    }
+
                     const textDiv = document.createElement('div');
                     textDiv.textContent = msg.text; 
 
@@ -753,6 +767,23 @@
 
             async function handleSendMessage() {
                 const text = chatInput.value.trim();
+                const name = chatName.value.trim();
+                
+                // Validate Real Full Name (Must have at least two words)
+                const nameParts = name.split(' ').filter(part => part.length > 0);
+                
+                if (nameParts.length < 2) {
+                    chatName.style.borderColor = 'var(--primary-color)';
+                    chatName.value = '';
+                    chatName.placeholder = 'First & Last name required!';
+                    alert("Please enter your REAL FULL NAME (First Name and Last Name) to send a live request.");
+                    chatName.focus();
+                    return;
+                } else {
+                    chatName.style.borderColor = 'var(--glass-border)';
+                    localStorage.setItem('rhythmChatName', name);
+                }
+
                 if (!text || !currentUser) return;
                 
                 chatInput.value = ''; 
@@ -761,6 +792,7 @@
                     const messagesRef = collection(db, 'artifacts', appId, 'public', 'data', 'requests');
                     await addDoc(messagesRef, {
                         text: text,
+                        name: name,
                         timestamp: Date.now(),
                         userId: currentUser.uid
                     });
@@ -775,10 +807,11 @@
                 if (e.key === 'Enter') handleSendMessage();
             });
 
+            // Load saved name on startup
+            chatName.value = localStorage.getItem('rhythmChatName') || '';
+
             initAuth();
         }
-         
     </script>
-    <script disable-devtool-auto src="disable-devtool.js"></script>
 </body>
 </html>
