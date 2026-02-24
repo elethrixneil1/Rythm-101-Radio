@@ -568,8 +568,8 @@
                     container.classList.add('playing'); statusText.innerText = "On Air • Live";
                     initVisualizer(); // Simulan ang real-time waveform
                 }).catch(err => {
-                    statusText.innerText = "Offline / Blocked";
-                    alert("Error: 'Insecure Content' (HTTP) might be blocked in your mobile browser or the station is offline.");
+                    statusText.innerText = "Offline/Off Air";
+                    alert("Error:The station is offline or Check Your Internet Connection.");
                 });
             } else {
                 audio.pause();
