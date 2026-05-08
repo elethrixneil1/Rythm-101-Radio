@@ -211,28 +211,158 @@
         h1 { font-size: 2rem; background: var(--h1-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
         h2 { font-size: 1.5rem; color: var(--secondary-color); margin-bottom: 15px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px; transition: color 0.5s ease, border-color 0.5s ease; }
 
-        /* Visualizer */
-        .visualizer { display: flex; justify-content: center; align-items: flex-end; height: 50px; margin-bottom: 30px; gap: 5px; }
+        /* Visualizer & VU Meters */
+        .visualizer-wrapper { display: flex; justify-content: center; align-items: flex-end; margin-bottom: 25px; gap: 15px; }
+        .visualizer { display: flex; justify-content: center; align-items: flex-end; height: 50px; gap: 5px; }
         .bar { width: 6px; background: var(--secondary-color); height: 5px; border-radius: 3px; transition: height 0.08s ease; }
         .bar:nth-child(odd) { background: var(--primary-color); }
+        
+        .vu-meter { position: relative; width: 75px; height: 45px; background: radial-gradient(circle at bottom center, #fef4cd, #dfa944); border: 2px solid var(--glass-border); border-radius: 6px; box-shadow: inset 0 2px 6px rgba(0,0,0,0.3), 0 5px 15px var(--card-shadow); overflow: hidden; }
+        .light-mode .vu-meter { border-color: #666; box-shadow: inset 0 2px 6px rgba(0,0,0,0.2), 0 5px 15px rgba(0,0,0,0.1); }
+        .vu-svg { width: 100%; height: 100%; position: absolute; top: 0; left: 0; pointer-events: none; }
+        .vu-needle { position: absolute; bottom: -2px; left: 50%; width: 2px; height: 36px; background: #e74c3c; transform-origin: bottom center; transform: rotate(-45deg); box-shadow: 1px 1px 2px rgba(0,0,0,0.5); border-radius: 2px; transition: transform 0.08s ease-out; z-index: 2; margin-left: -1px; }
+        .vu-meter::after { content: ''; position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%); width: 12px; height: 12px; background: #111; border-radius: 50%; z-index: 3; box-shadow: 0 -1px 2px rgba(255,255,255,0.3); }
 
         /* Controls */
         .play-btn {
             background: linear-gradient(to right, var(--primary-color), #ff5e62);
             border: none; width: 70px; height: 70px; border-radius: 50%; color: white;
             font-size: 24px; cursor: pointer; box-shadow: 0 10px 20px rgba(255, 0, 85, 0.4);
-            display: flex; align-items: center; justify-content: center; margin: 20px auto;
+            display: flex; align-items: center; justify-content: center; margin: 15px auto;
             transition: transform 0.2s;
         }
         .play-btn:active { transform: scale(0.9); }
 
-        .status-badge { background: var(--pill-bg); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 8px; transition: background 0.5s ease; }
+        .status-badge { background: var(--pill-bg); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 8px; transition: background 0.5s ease; margin-bottom: 15px;}
         .status-dot { width: 8px; height: 8px; background-color: #555; border-radius: 50%; }
         .playing .status-dot { background-color: #00ff00; box-shadow: 0 0 10px #00ff00; }
 
-        /* Logo Area */
-        .station-logo { width: 120px; height: 120px; margin: 0 auto 15px auto; display: block; border-radius: 50%; object-fit: contain; background: #ffffff; padding: 15px; box-shadow: 0 8px 20px var(--card-shadow); transition: transform 0.3s ease; }
-        .station-logo:hover { transform: scale(1.05); }
+        /* Stream Selector */
+        .stream-selector {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .stream-btn {
+            background: var(--vol-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-color);
+            padding: 6px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            flex: 1;
+            max-width: 120px;
+        }
+        .stream-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 10px rgba(255, 0, 85, 0.4);
+        }
+        .stream-btn:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Vinyl Player Styling */
+        .vinyl-player-wrapper {
+            position: relative;
+            width: 250px;
+            height: 160px;
+            margin: 0 auto 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 15px;
+        }
+        .album-cover {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            z-index: 3;
+            box-shadow: 5px 0 15px rgba(0,0,0,0.7);
+            border-radius: 4px;
+            overflow: hidden;
+            border: 2px solid #222;
+            background: var(--bg-color-3);
+        }
+        .album-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .vinyl-record {
+            position: absolute;
+            left: 90px;
+            top: 10px;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            /* Shiny reflection */
+            background: conic-gradient(#111 0deg, #333 45deg, #111 90deg, #333 135deg, #111 180deg, #333 225deg, #111 270deg, #333 315deg, #111 360deg);
+            box-shadow: 0 0 10px rgba(0,0,0,0.8);
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .vinyl-record::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 50%;
+            /* Record grooves */
+            background-image: repeating-radial-gradient(transparent, transparent 3px, rgba(0,0,0,0.8) 4px, transparent 5px);
+        }
+        .vinyl-center {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: white url('441510909_122141243984227757_7243628959601385331_n (3).jpg') center/cover no-repeat;
+            border: 2px solid #333;
+            position: relative;
+            z-index: 2;
+        }
+        .vinyl-center::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 6px;
+            height: 6px;
+            background: #000;
+            border-radius: 50%;
+        }
+        .tonearm {
+            position: absolute;
+            right: 0px;
+            top: -10px;
+            width: 60px;
+            height: 160px;
+            z-index: 4;
+            transform-origin: 35px 25px;
+            transform: rotate(-10deg); /* Resting position */
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: drop-shadow(3px 5px 4px rgba(0,0,0,0.5));
+        }
+        
+        @keyframes spinRecord {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Animations bound to the parent's existing .playing class */
+        .playing .vinyl-record {
+            animation: spinRecord 2s linear infinite;
+        }
+        .playing .tonearm {
+            transform: rotate(20deg); /* Swings over record */
+        }
+
         .logo-area p { font-size: 0.9rem; opacity: 0.7; margin-top: 5px; }
 
         /* Now Playing Metadata */
@@ -378,7 +508,34 @@
         <!-- PLAYER CARD -->
         <div class="card-base player-card" id="playerContainer">
             <div class="logo-area">
-                <img src="441510909_122141243984227757_7243628959601385331_n (3).jpg" alt="Rhythm 101 Logo" class="station-logo" onerror="this.style.display='none'">
+                <div class="vinyl-player-wrapper">
+                    <div class="album-cover">
+                        <img src="441510909_122141243984227757_7243628959601385331_n (3).jpg" alt="Rhythm 101 Logo" onerror="this.style.display='none'">
+                    </div>
+                    <div class="vinyl-record">
+                        <div class="vinyl-center"></div>
+                    </div>
+                    <svg class="tonearm" viewBox="0 0 50 150">
+                        <defs>
+                            <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#777" />
+                                <stop offset="50%" stop-color="#eee" />
+                                <stop offset="100%" stop-color="#777" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Pivot -->
+                        <circle cx="35" cy="25" r="14" fill="url(#silverGrad)" stroke="#333" stroke-width="1"/>
+                        <circle cx="35" cy="25" r="5" fill="#111"/>
+                        <!-- Arm rod -->
+                        <path d="M35 25 L 30 100 L 20 120" fill="none" stroke="url(#silverGrad)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+                        <!-- Headshell Base -->
+                        <circle cx="20" cy="120" r="3" fill="#555"/>
+                        <!-- Headshell -->
+                        <rect x="14" y="118" width="12" height="24" fill="#222" transform="rotate(25 20 120)" rx="2"/>
+                        <!-- Stylus needle hint -->
+                        <line x1="20" y1="140" x2="18" y2="143" stroke="#ccc" stroke-width="1" transform="rotate(25 20 120)"/>
+                    </svg>
+                </div>
                 <h1>Rhythm 101</h1>
                 <p>Online Broadcast Station</p>
                 <div class="now-playing-container">
@@ -389,19 +546,62 @@
                 </div>
             </div>
 
-            <div class="visualizer">
-                <div class="bar"></div><div class="bar"></div><div class="bar"></div>
-                <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+            <!-- VISUALIZER WRAPPER (VU Meters + Bars) -->
+            <div class="visualizer-wrapper">
+                <!-- Left VU Meter -->
+                <div class="vu-meter">
+                    <svg viewBox="0 0 100 60" class="vu-svg">
+                        <path d="M 15 50 A 35 35 0 0 1 85 50" fill="none" stroke="#222" stroke-width="1.5"/>
+                        <path d="M 72 23 A 35 35 0 0 1 85 50" fill="none" stroke="#e74c3c" stroke-width="2.5"/>
+                        <line x1="15" y1="50" x2="19" y2="47" stroke="#222" stroke-width="1.5"/>
+                        <line x1="22" y1="36" x2="25" y2="39" stroke="#222" stroke-width="1"/>
+                        <line x1="33" y1="24" x2="35" y2="28" stroke="#222" stroke-width="1.5"/>
+                        <line x1="50" y1="15" x2="50" y2="20" stroke="#222" stroke-width="1"/>
+                        <line x1="67" y1="24" x2="65" y2="28" stroke="#222" stroke-width="1.5"/>
+                        <line x1="78" y1="36" x2="75" y2="39" stroke="#e74c3c" stroke-width="1"/>
+                        <line x1="85" y1="50" x2="81" y2="47" stroke="#e74c3c" stroke-width="1.5"/>
+                        <text x="50" y="55" font-family="'Poppins', sans-serif" font-weight="700" font-size="9" text-anchor="middle" fill="#222" opacity="0.6">VU</text>
+                    </svg>
+                    <div class="vu-needle" id="vuNeedleLeft"></div>
+                </div>
+
+                <!-- Center Bars -->
+                <div class="visualizer">
+                    <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+                </div>
+
+                <!-- Right VU Meter -->
+                <div class="vu-meter">
+                    <svg viewBox="0 0 100 60" class="vu-svg">
+                        <path d="M 15 50 A 35 35 0 0 1 85 50" fill="none" stroke="#222" stroke-width="1.5"/>
+                        <path d="M 72 23 A 35 35 0 0 1 85 50" fill="none" stroke="#e74c3c" stroke-width="2.5"/>
+                        <line x1="15" y1="50" x2="19" y2="47" stroke="#222" stroke-width="1.5"/>
+                        <line x1="22" y1="36" x2="25" y2="39" stroke="#222" stroke-width="1"/>
+                        <line x1="33" y1="24" x2="35" y2="28" stroke="#222" stroke-width="1.5"/>
+                        <line x1="50" y1="15" x2="50" y2="20" stroke="#222" stroke-width="1"/>
+                        <line x1="67" y1="24" x2="65" y2="28" stroke="#222" stroke-width="1.5"/>
+                        <line x1="78" y1="36" x2="75" y2="39" stroke="#e74c3c" stroke-width="1"/>
+                        <line x1="85" y1="50" x2="81" y2="47" stroke="#e74c3c" stroke-width="1.5"/>
+                        <text x="50" y="55" font-family="'Poppins', sans-serif" font-weight="700" font-size="9" text-anchor="middle" fill="#222" opacity="0.6">VU</text>
+                    </svg>
+                    <div class="vu-needle" id="vuNeedleRight"></div>
+                </div>
             </div>
 
-            <audio id="audioStream" crossorigin="anonymous">
-                <source src="https://stream.zeno.fm/tzn3ovjs0nbvv" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
+            <!-- FIX: Split into two audio elements to prevent visualizer CORS muting on Stream 2 -->
+            <audio id="audioStream1" crossorigin="anonymous" src="https://stream.zeno.fm/tzn3ovjs0nbvv"></audio>
+            <audio id="audioStream2" src="https://uk22freenew.listen2myradio.com/live.mp3?typeportmount=ice_7649_stream_577606195"></audio>
 
             <div class="status-badge">
                 <div class="status-dot"></div>
                 <span id="statusText">Ready to Play</span>
+            </div>
+
+            <!-- STREAM SELECTOR -->
+            <div class="stream-selector">
+                <button class="stream-btn active" data-stream="1">Stream 1 (Zeno)</button>
+                <button class="stream-btn" data-stream="2">Stream 2</button>
             </div>
 
             <button class="play-btn" id="playBtn">
@@ -551,7 +751,10 @@
         window.addEventListener('offline', checkInternetConnection);
 
         // --- THEME & PLAYER LOGIC ---
-        const audio = document.getElementById('audioStream');
+        const audio1 = document.getElementById('audioStream1');
+        const audio2 = document.getElementById('audioStream2');
+        let audio = audio1; // Current active audio element
+        
         const playBtn = document.getElementById('playBtn');
         const playIcon = document.getElementById('playIcon');
         const pauseIcon = document.getElementById('pauseIcon');
@@ -573,7 +776,10 @@
 
         volumeControl.addEventListener('input', (e) => {
             const vol = parseFloat(e.target.value);
-            audio.volume = vol;
+            // Apply volume to both invisible players
+            audio1.volume = vol;
+            audio2.volume = vol;
+            
             if (vol === 0) volIcon.innerText = "🔇";
             else if (vol < 0.5) volIcon.innerText = "🔉";
             else volIcon.innerText = "🔊";
@@ -585,15 +791,27 @@
         let source;
         let dataArray;
         const bars = document.querySelectorAll('.bar');
+        const vuNeedleLeft = document.getElementById('vuNeedleLeft');
+        const vuNeedleRight = document.getElementById('vuNeedleRight');
         let isVisualizerRunning = false;
+        
+        // State arrays for simulated visualizer (used for Stream 2)
+        let fakeTargets = [5, 5, 5, 5, 5, 5, 5];
+        let currentHeights = [5, 5, 5, 5, 5, 5, 5];
+        
+        // VU Meter simulated states
+        let currentDegL = -45;
+        let currentDegR = -45;
+        let targetDegL = -45;
+        let targetDegR = -45;
 
         function initVisualizer() {
-            if (!audioCtx) {
-                const AudioContext = window.AudioContext || window.webkitAudioContext;
-                audioCtx = new AudioContext();
+            if (!audioCtx) return; // Wait for user gesture initialization
+            if (!analyser) {
                 analyser = audioCtx.createAnalyser();
                 
-                source = audioCtx.createMediaElementSource(audio);
+                // ONLY connect Stream 1 to visualizer to prevent CORS security muting
+                source = audioCtx.createMediaElementSource(audio1);
                 source.connect(analyser);
                 analyser.connect(audioCtx.destination);
                 
@@ -610,24 +828,92 @@
         }
 
         function drawVisualizer() {
+            // Stop visualizer if audio is paused
             if (audio.paused) {
                 isVisualizerRunning = false;
                 bars.forEach(bar => bar.style.height = '5px');
+                vuNeedleLeft.style.transform = `rotate(-45deg)`;
+                vuNeedleRight.style.transform = `rotate(-45deg)`;
                 return;
             }
             isVisualizerRunning = true;
             requestAnimationFrame(drawVisualizer);
-            analyser.getByteFrequencyData(dataArray);
             
-            for (let i = 0; i < bars.length; i++) {
-                let freqIndex = i * 3; 
-                let value = dataArray[freqIndex] || 0;
-                let height = Math.max(5, (value / 255) * 50);
-                bars[i].style.height = height + 'px';
+            if (audio === audio1 && analyser) {
+                // REAL VISUALIZER: For streams with proper CORS headers (Stream 1)
+                analyser.getByteFrequencyData(dataArray);
+                
+                let sumL = 0;
+                let sumR = 0;
+
+                for (let i = 0; i < bars.length; i++) {
+                    let freqIndex = i * 3; 
+                    let value = dataArray[freqIndex] || 0;
+                    let height = Math.max(5, (value / 255) * 50);
+                    bars[i].style.height = height + 'px';
+                }
+                
+                // FIX: Alternate frequency bins so both meters get an equal mix of Bass and Treble
+                for (let i = 0; i < 32; i++) {
+                    if (i % 2 === 0) {
+                        sumL += dataArray[i] || 0;
+                    } else {
+                        sumR += dataArray[i] || 0;
+                    }
+                }
+                
+                let rawL = sumL / 4080; // normalize against 255 * 16 max theoretical value
+                let rawR = sumR / 4080;
+                
+                // Needles sweep from -45deg to +45deg (90 degrees total)
+                let degL = -45 + (rawL * 90 * 1.5); 
+                let degR = -45 + (rawR * 90 * 1.5);
+                
+                // Clamp angles to not spin out of bounds
+                degL = Math.max(-45, Math.min(45, degL));
+                degR = Math.max(-45, Math.min(45, degR));
+                
+                vuNeedleLeft.style.transform = `rotate(${degL}deg)`;
+                vuNeedleRight.style.transform = `rotate(${degR}deg)`;
+
+            } else {
+                // FAKE VISUALIZER: Simulated movement for CORS-restricted streams (Stream 2)
+                for (let i = 0; i < bars.length; i++) {
+                    if (Math.random() > 0.8) {
+                        fakeTargets[i] = 10 + Math.random() * 40; // Simulate jump (Beat)
+                    }
+                    currentHeights[i] += (fakeTargets[i] - currentHeights[i]) * 0.2; // Smooth transition
+                    fakeTargets[i] = Math.max(5, fakeTargets[i] - 1.5); // Gravity/Decay
+                    bars[i].style.height = currentHeights[i] + 'px';
+                }
+
+                // Fake VU Logic for Stream 2
+                if (Math.random() > 0.85) {
+                    // FIX: Keep simulated Stream 2 meters balanced by using a shared base target
+                    let baseTarget = -15 + Math.random() * 60; 
+                    targetDegL = baseTarget + (Math.random() * 8 - 4); 
+                    targetDegR = baseTarget + (Math.random() * 8 - 4); 
+                }
+                currentDegL += (targetDegL - currentDegL) * 0.15;
+                currentDegR += (targetDegR - currentDegR) * 0.15;
+                targetDegL = Math.max(-45, targetDegL - 2.5); // Rapid fallback decay
+                targetDegR = Math.max(-45, targetDegR - 2.5);
+                
+                vuNeedleLeft.style.transform = `rotate(${currentDegL}deg)`;
+                vuNeedleRight.style.transform = `rotate(${currentDegR}deg)`;
             }
         }
 
         playBtn.addEventListener('click', () => {
+            // FIX: Initialize AudioContext synchronously on first user gesture (Safari/iOS requirement)
+            if (!audioCtx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                audioCtx = new AudioContext();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
             if (audio.paused) {
                 if (audio.readyState === 0) audio.load();
                 statusText.innerText = "Connecting...";
@@ -637,7 +923,9 @@
                     initVisualizer(); 
                 }).catch(err => {
                     statusText.innerText = "Offline/Off Air";
-                    showModal({ title: "Playback Error", message: "The station is offline or check your internet connection." });
+                    playIcon.style.display = 'block'; pauseIcon.style.display = 'none';
+                    container.classList.remove('playing');
+                    showModal({ title: "Playback Error", message: "Stream failed to load. It may be offline or blocked by your browser." });
                 });
             } else {
                 audio.pause();
@@ -646,27 +934,90 @@
             }
         });
 
-        audio.addEventListener('error', function(e) {
+        function handleAudioError(e) {
             statusText.innerText = "Station Offline"; container.classList.remove('playing');
-        });
-
-        // --- ZENO FM METADATA ---
-        function fetchMetadata() {
-            const source = new EventSource('https://api.zeno.fm/mounts/metadata/subscribe/tzn3ovjs0nbvv');
-            const titleEl = document.getElementById('nowPlayingText');
-            source.onmessage = function(event) {
-                try {
-                    const data = JSON.parse(event.data);
-                    if (data.streamTitle && data.streamTitle.trim() !== "") {
-                        titleEl.innerText = data.streamTitle; titleEl.title = data.streamTitle; 
-                    } else {
-                        titleEl.innerText = "Disconnected"; titleEl.title = "Disconnected";
-                    }
-                } catch (e) { }
-            };
-            source.onerror = function(error) { titleEl.innerText = "Disconnected"; };
+            playIcon.style.display = 'block'; pauseIcon.style.display = 'none';
         }
-        fetchMetadata();
+        
+        audio1.addEventListener('error', handleAudioError);
+        audio2.addEventListener('error', handleAudioError);
+
+        // --- ZENO FM METADATA & STREAM SWITCHING ---
+        let metadataEventSource = null;
+        
+        function initStreamMetadata(streamNumber) {
+            const titleEl = document.getElementById('nowPlayingText');
+            
+            // Close existing connection if any
+            if (metadataEventSource) {
+                metadataEventSource.close();
+                metadataEventSource = null;
+            }
+
+            if (streamNumber === 1) {
+                metadataEventSource = new EventSource('https://api.zeno.fm/mounts/metadata/subscribe/tzn3ovjs0nbvv');
+                metadataEventSource.onmessage = function(event) {
+                    try {
+                        const data = JSON.parse(event.data);
+                        if (data.streamTitle && data.streamTitle.trim() !== "") {
+                            titleEl.innerText = data.streamTitle; titleEl.title = data.streamTitle; 
+                        } else {
+                            titleEl.innerText = "Rhythm 101 FM"; titleEl.title = "Rhythm 101 FM";
+                        }
+                    } catch (e) { }
+                };
+                metadataEventSource.onerror = function(error) { titleEl.innerText = "Rhythm 101 FM"; };
+            } else {
+                // Stream 2 Fallback text since it's not on Zeno
+                titleEl.innerText = "Streaming via Server 2"; 
+                titleEl.title = "Streaming via Server 2";
+            }
+        }
+        
+        // Initialize default metadata (Stream 1)
+        initStreamMetadata(1);
+
+        // Stream Selector Logic
+        const streamBtns = document.querySelectorAll('.stream-btn');
+        streamBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                streamBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const streamId = parseInt(btn.dataset.stream);
+                const isPlaying = !audio.paused;
+
+                // Stop current stream before switching
+                audio.pause();
+
+                if (streamId === 1) {
+                    audio = audio1;
+                } else {
+                    audio = audio2;
+                }
+
+                initStreamMetadata(streamId);
+                
+                // Force reload to grab fresh stream chunks
+                audio.load();
+
+                if (isPlaying) {
+                    statusText.innerText = "Connecting...";
+                    audio.play().then(() => {
+                        statusText.innerText = "On Air • Live";
+                        initVisualizer(); // Restore visualizer for both streams
+                    }).catch(err => {
+                        statusText.innerText = "Offline/Off Air";
+                        playIcon.style.display = 'block'; pauseIcon.style.display = 'none';
+                        container.classList.remove('playing');
+                        showModal({ title: "Playback Error", message: "Stream failed to load. It may be offline or blocked by your browser." });
+                    });
+                } else {
+                    playIcon.style.display = 'block'; pauseIcon.style.display = 'none';
+                    container.classList.remove('playing'); statusText.innerText = "Ready to Play";
+                }
+            });
+        });
 
         // --- CLOCKS ---
         function updateClocks() {
@@ -808,6 +1159,9 @@
             }
 
             function renderMessages(messages) {
+                // FIX: Check if user is scrolled to bottom before updating DOM
+                const isScrolledToBottom = chatMessagesEl.scrollHeight - chatMessagesEl.clientHeight <= chatMessagesEl.scrollTop + 50;
+
                 if (messages.length === 0) {
                     chatMessagesEl.innerHTML = '<div style="opacity: 0.5; text-align: center; margin-top: auto; margin-bottom: auto;">No active requests yet. Be the first!</div>';
                     return;
@@ -876,7 +1230,10 @@
                     chatMessagesEl.appendChild(wrapper);
                 });
                 
-                chatMessagesEl.scrollTop = chatMessagesEl.scrollHeight;
+                // FIX: Only auto-scroll if the user was already at the bottom
+                if (isScrolledToBottom || chatMessagesEl.scrollTop === 0) {
+                    chatMessagesEl.scrollTop = chatMessagesEl.scrollHeight;
+                }
             }
 
             async function handleSendMessage() {
