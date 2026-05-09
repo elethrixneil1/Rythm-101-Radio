@@ -24,9 +24,9 @@
             --primary-color: #ff0055;
             --secondary-color: #00d4ff;
             /* Theme variables (Default Dark) */
-            --bg-color-1: #0f0c29;
-            --bg-color-2: #302b63;
-            --bg-color-3: #24243e;
+            --bg-color-1: #0a0a0a;
+            --bg-color-2: #1a1a1a;
+            --bg-color-3: #121212;
             --text-color: #ffffff;
             --glass-bg: rgba(255, 255, 255, 0.1);
             --glass-border: rgba(255, 255, 255, 0.2);
@@ -169,10 +169,15 @@
 
         /* Background Shapes */
         .background-shapes div {
-            position: fixed; border-radius: 50%; filter: blur(80px); z-index: -1; opacity: 0.5;
+            position: fixed; border-radius: 50%; filter: blur(80px); z-index: -1; opacity: 0.15;
         }
         .shape-1 { background: var(--primary-color); width: 300px; height: 300px; top: -50px; left: -50px; }
         .shape-2 { background: var(--secondary-color); width: 400px; height: 400px; bottom: -100px; right: -100px; }
+        
+        /* Keep shapes vibrant in light mode */
+        body.light-mode .background-shapes div {
+            opacity: 0.5;
+        }
 
         /* Main Wrapper */
         .main-container {
@@ -390,10 +395,13 @@
         .contact-email a:hover { color: var(--primary-color); }
         .station-info { font-size: 0.85rem; line-height: 1.8; color: var(--text-color); opacity: 0.85; font-weight: 300; transition: color 0.5s ease; text-align: justify; }
         
-        /* FB Embed Styling */
-        .info-card { max-width: 450px; display: flex; flex-direction: column; }
-        .fb-embed-wrapper { flex: 1; width: 100%; border-radius: 10px; overflow: hidden; background: #ffffff; min-height: 500px; margin-top: 25px; display: flex; justify-content: center; }
-        .fb-embed-wrapper iframe { width: 100%; max-width: 500px; height: 100%; border: none; }
+        /* Embed Styling (FB & Windy) */
+        .info-card, .weather-card { max-width: 450px; display: flex; flex-direction: column; }
+        /* FIX: Changed FB wrapper background from solid white to adapt to dark/light mode */
+        .fb-embed-wrapper, .windy-embed-wrapper { flex: 1; width: 100%; border-radius: 10px; overflow: hidden; background: var(--glass-bg); margin-top: 25px; display: flex; justify-content: center; }
+        .fb-embed-wrapper { min-height: 500px; }
+        .windy-embed-wrapper { min-height: 400px; background: transparent; }
+        .fb-embed-wrapper iframe, .windy-embed-wrapper iframe { width: 100%; max-width: 500px; height: 100%; border: none; background: transparent; }
 
         /* Chatbox Specific Styles */
         .chat-card { display: flex; flex-direction: column; justify-content: flex-start; }
@@ -448,6 +456,21 @@
         .chat-messages::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); border-radius: 3px; }
         .chat-messages::-webkit-scrollbar-thumb { background: var(--secondary-color); border-radius: 3px; }
 
+        /* Footer Styling */
+        .site-footer {
+            width: 100%;
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: var(--text-color);
+            opacity: 0.7;
+            font-weight: 500;
+            letter-spacing: 1px;
+            border-top: 1px solid var(--glass-border);
+            transition: border-color 0.5s ease, color 0.5s ease;
+        }
+
         /* --- Custom Modal Styling --- */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.75); z-index: 10000; display: flex; justify-content: center; align-items: center; opacity: 1; transition: opacity 0.3s; backdrop-filter: blur(5px); padding: 20px; }
         .modal-overlay.hidden { opacity: 0; pointer-events: none; visibility: hidden; }
@@ -455,9 +478,11 @@
         .modal-content h3 { color: var(--secondary-color); font-size: 1.3rem; margin-bottom: 10px; border-bottom: none; }
         .modal-content p { font-size: 0.9rem; margin-bottom: 20px; }
         .modal-input { margin-bottom: 20px; width: 100%; }
+        .modal-input.hidden { display: none; }
         .modal-buttons { display: flex; gap: 10px; justify-content: center; }
         .modal-btn-cancel { background: #555; }
         .modal-btn-cancel:hover { background: #666; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); }
+        .modal-btn-cancel.hidden { display: none; }
 
         /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 768px) {
@@ -665,6 +690,22 @@
                 <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FRHYTHM101FM&tabs=timeline&width=450&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
             </div>
         </div>
+
+        <!-- WEATHER CARD -->
+        <div class="card-base weather-card">
+            <h2>Live Weather Tracker</h2>
+            <div class="station-info">
+                Stay updated with the latest weather conditions across the Philippines. Track winds, storms, and live updates directly from our radar.
+            </div>
+            <div class="windy-embed-wrapper">
+                <iframe src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=mm&metricTemp=%C2%B0C&metricWind=km/h&zoom=5&overlay=wind&product=ecmwf&level=surface&lat=13.5&lon=123.3" scrolling="no" frameborder="0"></iframe>
+            </div>
+        </div>
+        
+        <!-- FOOTER -->
+        <div class="site-footer">
+            Developed By Devcoderz PH | Established 2025
+        </div>
     </div>
 
     <!-- MAIN SCRIPT -->
@@ -764,7 +805,19 @@
         const volIcon = document.getElementById('volIcon');
         const themeToggleBtn = document.getElementById('themeToggle');
 
-        if (localStorage.getItem('theme') === 'light') { document.body.classList.add('light-mode'); themeToggleBtn.innerText = '🌙'; }
+        // FIX: Automatically detect System Theme Preference (Dark Mode / Light Mode)
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        // Load light mode if explicitly saved, OR if no save exists and system is light mode
+        if (savedTheme === 'light' || (!savedTheme && !systemPrefersDark)) { 
+            document.body.classList.add('light-mode'); 
+            themeToggleBtn.innerText = '🌙'; 
+        } else {
+            // Default to dark mode
+            themeToggleBtn.innerText = '🌞'; 
+        }
+
         themeToggleBtn.addEventListener('click', () => {
             document.body.classList.toggle('light-mode');
             if (document.body.classList.contains('light-mode')) {
@@ -878,21 +931,30 @@
 
             } else {
                 // FAKE VISUALIZER: Simulated movement for CORS-restricted streams (Stream 2)
-                for (let i = 0; i < bars.length; i++) {
+                // FIX: Mirror the visualizer bars for perfect left/right balance (Calculate half, copy to other side)
+                for (let i = 0; i <= 3; i++) {
                     if (Math.random() > 0.8) {
                         fakeTargets[i] = 10 + Math.random() * 40; // Simulate jump (Beat)
                     }
                     currentHeights[i] += (fakeTargets[i] - currentHeights[i]) * 0.2; // Smooth transition
                     fakeTargets[i] = Math.max(5, fakeTargets[i] - 1.5); // Gravity/Decay
+                    
                     bars[i].style.height = currentHeights[i] + 'px';
+                    
+                    // Copy height to the mirrored bar on the right
+                    if (i < 3) {
+                        bars[6 - i].style.height = currentHeights[i] + 'px';
+                        currentHeights[6 - i] = currentHeights[i];
+                        fakeTargets[6 - i] = fakeTargets[i];
+                    }
                 }
 
                 // Fake VU Logic for Stream 2
                 if (Math.random() > 0.85) {
-                    // FIX: Keep simulated Stream 2 meters balanced by using a shared base target
+                    // FIX: Keep simulated Stream 2 meters 100% identical for exact stereo balance
                     let baseTarget = -15 + Math.random() * 60; 
-                    targetDegL = baseTarget + (Math.random() * 8 - 4); 
-                    targetDegR = baseTarget + (Math.random() * 8 - 4); 
+                    targetDegL = baseTarget; 
+                    targetDegR = baseTarget; 
                 }
                 currentDegL += (targetDegL - currentDegL) * 0.15;
                 currentDegR += (targetDegR - currentDegR) * 0.15;
