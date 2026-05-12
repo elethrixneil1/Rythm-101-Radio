@@ -616,7 +616,8 @@
 
             <!-- FIX: Split into two audio elements to prevent visualizer CORS muting on Stream 2 -->
             <audio id="audioStream1" crossorigin="anonymous" src="https://stream.zeno.fm/tzn3ovjs0nbvv"></audio>
-            <audio id="audioStream2" src="https://uk22freenew.listen2myradio.com/live.mp3?typeportmount=ice_7649_stream_577606195"></audio>
+            <!-- FIX: Tinanggal ang crossorigin dito para hindi i-mute ng browser ang Stream 2 -->
+            <audio id="audioStream2" src="https://uk2freenew.listen2myradio.com/live.mp3?typeportmount=ice_29179_stream_359290919"></audio>
 
             <div class="status-badge">
                 <div class="status-dot"></div>
@@ -841,7 +842,8 @@
         // --- REAL-TIME AUDIO VISUALIZER LOGIC ---
         let audioCtx;
         let analyser;
-        let source;
+        let source1;
+        let source2;
         let dataArray;
         const bars = document.querySelectorAll('.bar');
         const vuNeedleLeft = document.getElementById('vuNeedleLeft');
@@ -856,16 +858,16 @@
         let currentDegL = -45;
         let currentDegR = -45;
         let targetDegL = -45;
-        let targetDegR = -45;
 
         function initVisualizer() {
             if (!audioCtx) return; // Wait for user gesture initialization
             if (!analyser) {
                 analyser = audioCtx.createAnalyser();
                 
-                // ONLY connect Stream 1 to visualizer to prevent CORS security muting
-                source = audioCtx.createMediaElementSource(audio1);
-                source.connect(analyser);
+                // I-connect LAMANG ang Stream 1. Pag kinonekta ang Stream 2, mumu-mute ito dahil walang CORS.
+                source1 = audioCtx.createMediaElementSource(audio1);
+                source1.connect(analyser);
+                
                 analyser.connect(audioCtx.destination);
                 
                 analyser.fftSize = 64; 
@@ -893,7 +895,7 @@
             requestAnimationFrame(drawVisualizer);
             
             if (audio === audio1 && analyser) {
-                // REAL VISUALIZER: For streams with proper CORS headers (Stream 1)
+                // REAL VISUALIZER: Gumagamit ng totoong audio beat data ang Stream 1
                 analyser.getByteFrequencyData(dataArray);
                 
                 let sumL = 0;
@@ -906,7 +908,7 @@
                     bars[i].style.height = height + 'px';
                 }
                 
-                // FIX: Alternate frequency bins so both meters get an equal mix of Bass and Treble
+                // Alternate frequency bins so both meters get an equal mix of Bass and Treble
                 for (let i = 0; i < 32; i++) {
                     if (i % 2 === 0) {
                         sumL += dataArray[i] || 0;
@@ -928,10 +930,8 @@
                 
                 vuNeedleLeft.style.transform = `rotate(${degL}deg)`;
                 vuNeedleRight.style.transform = `rotate(${degR}deg)`;
-
             } else {
-                // FAKE VISUALIZER: Simulated movement for CORS-restricted streams (Stream 2)
-                // FIX: Mirror the visualizer bars for perfect left/right balance (Calculate half, copy to other side)
+                // FAKE VISUALIZER: Simulated movement para sa Stream 2 (Balanced Left and Right)
                 for (let i = 0; i <= 3; i++) {
                     if (Math.random() > 0.8) {
                         fakeTargets[i] = 10 + Math.random() * 40; // Simulate jump (Beat)
@@ -951,15 +951,13 @@
 
                 // Fake VU Logic for Stream 2
                 if (Math.random() > 0.85) {
-                    // FIX: Keep simulated Stream 2 meters 100% identical for exact stereo balance
-                    let baseTarget = -15 + Math.random() * 60; 
-                    targetDegL = baseTarget; 
-                    targetDegR = baseTarget; 
+                    targetDegL = -15 + Math.random() * 60; 
                 }
                 currentDegL += (targetDegL - currentDegL) * 0.15;
-                currentDegR += (targetDegR - currentDegR) * 0.15;
                 targetDegL = Math.max(-45, targetDegL - 2.5); // Rapid fallback decay
-                targetDegR = Math.max(-45, targetDegR - 2.5);
+                
+                // Force exact mirror balance to the right needle
+                currentDegR = currentDegL; 
                 
                 vuNeedleLeft.style.transform = `rotate(${currentDegL}deg)`;
                 vuNeedleRight.style.transform = `rotate(${currentDegR}deg)`;
@@ -1067,7 +1065,7 @@
                     statusText.innerText = "Connecting...";
                     audio.play().then(() => {
                         statusText.innerText = "On Air • Live";
-                        initVisualizer(); // Restore visualizer for both streams
+                        initVisualizer(); // FIX: Call this unconditionally so Stream 2 doesn't freeze
                     }).catch(err => {
                         statusText.innerText = "Offline/Off Air";
                         playIcon.style.display = 'block'; pauseIcon.style.display = 'none';
