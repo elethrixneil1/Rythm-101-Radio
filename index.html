@@ -3,720 +3,524 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rhythm 101 Online</title>
+    <title>Rhythm 101 FM - Premium Broadcast Deck</title>
     
-    <!-- Favicon (Browser Tab Logo) -->
+    <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="441510909_122141243984227757_7243628959601385331_n (3).jpg">
     
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     
-    <!-- Disable Devtool Script (Preserved but disabled to prevent breaking the iframe preview) -->
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <script>
-        // Note: The DisableDevtool logic is preserved below, but the initialization 
-        // has been commented out to ensure the app runs smoothly in standard web previews.
-        !function(e,t){"object"==typeof exports&&"undefined"!=typeof module?module.exports=t():"function"==typeof define&&define.amd?define(t):(e="undefined"!=typeof globalThis?globalThis:e||self).DisableDevtool=t()}(this,function(){"use strict";function o(e){return(o="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function r(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}function u(e,t,n){t&&r(e.prototype,t),n&&r(e,n),Object.defineProperty(e,"prototype",{writable:!1})}function e(e,t,n){t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n}function n(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),Object.defineProperty(e,"prototype",{writable:!1}),t&&a(e,t)}function c(e){return(c=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function a(e,t){return(a=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(e,t){return e.__proto__=t,e})(e,t)}function H(e,t){if(t&&("object"==typeof t||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");t=e;if(void 0===t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return t}function l(n){var i=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(e){return!1}}();return function(){var e,t=c(n);return H(this,i?(e=c(this).constructor,Reflect.construct(t,arguments,e)):t.apply(this,arguments))}}function f(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,i=new Array(t);n<t;n++)i[n]=e[n];return i}function s(e,t){var n,i="undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(!i){if(Array.isArray(e)||(i=function(e,t){if(e){if("string"==typeof e)return f(e,t);var n=Object.prototype.toString.call(e).slice(8,-1);return"Map"===(n="Object"===n&&e.constructor?e.constructor.name:n)||"Set"===n?Array.from(e):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?f(e,t):void 0}}(e))||t&&e&&"number"==typeof e.length)return i&&(e=i),n=0,{s:t=function(){},n:function(){return n>=e.length?{done:!0}:{done:!1,value:e[n++]}},e:function(e){throw e},f:t};throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}var o,r=!0,u=!1;return{s:function(){i=i.call(e)},n:function(){var e=i.next();return r=e.done,e},e:function(e){u=!0,o=e},f:function(){try{r||null==i.return||i.return()}finally{if(u)throw o}}}}function t(){if(d.url)window.location.href=d.url;else if(d.rewriteHTML)try{document.documentElement.innerHTML=d.rewriteHTML}catch(e){document.documentElement.innerText=d.rewriteHTML}else{try{window.opener=null,window.open("","_self"),window.close(),window.location.href="about:blank"}catch(e){console.log(e)}setTimeout(function(){window.location.href=d.timeOutUrl||"about:blank"},500)}}var d={md5:"",ondevtoolopen:t,ondevtoolclose:null,url:"",timeOutUrl:"",tkName:"ddtk",interval:500,disableMenu:!0,stopIntervalTime:5e3,clearIntervalWhenDevOpenTrigger:!1,detectors:[0,1,3,4,5,6,7],clearLog:!0,disableSelect:!1,disableCopy:!1,disableCut:!1,disablePaste:!1,ignore:null,disableIframeParents:!0,seo:!0,rewriteHTML:""},U=["detectors","ondevtoolclose","ignore"];function q(e){var t,n=0<arguments.length&&void 0!==e?e:{};for(t in d){var i=t;void 0===n[i]||o(d[i])!==o(n[i])&&-1===U.indexOf(i)||(d[i]=n[i])}"function"==typeof d.ondevtoolclose&&!0===d.clearIntervalWhenDevOpenTrigger&&(d.clearIntervalWhenDevOpenTrigger=!1,console.warn("【DISABLE-DEVTOOL】clearIntervalWhenDevOpenTrigger 在使用 ondevtoolclose 时无效"))}function v(){return(new Date).getTime()}function h(e){var t=v();return e(),v()-t}function z(n,i){function e(t){return function(){n&&n();var e=t.apply(void 0,arguments);return i&&i(),e}}var t=window.alert,o=window.confirm,r=window.prompt;try{window.alert=e(t),window.confirm=e(o),window.prompt=e(r)}catch(e){}}var p,y,B,b={iframe:!1,pc:!1,qqBrowser:!1,firefox:!1,macos:!1,edge:!1,oldEdge:!1,ie:!1,iosChrome:!1,iosEdge:!1,chrome:!1,seoBot:!1,mobile:!1};function W(){function e(e){return-1!==t.indexOf(e)}var t=navigator.userAgent.toLowerCase(),n=function(){var e=navigator,t=e.platform,e=e.maxTouchPoints;if("number"==typeof e)return 1<e;if("string"==typeof t){e=t.toLowerCase();if(/(mac|win)/i.test(e))return!1;if(/(android|iphone|ipad|ipod|arch)/i.test(e))return!0}return/(iphone|ipad|ipod|ios|android)/i.test(navigator.userAgent.toLowerCase())}(),i=!!window.top&&window!==window.top,o=!n,r=e("qqbrowser"),u=e("firefox"),c=e("macintosh"),a=e("edge"),l=a&&!e("chrome"),f=l||e("trident")||e("msie"),s=e("crios"),d=e("edgios"),v=e("chrome")||s,h=!n&&/(googlebot|baiduspider|bingbot|applebot|petalbot|yandexbot|bytespider|chrome\-lighthouse|moto g power)/i.test(t);Object.assign(b,{iframe:i,pc:o,qqBrowser:r,firefox:u,macos:c,edge:a,oldEdge:l,ie:f,iosChrome:s,iosEdge:d,chrome:v,seoBot:h,mobile:n})}function M(){for(var e=function(){for(var e={},t=0;t<500;t++)e["".concat(t)]="".concat(t);return e}(),t=[],n=0;n<50;n++)t.push(e);return t}function w(){d.clearLog&&B()}var K="",V=!1;function F(){var e=d.ignore;if(e){if("function"==typeof e)return e();if(0!==e.length){var t=location.href;if(K===t)return V;K=t;var n,i=!1,o=s(e);try{for(o.s();!(n=o.n()).done;){var r=n.value;if("string"==typeof r){if(-1!==t.indexOf(r)){i=!0;break}}else if(r.test(t)){i=!0;break}}}catch(e){o.e(e)}finally{o.f()}return V=i}}}var X=function(){return!1};function g(n){var t,e,i=74,o=73,r=85,u=83,c=123,a=b.macos?function(e,t){return e.metaKey&&e.altKey&&(t===o||t===i)}:function(e,t){return e.ctrlKey&&e.shiftKey&&(t===o||t===i)},l=b.macos?function(e,t){return e.metaKey&&e.altKey&&t===r||e.metaKey&&t===u}:function(e,t){return e.ctrlKey&&(t===u||t===r)};n.addEventListener("keydown",function(e){var t=(e=e||n.event).keyCode||e.which;if(t===c||a(e,t)||l(e,t))return T(n,e)},!0),t=n,d.disableMenu&&t.addEventListener("contextmenu",function(e){if("touch"!==e.pointerType)return T(t,e)}),e=n,d.disableSelect&&m(e,"selectstart"),e=n,d.disableCopy&&m(e,"copy"),e=n,d.disableCut&&m(e,"cut"),e=n,d.disablePaste&&m(e,"paste")}function m(t,e){t.addEventListener(e,function(e){return T(t,e)})}function T(e,t){if(!F()&&!X())return(t=t||e.event).returnValue=!1,t.preventDefault(),!1}var O,D=!1,S={};function N(e){S[e]=!1}function $(){for(var e in S)if(S[e])return D=!0;return D=!1}(_=O=O||{})[_.Unknown=-1]="Unknown",_[_.RegToString=0]="RegToString",_[_.DefineId=1]="DefineId",_[_.Size=2]="Size",_[_.DateToString=3]="DateToString",_[_.FuncToString=4]="FuncToString",_[_.Debugger=5]="Debugger",_[_.Performance=6]="Performance",_[_.DebugLib=7]="DebugLib";var k=function(){function n(e){var t=e.type,e=e.enabled,e=void 0===e||e;i(this,n),this.type=O.Unknown,this.enabled=!0,this.type=t,this.enabled=e,this.enabled&&(t=this,Q.push(t),this.init())}return u(n,[{key:"onDevToolOpen",value:function(){var e;console.warn("You don't have permission to use DEVTOOL!【type = ".concat(this.type,"】")),d.clearIntervalWhenDevOpenTrigger&&te(),window.clearTimeout(J),d.ondevtoolopen(this.type,t),e=this.type,S[e]=!0}},{key:"init",value:function(){}}]),n}(),G=function(){n(t,k);var e=l(t);function t(){return i(this,t),e.call(this,{type:O.DebugLib})}return u(t,[{key:"init",value:function(){}},{key:"detect",value:function(){var e;(!0===(null==(e=null==(e=window.eruda)?void 0:e._devTools)?void 0:e._isShow)||window._vcOrigConsole&&window.document.querySelector("#__vconsole.vc-toggle"))&&this.onDevToolOpen()}}],[{key:"isUsing",value:function(){return!!window.eruda||!!window._vcOrigConsole}}]),t}(),Y=0,J=0,Q=[],Z=0;function ee(o){function e(){l=!0}function t(){l=!1}var n,i,r,u,c,a,l=!1;function f(){(a[u]===r?i:n)()}z(e,t),n=t,i=e,void 0!==(a=document).hidden?(r="hidden",c="visibilitychange",u="visibilityState"):void 0!==a.mozHidden?(r="mozHidden",c="mozvisibilitychange",u="mozVisibilityState"):void 0!==a.msHidden?(r="msHidden",c="msvisibilitychange",u="msVisibilityState"):void 0!==a.webkitHidden&&(r="webkitHidden",c="webkitvisibilitychange",u="webkitVisibilityState"),a.removeEventListener(c,f,!1),a.addEventListener(c,f,!1),Y=window.setInterval(function(){if(!(o.isSuspend||l||F())){var e,t,n=s(Q);try{for(n.s();!(e=n.n()).done;){var i=e.value;N(i.type),i.detect(Z++)}}catch(e){n.e(e)}finally{n.f()}w(),"function"==typeof d.ondevtoolclose&&(t=D,!$()&&t&&d.ondevtoolclose())}},d.interval),J=setTimeout(function(){b.pc||G.isUsing()||te()},d.stopIntervalTime)}function te(){window.clearInterval(Y)}var P=8;function ne(e){for(var t=function(e,t){e[t>>5]|=128<<t%32,e[14+(t+64>>>9<<4)]=t;for(var n=1732584193,i=-271733879,o=-1732584194,r=271733878,u=0;u<e.length;u+=16){var c=n,a=i,l=o,f=r;n=E(n,i,o,r,e[u+0],7,-680876936),r=E(r,n,i,o,e[u+1],12,-389564586),o=E(o,r,n,i,e[u+2],17,606105819),i=E(i,o,r,n,e[u+3],22,-1044525330),n=E(n,i,o,r,e[u+4],7,-176418897),r=E(r,n,i,o,e[u+5],12,1200080426),o=E(o,r,n,i,e[u+6],17,-1473231341),i=E(i,o,r,n,e[u+7],22,-45705983),n=E(n,i,o,r,e[u+8],7,1770035416),r=E(r,n,i,o,e[u+9],12,-1958414417),o=E(o,r,n,i,e[u+10],17,-42063),i=E(i,o,r,n,e[u+11],22,-1990404162),n=E(n,i,o,r,e[u+12],7,1804603682),r=E(r,n,i,o,e[u+13],12,-40341101),o=E(o,r,n,i,e[u+14],17,-1502002290),i=E(i,o,r,n,e[u+15],22,1236535329),n=j(n,i,o,r,e[u+1],5,-165796510),r=j(r,n,i,o,e[u+6],9,-1069501632),o=j(o,r,n,i,e[u+11],14,643717713),i=j(i,o,r,n,e[u+0],20,-373897302),n=j(n,i,o,r,e[u+5],5,-701558691),r=j(r,n,i,o,e[u+10],9,38016083),o=j(o,r,n,i,e[u+15],14,-660478335),i=j(i,o,r,n,e[u+4],20,-405537848),n=j(n,i,o,r,e[u+9],5,568446438),r=j(r,n,i,o,e[u+14],9,-1019803690),o=j(o,r,n,i,e[u+3],14,-187363961),i=j(i,o,r,n,e[u+8],20,1163531501),n=j(n,i,o,r,e[u+13],5,-1444681467),r=j(r,n,i,o,e[u+2],9,-51403784),o=j(o,r,n,i,e[u+7],14,1735328473),i=j(i,o,r,n,e[u+12],20,-1926607734),n=I(n,i,o,r,e[u+5],4,-378558),r=I(r,n,i,o,e[u+8],11,-2022574463),o=I(o,r,n,i,e[u+11],16,1839030562),i=I(i,o,r,n,e[u+14],23,-35309556),n=I(n,i,o,r,e[u+1],4,-1530992060),r=I(r,n,i,o,e[u+4],11,1272893353),o=I(o,r,n,i,e[u+7],16,-155497632),i=I(i,o,r,n,e[u+10],23,-1094730640),n=I(n,i,o,r,e[u+13],4,681279174),r=I(r,n,i,o,e[u+0],11,-358537222),o=I(o,r,n,i,e[u+3],16,-722521979),i=I(i,o,r,n,e[u+6],23,76029189),n=I(n,i,o,r,e[u+9],4,-640364487),r=I(r,n,i,o,e[u+12],11,-421815835),o=I(o,r,n,i,e[u+15],16,530742520),i=I(i,o,r,n,e[u+2],23,-995338651),n=L(n,i,o,r,e[u+0],6,-198630844),r=L(r,n,i,o,e[u+7],10,1126891415),o=L(o,r,n,i,e[u+14],15,-1416354905),i=L(i,o,r,n,e[u+5],21,-57434055),n=L(n,i,o,r,e[u+12],6,1700485571),r=L(r,n,i,o,e[u+3],10,-1894986606),o=L(o,r,n,i,e[u+10],15,-1051523),i=L(i,o,r,n,e[u+1],21,-2054922799),n=L(n,i,o,r,e[u+8],6,1873313359),r=L(r,n,i,o,e[u+15],10,-30611744),o=L(o,r,n,i,e[u+6],15,-1560198380),i=L(i,o,r,n,e[u+13],21,1309151649),n=L(n,i,o,r,e[u+4],6,-145523070),r=L(r,n,i,o,e[u+11],10,-1120210379),o=L(o,r,n,i,e[u+2],15,718787259),i=L(i,o,r,n,e[u+9],21,-343485551),n=C(n,c),i=C(i,a),o=C(o,l),r=C(r,f)}return Array(n,i,o,r)}(function(e){for(var t=Array(),n=(1<<P)-1,i=0;i<e.length*P;i+=P)t[i>>5]|=(e.charCodeAt(i/P)&n)<<i%32;return t}(e),e.length*P),n="0123456789abcdef",i="",o=0;o<4*t.length;o++)i+=n.charAt(t[o>>2]>>o%4*8+4&15)+n.charAt(t[o>>2]>>o%4*8&15);return i}function x(e,t,n,i,o,r){return C((t=C(C(t,e),C(i,r)))<<o|t>>>32-o,n)}function E(e,t,n,i,o,r,u){return x(t&n|~t&i,e,t,o,r,u)}function j(e,t,n,i,o,r,u){return x(t&i|n&~i,e,t,o,r,u)}function I(e,t,n,i,o,r,u){return x(t^n^i,e,t,o,r,u)}function L(e,t,n,i,o,r,u){return x(n^(t|~i),e,t,o,r,u)}function C(e,t){var n=(65535&e)+(65535&t);return(e>>16)+(t>>16)+(n>>16)<<16|65535&n}var _=function(){n(t,k);var e=l(t);function t(){return i(this,t),e.call(this,{type:O.RegToString,enabled:b.qqBrowser||b.firefox})}return u(t,[{key:"init",value:function(){var t=this;this.lastTime=0,this.reg=/./,p(this.reg),this.reg.toString=function(){var e;return b.qqBrowser?(e=(new Date).getTime(),t.lastTime&&e-t.lastTime<100?t.onDevToolOpen():t.lastTime=e):b.firefox&&t.onDevToolOpen(),""}}},{key:"detect",value:function(){p(this.reg)}}]),t}(),ie=function(){n(t,k);var e=l(t);function t(){return i(this,t),e.call(this,{type:O.DefineId})}return u(t,[{key:"init",value:function(){var e=this;this.div=document.createElement("div"),this.div.__defineGetter__("id",function(){e.onDevToolOpen()}),Object.defineProperty(this.div,"id",{get:function(){e.onDevToolOpen()}})}},{key:"detect",value:function(){p(this.div)}}]),t}(),oe=function(){n(t,k);var e=l(t);function t(){return i(this,t),e.call(this,{type:O.Size,enabled:!b.iframe&&!b.edge})}return u(t,[{key:"init",value:function(){var e=this;this.checkWindowSizeUneven(),window.addEventListener("resize",function(){setTimeout(function(){e.checkWindowSizeUneven()},100)},!0)}},{key:"detect",value:function(){}},{key:"checkWindowSizeUneven",value:function(){var e=function(){if(re(window.devicePixelRatio))return window.devicePixelRatio;var e=window.screen;return!(re(e)||!e.deviceXDPI||!e.logicalXDPI)&&e.deviceXDPI/e.logicalXDPI}();if(!1!==e){var t=200<window.outerWidth-window.innerWidth*e,e=300<window.outerHeight-window.innerHeight*e;if(t||e)return this.onDevToolOpen(),!1;N(this.type)}return!0}}]),t}();function re(e){return null!=e}var A,ue=function(){n(t,k);var e=l(t);function t(){return i(this,t),e.call(this,{type:O.DateToString,enabled:!b.iosChrome&&!b.iosEdge})}return u(t,[{key:"init",value:function(){var e=this;this.count=0,this.date=new Date,this.date.toString=function(){return e.count++,""}}},{key:"detect",value:function(){this.count=0,p(this.date),w(),2<=this.count&&this.onDevToolOpen()}}]),t}(),ce=function(){n(t,k);var e=l(t);function t(){return i(this,t),e.call(this,{type:O.DateToString,enabled:!b.iosChrome&&!b.iosEdge})}return u(t,[{key:"init",value:function(){var e=this;this.count=0,this.func=function(){},this.func.toString=function(){return e.count++,""}}},{key:"detect",value:function(){this.count=0,p(this.func),w(),2<=this.count&&this.onDevToolOpen()}}]),t}(),ae=function(){n(t,k);var e=l(t);function t(){return i(this,t),e.call(this,{type:O.Debugger,enabled:b.iosChrome||b.iosEdge})}return u(t,[{key:"detect",value:function(){var e=v();100<v()-e&&this.onDevToolOpen()}}]),t}(),le=function(){n(t,k);var e=l(t);function t(){return i(this,t),e.call(this,{type:O.Performance,enabled:b.chrome||!b.mobile})}return u(t,[{key:"init",value:function(){this.maxPrintTime=0,this.largeObjectArray=M()}},{key:"detect",value:function(){var e=this,t=h(function(){y(e.largeObjectArray)}),n=h(function(){p(e.largeObjectArray)});if(this.maxPrintTime=Math.max(this.maxPrintTime,n),w(),0===t||0===this.maxPrintTime)return!1;t>10*this.maxPrintTime&&this.onDevToolOpen()}}]),t}(),fe=(e(A={},O.RegToString,_),e(A,O.DefineId,ie),e(A,O.Size,oe),e(A,O.DateToString,ue),e(A,O.FuncToString,ce),e(A,O.Debugger,ae),e(A,O.Performance,le),e(A,O.DebugLib,G),A);var R=Object.assign(function(e){function t(){var e=0<arguments.length&&void 0!==arguments[0]?arguments[0]:"";return{success:!e,reason:e}}var n;if(R.isRunning)return t("already running");if(W(),n=window.console||{log:function(){},table:function(){},clear:function(){}},B=b.ie?(p=function(){return n.log.apply(n,arguments)},y=function(){return n.table.apply(n,arguments)},function(){return n.clear()}):(p=n.log,y=n.table,n.clear),q(e),d.md5&&ne(function(e){var t=window.location.search,n=window.location.hash;if(""!==(t=""===t&&""!==n?"?".concat(n.split("?")[1]):t)&&void 0!==t){n=new RegExp("(^|&)"+e+"=([^&]*)(&|$)","i"),e=t.substr(1).match(n);if(null!=e)return unescape(e[2])}return""}(d.tkName))===d.md5)return t("token passed");if(d.seo&&b.seoBot)return t("seobot");R.isRunning=!0,ee(R);var i=R,o=(X=function(){return i.isSuspend},window.top),r=window.parent;if(g(window),d.disableIframeParents&&o&&r&&o!==window){for(;r!==o;)g(r),r=r.parent;g(o)}return("all"===d.detectors?Object.keys(fe):d.detectors).forEach(function(e){new fe[e]}),t()},{isRunning:!1,isSuspend:!1,md5:ne,version:"0.3.8",DetectorType:O,isDevToolOpened:$});_=function(){if("undefined"==typeof window||!window.document)return null;var n=document.querySelector("[disable-devtool-auto]");if(!n)return null;var i=["disable-menu","disable-select","disable-copy","disable-cut","disable-paste","clear-log"],o=["interval"],r={};return["md5","url","tk-name","detectors"].concat(i,o).forEach(function(e){var t=n.getAttribute(e);null!==t&&(-1!==o.indexOf(e)?t=parseInt(t):-1!==i.indexOf(e)?t="false"!==t:"detector"===e&&"all"!==t&&(t=t.split(" ")),r[function(e){if(-1===e.indexOf("-"))return e;var t=!1;return e.split("").map(function(e){return"-"===e?(t=!0,""):t?(t=!1,e.toUpperCase()):e}).join("")}(e)]=t)}),r}();return _&&R(_),R});
-        
-        // DisableDevtool(); // <-- Commented out to prevent the preview sandbox from crashing
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            yellow: '#f2c900',
+                            yellowGlow: 'rgba(242, 201, 0, 0.4)',
+                            darkBg: '#08080a',
+                            cardBg: '#111115',
+                            cardBorder: 'rgba(255, 255, 255, 0.08)',
+                            textMuted: '#a1a1aa'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        mono: ['Share Tech Mono', 'monospace']
+                    }
+                }
+            }
+        }
     </script>
-    
+
     <style>
-        :root {
-            --primary-color: #ff0055;
-            --secondary-color: #00d4ff;
-            /* Theme variables (Default Dark) */
-            --bg-color-1: #0a0a0a;
-            --bg-color-2: #1a1a1a;
-            --bg-color-3: #121212;
-            --text-color: #ffffff;
-            --glass-bg: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
-            --card-shadow: rgba(0, 0, 0, 0.5);
-            --h1-gradient: linear-gradient(to right, #fff, #bbb);
-            --pill-bg: rgba(0, 0, 0, 0.3);
-            --vol-bg: rgba(0, 0, 0, 0.2);
-            --slider-track: rgba(255, 255, 255, 0.2);
-        }
-
-        body.light-mode {
-            --primary-color: #d10045; 
-            --secondary-color: #009dbf;
-            --bg-color-1: #e0e5ec;
-            --bg-color-2: #f4f7f6;
-            --bg-color-3: #e0e5ec;
-            --text-color: #2b2b2b;
-            --glass-bg: rgba(255, 255, 255, 0.6);
-            --glass-border: rgba(255, 255, 255, 0.8);
-            --card-shadow: rgba(0, 0, 0, 0.1);
-            --h1-gradient: linear-gradient(to right, #1a1a1a, #555);
-            --pill-bg: rgba(255, 255, 255, 0.5);
-            --vol-bg: rgba(255, 255, 255, 0.5);
-            --slider-track: rgba(0, 0, 0, 0.1);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(45deg, var(--bg-color-1), var(--bg-color-2), var(--bg-color-3));
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--text-color);
-            padding: 20px;
-            transition: background 0.5s ease, color 0.5s ease;
-            overflow-x: hidden;
-        }
-
-        /* --- PRELOADER ANIMATION STYLES --- */
-        #preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, var(--bg-color-1), var(--bg-color-2), var(--bg-color-3));
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
-        }
-
-        #preloader.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .loader-bars {
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            height: 60px;
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-
-        .loader-bar {
-            width: 12px;
-            background: var(--primary-color);
-            border-radius: 6px;
-            animation: preloader-bounce 0.6s infinite ease-in-out alternate;
-        }
-
-        .loader-bar:nth-child(2) { animation-delay: 0.1s; background: var(--secondary-color); }
-        .loader-bar:nth-child(3) { animation-delay: 0.2s; }
-        .loader-bar:nth-child(4) { animation-delay: 0.3s; background: var(--secondary-color); }
-        .loader-bar:nth-child(5) { animation-delay: 0.4s; }
-
-        @keyframes preloader-bounce {
-            0% { height: 15px; }
-            100% { height: 60px; }
-        }
-
-        .preloader-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: var(--h1-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: 3px;
-            animation: pulse-text 1.5s infinite;
-        }
-
-        .offline-message {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #ff5e62;
-            margin-top: 20px;
-            letter-spacing: 2px;
-            text-align: center;
-            animation: pulse-text 1.5s infinite;
-            display: none; 
-        }
-
-        @keyframes pulse-text {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
-
-        /* Theme Toggle Button */
-        .theme-toggle {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            color: var(--text-color);
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px var(--card-shadow);
-            z-index: 100;
-            backdrop-filter: blur(10px);
-        }
-        .theme-toggle:hover {
-            transform: scale(1.1);
-        }
-
-        /* Background Shapes */
-        .background-shapes div {
-            position: fixed; border-radius: 50%; filter: blur(80px); z-index: -1; opacity: 0.15;
-        }
-        .shape-1 { background: var(--primary-color); width: 300px; height: 300px; top: -50px; left: -50px; }
-        .shape-2 { background: var(--secondary-color); width: 400px; height: 400px; bottom: -100px; right: -100px; }
-        
-        /* Keep shapes vibrant in light mode */
-        body.light-mode .background-shapes div {
-            opacity: 0.5;
-        }
-
-        /* Main Wrapper */
-        .main-container {
-            display: flex;
-            flex-direction: row;
-            gap: 30px;
-            max-width: 1300px;
-            width: 100%;
-            flex-wrap: wrap;
-            justify-content: center;
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-        
-        .main-container.show-content {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Card Base Styling */
-        .card-base {
-            background: var(--glass-bg);
-            backdrop-filter: blur(15px);
-            border: 1px solid var(--glass-border);
-            padding: 40px;
-            border-radius: 20px;
-            width: 100%;
-            max-width: 400px;
-            box-shadow: 0 15px 35px var(--card-shadow);
-            transition: background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
-        }
-
-        .player-card { text-align: center; }
-
-        h1 { font-size: 2rem; background: var(--h1-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-        h2 { font-size: 1.5rem; color: var(--secondary-color); margin-bottom: 15px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px; transition: color 0.5s ease, border-color 0.5s ease; }
-
-        /* Visualizer & VU Meters */
-        .visualizer-wrapper { display: flex; justify-content: center; align-items: flex-end; margin-bottom: 25px; gap: 15px; }
-        .visualizer { display: flex; justify-content: center; align-items: flex-end; height: 50px; gap: 5px; }
-        .bar { width: 6px; background: var(--secondary-color); height: 5px; border-radius: 3px; transition: height 0.08s ease; }
-        .bar:nth-child(odd) { background: var(--primary-color); }
-        
-        .vu-meter { position: relative; width: 75px; height: 45px; background: radial-gradient(circle at bottom center, #fef4cd, #dfa944); border: 2px solid var(--glass-border); border-radius: 6px; box-shadow: inset 0 2px 6px rgba(0,0,0,0.3), 0 5px 15px var(--card-shadow); overflow: hidden; }
-        .light-mode .vu-meter { border-color: #666; box-shadow: inset 0 2px 6px rgba(0,0,0,0.2), 0 5px 15px rgba(0,0,0,0.1); }
-        .vu-svg { width: 100%; height: 100%; position: absolute; top: 0; left: 0; pointer-events: none; }
-        .vu-needle { position: absolute; bottom: -2px; left: 50%; width: 2px; height: 36px; background: #e74c3c; transform-origin: bottom center; transform: rotate(-45deg); box-shadow: 1px 1px 2px rgba(0,0,0,0.5); border-radius: 2px; transition: transform 0.08s ease-out; z-index: 2; margin-left: -1px; }
-        .vu-meter::after { content: ''; position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%); width: 12px; height: 12px; background: #111; border-radius: 50%; z-index: 3; box-shadow: 0 -1px 2px rgba(255,255,255,0.3); }
-
-        /* Controls */
-        .play-btn {
-            background: linear-gradient(to right, var(--primary-color), #ff5e62);
-            border: none; width: 70px; height: 70px; border-radius: 50%; color: white;
-            font-size: 24px; cursor: pointer; box-shadow: 0 10px 20px rgba(255, 0, 85, 0.4);
-            display: flex; align-items: center; justify-content: center; margin: 15px auto;
-            transition: transform 0.2s;
-        }
-        .play-btn:active { transform: scale(0.9); }
-
-        .status-badge { background: var(--pill-bg); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 8px; transition: background 0.5s ease; margin-bottom: 15px;}
-        .status-dot { width: 8px; height: 8px; background-color: #555; border-radius: 50%; }
-        .playing .status-dot { background-color: #00ff00; box-shadow: 0 0 10px #00ff00; }
-
-        /* Stream Selector */
-        .stream-selector {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-        .stream-btn {
-            background: var(--vol-bg);
-            border: 1px solid var(--glass-border);
-            color: var(--text-color);
-            padding: 6px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            transition: all 0.3s ease;
-            font-family: 'Poppins', sans-serif;
-            flex: 1;
-            max-width: 120px;
-        }
-        .stream-btn.active {
-            background: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 10px rgba(255, 0, 85, 0.4);
-        }
-        .stream-btn:hover:not(.active) {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Vinyl Player Styling */
-        .vinyl-player-wrapper {
-            position: relative;
-            width: 250px;
-            height: 160px;
-            margin: 0 auto 15px auto;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            padding-left: 15px;
-        }
-        .album-cover {
-            position: relative;
-            width: 140px;
-            height: 140px;
-            z-index: 3;
-            box-shadow: 5px 0 15px rgba(0,0,0,0.7);
-            border-radius: 4px;
-            overflow: hidden;
-            border: 2px solid #222;
-            background: var(--bg-color-3);
-        }
-        .album-cover img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .vinyl-record {
-            position: absolute;
-            left: 90px;
-            top: 10px;
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            /* Shiny reflection */
-            background: conic-gradient(#111 0deg, #333 45deg, #111 90deg, #333 135deg, #111 180deg, #333 225deg, #111 270deg, #333 315deg, #111 360deg);
-            box-shadow: 0 0 10px rgba(0,0,0,0.8);
-            z-index: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .vinyl-record::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            border-radius: 50%;
-            /* Record grooves */
-            background-image: repeating-radial-gradient(transparent, transparent 3px, rgba(0,0,0,0.8) 4px, transparent 5px);
-        }
-        .vinyl-center {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            background: white url('441510909_122141243984227757_7243628959601385331_n (3).jpg') center/cover no-repeat;
-            border: 2px solid #333;
-            position: relative;
-            z-index: 2;
-        }
-        .vinyl-center::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        /* Custom scrollbars for chat box */
+        ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
-            background: #000;
-            border-radius: 50%;
         }
-        .tonearm {
-            position: absolute;
-            right: 0px;
-            top: -10px;
-            width: 60px;
-            height: 160px;
-            z-index: 4;
-            transform-origin: 35px 25px;
-            transform: rotate(-10deg); /* Resting position */
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            filter: drop-shadow(3px 5px 4px rgba(0,0,0,0.5));
+        ::-webkit-scrollbar-track {
+            background: #08080a;
         }
-        
+        ::-webkit-scrollbar-thumb {
+            background: #f2c900;
+            border-radius: 10px;
+        }
+
+        /* Pulsing status effect for active broadcast indicators */
+        @keyframes pulse-red {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.15); }
+        }
+        .pulse-dot {
+            animation: pulse-red 1.5s infinite ease-in-out;
+        }
+
+        /* Marquee horizontal text sliding loop */
+        @keyframes marquee-horizontal {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .animate-marquee {
+            display: inline-block;
+            animation: marquee-horizontal 18s linear infinite;
+            will-change: transform; /* Triggers GPU acceleration for butter-smooth rendering */
+        }
+
+        /* Ambient studio dark gradient background (No background image) */
+        .hero-studio-bg {
+            background: linear-gradient(to bottom, #08080a 0%, #111115 100%);
+        }
+
+        /* Rotary volume hardware knob control mechanics */
+        .rotary-knob {
+            transform-origin: center;
+            transition: transform 0.05s ease-out;
+            cursor: grab;
+        }
+        .rotary-knob:active {
+            cursor: grabbing;
+        }
+
+        /* Premium Turntable Platter Deck Styling */
+        .turntable-platter {
+            background: radial-gradient(circle, #202028 0%, #0d0d11 100%);
+            border: 4px solid #1a1a24;
+            box-shadow: inset 0 4px 20px rgba(0,0,0,0.8), 0 8px 24px rgba(0,0,0,0.6);
+        }
+
+        /* Vinyl Record Rotation & Playback control states */
         @keyframes spinRecord {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
-        
-        /* Animations bound to the parent's existing .playing class */
+        .vinyl-record {
+            animation: spinRecord 12s linear infinite;
+            animation-play-state: paused; /* Paused by default */
+            background: conic-gradient(
+                #18181c 0deg, #2c2c34 45deg, #18181c 90deg, #2c2c34 135deg,
+                #18181c 180deg, #2c2c34 225deg, #18181c 270deg, #2c2c34 315deg, #18181c 360deg
+            );
+            box-shadow: 0 8px 25px rgba(0,0,0,0.7), inset 0 0 10px rgba(0,0,0,0.8);
+        }
+        .vinyl-record::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background-image: repeating-radial-gradient(
+                circle,
+                transparent,
+                transparent 2px,
+                rgba(0, 0, 0, 0.6) 3px,
+                transparent 4px
+            );
+            pointer-events: none;
+        }
         .playing .vinyl-record {
-            animation: spinRecord 2s linear infinite;
+            animation-play-state: running; /* Spins only when audio is actively playing */
+        }
+        .tonearm {
+            transform-origin: 35px 25px;
+            transform: rotate(-10deg);
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
         }
         .playing .tonearm {
-            transform: rotate(20deg); /* Swings over record */
+            transform: rotate(23deg) !important; /* Positions headshell precisely over vinyl grooves */
         }
 
-        .logo-area p { font-size: 0.9rem; opacity: 0.7; margin-top: 5px; }
-
-        /* Now Playing Metadata */
-        .now-playing-container { margin-top: 15px; background: var(--pill-bg); padding: 8px 15px; border-radius: 20px; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; max-width: 100%; transition: background 0.5s ease; }
-        .now-playing-label { font-size: 0.7rem; font-weight: bold; text-transform: uppercase; color: var(--primary-color); white-space: nowrap; }
-        .marquee-wrapper { flex: 1; overflow: hidden; white-space: nowrap; mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent); }
-        .now-playing-text { display: inline-block; color: var(--secondary-color); font-weight: 500; padding-left: 100%; animation: marquee 15s linear infinite; }
-        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
-
-        /* Volume Slider Styling */
-        .volume-container { display: flex; align-items: center; gap: 12px; justify-content: center; margin: 10px auto 0; background: var(--vol-bg); padding: 8px 20px; border-radius: 20px; width: fit-content; transition: background 0.5s ease; }
-        .volume-slider { -webkit-appearance: none; width: 100px; height: 4px; background: var(--slider-track); border-radius: 5px; outline: none; transition: background 0.5s ease; }
-        .volume-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--secondary-color); cursor: pointer; box-shadow: 0 0 8px rgba(0, 212, 255, 0.5); transition: 0.2s; }
-        .volume-slider::-webkit-slider-thumb:hover { transform: scale(1.2); background: var(--primary-color); box-shadow: 0 0 10px rgba(255, 0, 85, 0.6); }
-
-        /* Clocks Styling */
-        .clock-container { display: flex; justify-content: space-around; margin-top: 25px; padding-top: 15px; border-top: 1px solid var(--glass-border); transition: border-color 0.5s ease; }
-        .clock { display: flex; flex-direction: column; align-items: center; }
-        .clock-label { font-size: 0.65rem; font-weight: bold; text-transform: uppercase; color: var(--primary-color); letter-spacing: 1px; margin-bottom: 2px; transition: color 0.5s ease; }
-        .clock-time { font-size: 0.9rem; font-weight: 500; color: var(--text-color); font-variant-numeric: tabular-nums; transition: color 0.5s ease; }
-
-        /* Contact & Station Info */
-        .contact-email { margin-top: 20px; font-size: 0.8rem; color: var(--text-color); transition: color 0.5s ease; text-align: center; }
-        .contact-email a { color: var(--secondary-color); text-decoration: none; transition: color 0.3s ease; display: inline-flex; align-items: center; gap: 5px; }
-        .contact-email a:hover { color: var(--primary-color); }
-        .station-info { font-size: 0.85rem; line-height: 1.8; color: var(--text-color); opacity: 0.85; font-weight: 300; transition: color 0.5s ease; text-align: justify; }
-        
-        /* Embed Styling (FB & Windy) */
-        .info-card, .weather-card { max-width: 450px; display: flex; flex-direction: column; }
-        /* FIX: Changed FB wrapper background from solid white to adapt to dark/light mode */
-        .fb-embed-wrapper, .windy-embed-wrapper { flex: 1; width: 100%; border-radius: 10px; overflow: hidden; background: var(--glass-bg); margin-top: 25px; display: flex; justify-content: center; }
-        .fb-embed-wrapper { min-height: 500px; }
-        .windy-embed-wrapper { min-height: 400px; background: transparent; }
-        .fb-embed-wrapper iframe, .windy-embed-wrapper iframe { width: 100%; max-width: 500px; height: 100%; border: none; background: transparent; }
-
-        /* Chatbox Specific Styles */
-        .chat-card { display: flex; flex-direction: column; justify-content: flex-start; }
-        .chat-messages { flex: 1; min-height: 350px; max-height: 450px; overflow-y: auto; margin-bottom: 15px; display: flex; flex-direction: column; gap: 12px; padding-right: 5px; }
-        .chat-message { background: var(--pill-bg); padding: 12px 16px; border-radius: 15px; font-size: 0.85rem; color: var(--text-color); word-wrap: break-word; max-width: 85%; animation: fadeIn 0.3s ease; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        
-        .chat-message.self { background: rgba(255, 0, 85, 0.4); align-self: flex-end; border-bottom-right-radius: 0; }
-        .chat-message.other { background: rgba(0, 212, 255, 0.2); align-self: flex-start; border-bottom-left-radius: 0; }
-        .chat-time { font-size: 0.65rem; opacity: 0.6; margin-top: 6px; display: block; text-align: right; }
-        .chat-message.other .chat-time { text-align: left; }
-        
-        .chat-sender-name { font-size: 0.7rem; font-weight: 700; margin-bottom: 4px; color: var(--secondary-color); }
-        .self .chat-sender-name { color: #ffffff; opacity: 0.9; }
-        
-        .chat-input-container { display: flex; gap: 10px; width: 100%; }
-        .chat-input {
-            flex: 1;
-            min-width: 0;
-            padding: 12px 15px;
-            border-radius: 20px;
-            border: 1px solid var(--glass-border);
-            background: var(--vol-bg);
-            color: var(--text-color);
-            outline: none;
-            font-family: 'Poppins', sans-serif;
-            transition: border-color 0.3s ease;
+        /* --- STEREOPHONIC HORIZONTAL LED DOT METER (image_4c6a53.png) --- */
+        .led-rack {
+            background-color: #121418;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 14px 12px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.8);
         }
-        .chat-input::placeholder { color: rgba(255,255,255,0.5); }
-        .light-mode .chat-input::placeholder { color: rgba(0,0,0,0.5); }
-        
-        .chat-send-btn {
-            background: linear-gradient(45deg, var(--primary-color), #ff5e62);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            font-family: 'Poppins', sans-serif;
-            transition: transform 0.2s, box-shadow 0.2s;
-            white-space: nowrap;
+        .led-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 4px;
         }
-        .chat-send-btn:hover { transform: scale(1.05); box-shadow: 0 4px 15px rgba(255, 0, 85, 0.4); }
-        .chat-send-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .led-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            transition: background-color 0.08s ease, box-shadow 0.08s ease; /* Smooth decay track */
+        }
+        /* Base inactive dimmed colors from image_4c6a53.png */
+        .led-green { background-color: #032408; }
+        .led-yellow { background-color: #2b2201; }
+        .led-orange { background-color: #2b1201; }
+        .led-red { background-color: #2b0101; }
+
+        /* Neon Active Glow signals */
+        .led-green.active { background-color: #00ff66; box-shadow: 0 0 7px #00ff66; }
+        .led-yellow.active { background-color: #ffe600; box-shadow: 0 0 7px #ffe600; }
+        .led-orange.active { background-color: #ff7700; box-shadow: 0 0 7px #ff7700; }
+        .led-red.active { background-color: #ff3333; box-shadow: 0 0 9px #ff3333; }
+
+        /* --- PREMIUM SCROLL REVEAL (SHOW & HIDE) STYLES --- */
+        .scroll-reveal {
+            opacity: 0;
+            transform: scale(0.96) translateY(30px);
+            filter: blur(5px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity, filter;
+        }
         
-        /* Chat Error Notice */
-        .chat-error { color: #ff5e62; font-size: 0.75rem; text-align: center; display: none; margin-bottom: 8px; font-weight: 500; }
-
-        /* Custom Scrollbar */
-        .chat-messages::-webkit-scrollbar { width: 6px; }
-        .chat-messages::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); border-radius: 3px; }
-        .chat-messages::-webkit-scrollbar-thumb { background: var(--secondary-color); border-radius: 3px; }
-
-        /* Footer Styling */
-        .site-footer {
-            width: 100%;
-            text-align: center;
-            padding-top: 20px;
-            margin-top: 10px;
-            font-size: 0.85rem;
-            color: var(--text-color);
-            opacity: 0.7;
-            font-weight: 500;
-            letter-spacing: 1px;
-            border-top: 1px solid var(--glass-border);
-            transition: border-color 0.5s ease, color 0.5s ease;
+        /* Alternate Entrance Offsets */
+        .reveal-left {
+            transform: scale(0.96) translateX(-100px);
+        }
+        .reveal-right {
+            transform: scale(0.96) translateX(100px);
         }
 
-        /* --- Custom Modal Styling --- */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.75); z-index: 10000; display: flex; justify-content: center; align-items: center; opacity: 1; transition: opacity 0.3s; backdrop-filter: blur(5px); padding: 20px; }
-        .modal-overlay.hidden { opacity: 0; pointer-events: none; visibility: hidden; }
-        .modal-content { max-width: 350px; width: 100%; padding: 30px; text-align: center; }
-        .modal-content h3 { color: var(--secondary-color); font-size: 1.3rem; margin-bottom: 10px; border-bottom: none; }
-        .modal-content p { font-size: 0.9rem; margin-bottom: 20px; }
-        .modal-input { margin-bottom: 20px; width: 100%; }
-        .modal-input.hidden { display: none; }
-        .modal-buttons { display: flex; gap: 10px; justify-content: center; }
-        .modal-btn-cancel { background: #555; }
-        .modal-btn-cancel:hover { background: #666; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); }
-        .modal-btn-cancel.hidden { display: none; }
-
-        /* --- MOBILE RESPONSIVENESS --- */
-        @media (max-width: 768px) {
-            body { padding: 10px; }
-            .card-base { padding: 25px 15px; }
-            .chat-input { padding: 10px 12px; font-size: 0.85rem; }
-            .chat-send-btn { padding: 10px 15px; font-size: 0.85rem; }
-            h1 { font-size: 1.6rem; }
-            h2 { font-size: 1.3rem; }
-            .station-logo { width: 90px; height: 90px; }
-            .chat-messages { min-height: 250px; }
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: scale(1) translateX(0) translateY(0);
+            filter: blur(0);
         }
     </style>
 </head>
-<body>
+<body class="bg-brand-darkBg text-white font-sans antialiased min-h-screen selection:bg-brand-yellow selection:text-black overflow-x-hidden">
 
-    <!-- Custom Modal UI (Replaces Native browser alerts/prompts) -->
-    <div id="customModal" class="modal-overlay hidden">
-        <div class="modal-content card-base">
-            <h3 id="modalTitle">Notice</h3>
-            <p id="modalMessage">Message goes here</p>
-            <input type="text" id="modalInput" class="chat-input modal-input hidden" autocomplete="off">
-            <div class="modal-buttons">
-                <button id="modalBtnCancel" class="chat-send-btn modal-btn-cancel hidden">Cancel</button>
-                <button id="modalBtnConfirm" class="chat-send-btn">OK</button>
+    <!-- Glowing backdrop decorations -->
+    <div class="fixed top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-brand-yellowGlow filter blur-[120px] pointer-events-none z-0 opacity-20"></div>
+    <div class="fixed bottom-0 right-1/4 w-[600px] h-[600px] rounded-full bg-brand-yellowGlow filter blur-[150px] pointer-events-none z-0 opacity-10"></div>
+
+    <!-- Custom Modal Dialog Layer -->
+    <div id="customModal" class="modal-overlay fixed inset-0 bg-black/85 backdrop-blur-md z-[100000] flex justify-center items-center p-4 hidden">
+        <div class="bg-brand-cardBg border border-brand-yellow/20 rounded-3xl p-8 max-w-md w-full shadow-2xl text-center">
+            <h3 id="modalTitle" class="text-brand-yellow font-orbitron font-bold text-xl mb-3">Notice</h3>
+            <p id="modalMessage" class="text-zinc-300 text-sm mb-6 leading-relaxed">Details here.</p>
+            <input type="text" id="modalInput" class="w-full bg-black/50 border border-zinc-700 rounded-full px-5 py-3 text-white outline-none focus:border-brand-yellow mb-5 text-center hidden" autocomplete="off">
+            <div class="flex gap-4 justify-center">
+                <button id="modalBtnCancel" class="px-6 py-2.5 rounded-full border border-zinc-700 hover:bg-zinc-800 transition text-sm hidden">Cancel</button>
+                <button id="modalBtnConfirm" class="px-8 py-2.5 bg-brand-yellow hover:bg-yellow-500 text-black font-semibold rounded-full transition text-sm">OK</button>
             </div>
         </div>
     </div>
 
     <!-- PRELOADER -->
-    <div id="preloader">
-        <div class="loader-bars" id="loaderBars">
-            <div class="loader-bar"></div><div class="loader-bar"></div><div class="loader-bar"></div>
-            <div class="loader-bar"></div><div class="loader-bar"></div>
+    <div id="preloader" class="fixed inset-0 bg-brand-darkBg z-[99999] flex flex-col justify-center items-center transition-all duration-700">
+        <div class="loader-bars flex items-end h-[50px] gap-2.5 mb-6">
+            <div class="loader-bar w-2 bg-brand-yellow rounded-full h-4 animation delay-100 animate-[preloader-bounce_0.6s_infinite_alternate_ease-in-out]"></div>
+            <div class="loader-bar w-2 bg-white rounded-full h-10 animation delay-200 animate-[preloader-bounce_0.6s_infinite_alternate_ease-in-out]"></div>
+            <div class="loader-bar w-2 bg-brand-yellow rounded-full h-6 animation delay-300 animate-[preloader-bounce_0.6s_infinite_alternate_ease-in-out]"></div>
+            <div class="loader-bar w-2 bg-white rounded-full h-12 animation delay-400 animate-[preloader-bounce_0.6s_infinite_alternate_ease-in-out]"></div>
+            <div class="loader-bar w-2 bg-brand-yellow rounded-full h-5 animation delay-500 animate-[preloader-bounce_0.6s_infinite_alternate_ease-in-out]"></div>
         </div>
-        <div class="preloader-text" id="preloaderText">TUNING IN...</div>
-        <div class="offline-message" id="offlineMessage">⚠️ NO INTERNET CONNECTION</div>
+        <div class="font-orbitron font-bold text-xl tracking-[0.3em] text-brand-yellow animate-pulse">TUNING IN RHYTHM...</div>
+        <div id="offlineMessage" class="text-red-500 font-bold mt-4 tracking-wider hidden">⚠️ NO INTERNET CONNECTION DETECTED</div>
     </div>
 
-    <button id="themeToggle" class="theme-toggle" title="Toggle Theme">🌞</button>
-
-    <div class="background-shapes">
-        <div class="shape-1"></div>
-        <div class="shape-2"></div>
-    </div>
-
-    <div class="main-container" id="mainAppContent">
-        <!-- PLAYER CARD -->
-        <div class="card-base player-card" id="playerContainer">
-            <div class="logo-area">
-                <div class="vinyl-player-wrapper">
-                    <div class="album-cover">
-                        <img src="441510909_122141243984227757_7243628959601385331_n (3).jpg" alt="Rhythm 101 Logo" onerror="this.style.display='none'">
-                    </div>
-                    <div class="vinyl-record">
-                        <div class="vinyl-center"></div>
-                    </div>
-                    <svg class="tonearm" viewBox="0 0 50 150">
-                        <defs>
-                            <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stop-color="#777" />
-                                <stop offset="50%" stop-color="#eee" />
-                                <stop offset="100%" stop-color="#777" />
-                            </linearGradient>
-                        </defs>
-                        <!-- Pivot -->
-                        <circle cx="35" cy="25" r="14" fill="url(#silverGrad)" stroke="#333" stroke-width="1"/>
-                        <circle cx="35" cy="25" r="5" fill="#111"/>
-                        <!-- Arm rod -->
-                        <path d="M35 25 L 30 100 L 20 120" fill="none" stroke="url(#silverGrad)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
-                        <!-- Headshell Base -->
-                        <circle cx="20" cy="120" r="3" fill="#555"/>
-                        <!-- Headshell -->
-                        <rect x="14" y="118" width="12" height="24" fill="#222" transform="rotate(25 20 120)" rx="2"/>
-                        <!-- Stylus needle hint -->
-                        <line x1="20" y1="140" x2="18" y2="143" stroke="#ccc" stroke-width="1" transform="rotate(25 20 120)"/>
-                    </svg>
-                </div>
-                <h1>Rhythm 101</h1>
-                <p>Online Broadcast Station</p>
-                <div class="now-playing-container">
-                    <span class="now-playing-label">Now Playing:</span>
-                    <div class="marquee-wrapper">
-                        <span class="now-playing-text" id="nowPlayingText">Connecting...</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- VISUALIZER WRAPPER (VU Meters + Bars) -->
-            <div class="visualizer-wrapper">
-                <!-- Left VU Meter -->
-                <div class="vu-meter">
-                    <svg viewBox="0 0 100 60" class="vu-svg">
-                        <path d="M 15 50 A 35 35 0 0 1 85 50" fill="none" stroke="#222" stroke-width="1.5"/>
-                        <path d="M 72 23 A 35 35 0 0 1 85 50" fill="none" stroke="#e74c3c" stroke-width="2.5"/>
-                        <line x1="15" y1="50" x2="19" y2="47" stroke="#222" stroke-width="1.5"/>
-                        <line x1="22" y1="36" x2="25" y2="39" stroke="#222" stroke-width="1"/>
-                        <line x1="33" y1="24" x2="35" y2="28" stroke="#222" stroke-width="1.5"/>
-                        <line x1="50" y1="15" x2="50" y2="20" stroke="#222" stroke-width="1"/>
-                        <line x1="67" y1="24" x2="65" y2="28" stroke="#222" stroke-width="1.5"/>
-                        <line x1="78" y1="36" x2="75" y2="39" stroke="#e74c3c" stroke-width="1"/>
-                        <line x1="85" y1="50" x2="81" y2="47" stroke="#e74c3c" stroke-width="1.5"/>
-                        <text x="50" y="55" font-family="'Poppins', sans-serif" font-weight="700" font-size="9" text-anchor="middle" fill="#222" opacity="0.6">VU</text>
-                    </svg>
-                    <div class="vu-needle" id="vuNeedleLeft"></div>
-                </div>
-
-                <!-- Center Bars -->
-                <div class="visualizer">
-                    <div class="bar"></div><div class="bar"></div><div class="bar"></div>
-                    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
-                </div>
-
-                <!-- Right VU Meter -->
-                <div class="vu-meter">
-                    <svg viewBox="0 0 100 60" class="vu-svg">
-                        <path d="M 15 50 A 35 35 0 0 1 85 50" fill="none" stroke="#222" stroke-width="1.5"/>
-                        <path d="M 72 23 A 35 35 0 0 1 85 50" fill="none" stroke="#e74c3c" stroke-width="2.5"/>
-                        <line x1="15" y1="50" x2="19" y2="47" stroke="#222" stroke-width="1.5"/>
-                        <line x1="22" y1="36" x2="25" y2="39" stroke="#222" stroke-width="1"/>
-                        <line x1="33" y1="24" x2="35" y2="28" stroke="#222" stroke-width="1.5"/>
-                        <line x1="50" y1="15" x2="50" y2="20" stroke="#222" stroke-width="1"/>
-                        <line x1="67" y1="24" x2="65" y2="28" stroke="#222" stroke-width="1.5"/>
-                        <line x1="78" y1="36" x2="75" y2="39" stroke="#e74c3c" stroke-width="1"/>
-                        <line x1="85" y1="50" x2="81" y2="47" stroke="#e74c3c" stroke-width="1.5"/>
-                        <text x="50" y="55" font-family="'Poppins', sans-serif" font-weight="700" font-size="9" text-anchor="middle" fill="#222" opacity="0.6">VU</text>
-                    </svg>
-                    <div class="vu-needle" id="vuNeedleRight"></div>
-                </div>
-            </div>
-
-            <!-- FIX: Split into two audio elements to prevent visualizer CORS muting on Stream 2 -->
-            <audio id="audioStream1" crossorigin="anonymous" src="https://stream.zeno.fm/tzn3ovjs0nbvv"></audio>
-            <!-- FIX: Tinanggal ang crossorigin dito para hindi i-mute ng browser ang Stream 2 -->
-            <audio id="audioStream2" src="https://uk2freenew.listen2myradio.com/live.mp3?typeportmount=ice_29179_stream_359290919"></audio>
-
-            <div class="status-badge">
-                <div class="status-dot"></div>
-                <span id="statusText">Ready to Play</span>
-            </div>
-
-            <!-- STREAM SELECTOR -->
-            <div class="stream-selector">
-                <button class="stream-btn active" data-stream="1">Stream 1 (Zeno)</button>
-                <button class="stream-btn" data-stream="2">Stream 2</button>
-            </div>
-
-            <button class="play-btn" id="playBtn">
-                <svg id="playIcon" width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-                <svg id="pauseIcon" width="24" height="24" viewBox="0 0 24 24" fill="white" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-            </button>
-
-            <div class="volume-container">
-                <span style="font-size: 14px" id="volIcon">🔊</span>
-                <input type="range" id="volumeControl" class="volume-slider" min="0" max="1" step="0.05" value="1">
-            </div>
-
-            <div class="clock-container">
-                <div class="clock">
-                    <span class="clock-label">Your Time</span>
-                    <span class="clock-time" id="localTime">--:--:--</span>
-                </div>
-                <div class="clock">
-                    <span class="clock-label">Philippines</span>
-                    <span class="clock-time" id="phTime">--:--:--</span>
-                </div>
-            </div>
-            
-            <div class="contact-email">
-                <a href="mailto:rhythm101fm@gmail.com">
-                    <span>✉️</span> rhythm101fm@gmail.com
-                </a>
-            </div>
-        </div>
-
-        <!-- LIVE REQUESTS CHAT CARD -->
-        <div class="card-base chat-card">
-            <h2 id="chatTitle" style="cursor: pointer;" title="Double-click for Admin Access">Live Requests</h2>
-            <div class="chat-messages" id="chatMessages">
-                <div style="opacity: 0.5; text-align: center; font-size: 0.8rem; margin-top: auto; margin-bottom: auto;">Connecting to live chat...</div>
-            </div>
-            
-            <!-- Chat validation error -->
-            <div id="chatError" class="chat-error"></div>
-
-            <div style="display: flex; flex-direction: column; gap: 8px;">
-                <input type="text" id="chatName" class="chat-input" placeholder="Real Full Name (First & Last Name)" maxlength="50" style="padding: 8px 15px; font-size: 0.85rem;">
-                <div class="chat-input-container">
-                    <input type="text" id="chatInput" class="chat-input" placeholder="Type a song request..." autocomplete="off">
-                    <button id="sendBtn" class="chat-send-btn">Send</button>
-                </div>
-            </div>
-            <div style="font-size: 0.65rem; opacity: 0.5; text-align: center; margin-top: 10px;">
-                Messages auto-delete after 24 hours.
-            </div>
-        </div>
-
-        <!-- INFO / FB CARD -->
-        <div class="card-base info-card">
-            <h2>About Us</h2>
-            <div class="station-info">
-                Welcome to Rhythm 101, the premier online radio station broadcasting live from the beautiful Bicol Region in the Philippines. We are your number one source for essential music, entertainment, and the latest hits. Our goal is to connect listeners everywhere with high-quality audio and a diverse playlist that suits every mood. Tune in and feel the beat!
-            </div>
-            
-            <div class="fb-embed-wrapper">
-                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FRHYTHM101FM&tabs=timeline&width=450&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-            </div>
-        </div>
-
-        <!-- WEATHER CARD -->
-        <div class="card-base weather-card">
-            <h2>Live Weather Tracker</h2>
-            <div class="station-info">
-                Stay updated with the latest weather conditions across the Philippines. Track winds, storms, and live updates directly from our radar.
-            </div>
-            <div class="windy-embed-wrapper">
-                <iframe src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=mm&metricTemp=%C2%B0C&metricWind=km/h&zoom=5&overlay=wind&product=ecmwf&level=surface&lat=13.5&lon=123.3" scrolling="no" frameborder="0"></iframe>
+    <!-- NAVIGATION SYSTEM -->
+    <nav class="relative z-50 max-w-7xl mx-auto px-6 py-6 flex items-center justify-between border-b border-white/5">
+        <div class="flex items-center gap-4">
+            <img src="441510909_122141243984227757_7243628959601385331_n (3).jpg" alt="Rhythm 101 Logo" class="w-12 h-12 rounded-full border border-brand-yellow/40 shadow-[0_0_15px_rgba(242,201,0,0.2)] object-cover" onerror="this.src='https://placehold.co/100x100/121212/ffe600?text=R101'">
+            <div>
+                <span class="font-orbitron font-extrabold text-2xl tracking-tighter text-white block">RHYTHM <span class="text-brand-yellow">101 FM</span></span>
+                <span class="text-[0.6rem] tracking-[0.25em] font-bold text-brand-yellow uppercase -mt-1 block">Your Radio Essential</span>
             </div>
         </div>
         
-        <!-- FOOTER -->
-        <div class="site-footer">
-            Developed By Devcoderz PH | Established 2025
+        <div class="hidden md:flex items-center gap-8 font-semibold text-sm tracking-wider">
+            <a href="#hero" class="text-brand-yellow border-b-2 border-brand-yellow pb-1">HOME</a>
+            <a href="#requests-booth" class="hover:text-brand-yellow transition pb-1">LIVE SHOUTOUTS</a>
+            <a href="#weather" class="hover:text-brand-yellow transition pb-1">WEATHER & FACEBOOK</a>
         </div>
-    </div>
 
-    <!-- MAIN SCRIPT -->
+        <div>
+            <button onclick="scrollToPlayer()" class="border border-brand-yellow hover:bg-brand-yellow hover:text-black text-brand-yellow text-xs font-bold py-2.5 px-6 rounded-full transition duration-300 flex items-center gap-2 tracking-widest font-orbitron">
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+                LISTEN LIVE
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative hero-studio-bg min-h-[95vh] flex items-center py-12 md:py-20 px-6">
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            
+            <!-- Branding Details (Slide from Left) -->
+            <div class="lg:col-span-7 flex flex-col justify-center scroll-reveal reveal-left">
+                <div class="inline-flex items-center gap-2.5 bg-brand-yellow/10 border border-brand-yellow/20 rounded-full px-4 py-1.5 w-fit mb-6">
+                    <span class="w-2 h-2 rounded-full bg-red-500 pulse-dot block"></span>
+                    <span class="text-xs font-bold tracking-[0.2em] text-brand-yellow uppercase">LIVE ON AIR</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-extrabold font-sans tracking-tight leading-none mb-6">
+                    RHYTHM<br><span class="text-brand-yellow font-orbitron">101 FM</span>
+                </h1>
+                
+                <h2 class="text-xl md:text-2xl font-bold tracking-widest text-brand-yellow uppercase mb-6 font-orbitron">
+                    Your Radio Essential
+                </h2>
+                
+                <p class="text-brand-textMuted text-base md:text-lg font-light leading-relaxed mb-8 max-w-xl">
+                    Broadcasting live from Nabua, Camarines Sur, Bicol Philippines. Bringing you the best music from 60's 70's 80's 90's and from fresh latest songs today.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button onclick="scrollToPlayer()" class="bg-brand-yellow hover:bg-yellow-500 text-black font-extrabold py-4 px-10 rounded-full tracking-wider transition shadow-[0_10px_20px_rgba(242,201,0,0.3)] flex items-center justify-center gap-3 text-sm font-orbitron">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        LISTEN LIVE
+                    </button>
+                    <a href="#requests-booth" class="border border-white/20 hover:border-brand-yellow text-white hover:text-brand-yellow font-semibold py-4 px-10 rounded-full tracking-wider transition flex items-center justify-center gap-3 text-sm">
+                        <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        SEND REQUEST
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Premium Player Console (Slide from Right) -->
+            <div id="premiumPlayer" class="lg:col-span-5 flex justify-center lg:justify-end scroll-reveal reveal-right">
+                <div class="bg-brand-cardBg border border-brand-cardBorder rounded-[36px] p-6 md:p-8 w-full max-w-[430px] shadow-[0_30px_60px_rgba(0,0,0,0.8)] relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-yellowGlow/5 via-transparent to-transparent pointer-events-none"></div>
+                    
+                    <!-- LCD Now Playing Display Box (Inside the Player Card) -->
+                    <div class="bg-black/60 border border-white/5 rounded-2xl p-3.5 mb-5 overflow-hidden relative">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brand-yellow pulse-dot block"></span>
+                            <span class="text-[0.6rem] font-bold tracking-[0.25em] text-brand-yellow uppercase font-orbitron">NOW PLAYING</span>
+                        </div>
+                        <div class="marquee-wrapper overflow-hidden whitespace-nowrap relative h-5">
+                            <div class="animate-marquee inline-block font-mono text-xs tracking-wider text-zinc-300" id="nowPlayingText">
+                                READY TO PLAY
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Spinning Vinyl Record Deck Turntable (Highly Optimized UI) -->
+                    <div class="relative w-[280px] h-[170px] mx-auto mb-6 flex items-center justify-start overflow-visible bg-[#15151a] p-4 rounded-3xl border border-white/5 shadow-inner">
+                        <!-- Platter Plate -->
+                        <div class="turntable-platter absolute left-[15px] w-[140px] h-[140px] rounded-full z-[1]"></div>
+                        
+                        <!-- Album artwork cover -->
+                        <div class="album-cover relative w-[110px] h-[110px] z-[10] shadow-[5px_0_15px_rgba(0,0,0,0.7)] rounded-xl overflow-hidden border border-zinc-700/50 bg-black">
+                            <img src="441510909_122141243984227757_7243628959601385331_n (3).jpg" alt="Album Cover" class="w-full h-full object-cover">
+                        </div>
+                        
+                        <!-- Premium Vinyl Record with subtle highlights -->
+                        <div class="vinyl-record absolute left-[65px] w-[130px] h-[130px] rounded-full z-[5] flex items-center justify-center border-4 border-[#24242e]/60">
+                            <!-- Grooves representation (CSS Repeating Radial Gradient) -->
+                            <div class="absolute inset-2 rounded-full border border-zinc-800/20"></div>
+                            <div class="absolute inset-5 rounded-full border border-zinc-800/10"></div>
+                            <div class="absolute inset-8 rounded-full border border-zinc-800/5"></div>
+                            <!-- Center Spindle & Label -->
+                            <div class="vinyl-center w-[40px] h-[40px] rounded-full border border-zinc-900 bg-[#f2c900] flex items-center justify-center relative shadow-lg">
+                                <div class="w-3.5 h-3.5 bg-black rounded-full flex items-center justify-center border border-white/10">
+                                    <div class="w-1.5 h-1.5 bg-zinc-300 rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Stylus/Tonearm (High resolution detailing SVG layout) -->
+                        <svg class="tonearm absolute right-[5px] top-[-5px] w-[65px] h-[155px] z-[12] filter drop-shadow-[3px_5px_4px_rgba(0,0,0,0.6)]" viewBox="0 0 50 150">
+                            <defs>
+                                <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#33333d" />
+                                    <stop offset="50%" stop-color="#eeeeee" />
+                                    <stop offset="100%" stop-color="#33333d" />
+                                </linearGradient>
+                            </defs>
+                            <!-- Pivot Base -->
+                            <circle cx="35" cy="25" r="13" fill="url(#silverGrad)" stroke="#1a1a24" stroke-width="1.5"/>
+                            <circle cx="35" cy="25" r="5" fill="#0d0d11"/>
+                            <!-- Arm Connector Shaft -->
+                            <path d="M35 25 L 31 105 L 22 124" fill="none" stroke="url(#silverGrad)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+                            <!-- Headshell Assembly -->
+                            <circle cx="22" cy="124" r="2" fill="#666"/>
+                            <rect x="15" y="122" width="10" height="22" fill="#18181c" transform="rotate(22 22 124)" rx="2" stroke="#444" stroke-width="0.5"/>
+                            <polygon points="17,144 23,144 20,149" fill="#ff4d4d" transform="rotate(22 22 124)"/>
+                        </svg>
+                    </div>
+
+                    <!-- DYNAMIC HORIZONTAL LED DOT METERS (image_4c6a53.png - with smooth decay fallback animation) -->
+                    <div class="led-rack flex flex-col gap-3.5 mb-5">
+                        <!-- Left Channel Row -->
+                        <div class="led-row" id="ledRowLeft"></div>
+                        <!-- Right Channel Row -->
+                        <div class="led-row" id="ledRowRight"></div>
+                    </div>
+                    
+                    <!-- Center Controller Play Deck -->
+                    <div class="flex items-center justify-center gap-6 mb-5 relative">
+                        <div class="flex-1 h-[1px] bg-white/10"></div>
+                        <button id="playBtn" class="w-16 h-16 rounded-full bg-transparent border-2 border-brand-yellow hover:bg-brand-yellow/10 flex items-center justify-center transition duration-300 relative group/play shadow-[0_0_20px_rgba(242,201,0,0.15)]">
+                            <div class="absolute inset-[-6px] rounded-full border border-brand-yellow/30 opacity-0 group-hover/play:opacity-100 transition duration-300 animate-ping"></div>
+                            
+                            <!-- Play SVG -->
+                            <svg id="playIcon" class="w-6 h-6 fill-brand-yellow transition" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            
+                            <!-- Pause SVG -->
+                            <svg id="pauseIcon" class="w-6 h-6 fill-brand-yellow hidden" viewBox="0 0 24 24">
+                                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                            </svg>
+                        </button>
+                        <div class="flex-1 h-[1px] bg-white/10"></div>
+                    </div>
+                    
+                    <!-- Master Hardware Volume block -->
+                    <div class="bg-black/40 border border-white/5 rounded-2xl p-4 mb-5 flex items-center justify-between">
+                        <div class="flex-1 mr-4">
+                            <span class="text-[0.6rem] uppercase tracking-[0.2em] text-brand-textMuted block mb-1 font-semibold">SIGNAL VOLUME</span>
+                            <div class="text-xs font-mono text-brand-yellow font-bold" id="dbIndicator">MONITOR: -42.0 dBFS</div>
+                        </div>
+
+                        <!-- Volume Knob Dial -->
+                        <div class="flex flex-col items-center">
+                            <span class="text-[0.55rem] uppercase tracking-widest text-brand-textMuted font-bold mb-1.5">Master Volume</span>
+                            <div class="relative w-12 h-12 bg-zinc-800 rounded-full border border-white/10 shadow-lg flex items-center justify-center cursor-pointer select-none" id="rotaryVolumeContainer">
+                                <div class="absolute inset-1 rounded-full border border-dashed border-white/5 pointer-events-none"></div>
+                                <div class="w-8 h-8 bg-zinc-900 rounded-full border border-zinc-700/50 relative shadow-inner rotary-knob" id="volumeKnob" style="transform: rotate(270deg);">
+                                    <div class="absolute top-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#00ff66] shadow-[0_0_6px_#00ff66]"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Stream Channel Selection Buttons -->
+                    <div class="stream-selector flex gap-3 mb-4">
+                        <button class="stream-btn active py-2 px-3 rounded-full bg-zinc-800/50 hover:bg-zinc-800 border border-white/5 active:border-brand-yellow flex-1 text-center font-orbitron text-[0.65rem] font-bold tracking-widest text-brand-yellow uppercase" data-stream="1">
+                            PRIMARY STREAM
+                        </button>
+                        <button class="stream-btn py-2 px-3 rounded-full bg-zinc-800/50 hover:bg-zinc-800 border border-white/5 active:border-brand-yellow flex-1 text-center font-orbitron text-[0.65rem] font-bold tracking-widest text-zinc-400 hover:text-white uppercase" data-stream="2">
+                            SERVER 2 BACKUP
+                        </button>
+                    </div>
+
+                    <div class="text-center">
+                        <span class="text-[0.65rem] font-bold tracking-[0.3em] text-red-500 uppercase animate-pulse block">
+                            ((( LIVE STEREO STREAM )))
+                        </span>
+                        
+                        <!-- Invisible Audio streams to separate decoders -->
+                        <audio id="audioStream1" crossorigin="anonymous" src="https://stream.zeno.fm/tzn3ovjs0nbvv"></audio>
+                        <audio id="audioStream2" src="https://uk2freenew.listen2myradio.com/live.mp3?typeportmount=ice_29179_stream_359290919"></audio>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LIVE REQUESTS GREETINGS DECK (Expanded to full width - Slide from Left) -->
+    <section id="requests-booth" class="py-20 bg-black/45 relative z-10 scroll-reveal reveal-left">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="bg-brand-cardBg border border-brand-cardBorder rounded-[32px] p-6 md:p-8 shadow-2xl flex flex-col min-h-[550px] w-full">
+                <div class="flex items-center justify-between border-b border-white/5 pb-4 mb-6">
+                    <div>
+                        <h2 id="chatTitle" class="text-xl md:text-2xl font-bold font-orbitron text-brand-yellow cursor-pointer" title="Double-click for Admin Mode">LIVE SHOUTOUTS & GREETINGS BOARD</h2>
+                        <span class="text-[0.65rem] uppercase tracking-widest text-brand-textMuted font-semibold">Request songs and send your greetings instantly</span>
+                    </div>
+                </div>
+                
+                <!-- Chat Feed messages -->
+                <div id="chatMessages" class="flex-1 overflow-y-auto max-h-[350px] mb-6 pr-2 flex flex-col gap-4">
+                    <div class="text-center text-sm text-brand-textMuted py-10">Connecting to transmission feed...</div>
+                </div>
+
+                <!-- Bicolano fast greetings selector helpers -->
+                <div class="mb-4">
+                    <span class="text-[0.65rem] uppercase tracking-widest text-brand-textMuted font-bold block mb-2">Quick Greetings (Bicolano):</span>
+                    <div class="flex gap-2 overflow-x-auto pb-2">
+                        <span class="cursor-pointer text-[0.7rem] font-semibold py-1.5 px-3 rounded-xl border border-white/5 bg-zinc-800/40 hover:bg-brand-yellow/10 hover:border-brand-yellow/30 text-zinc-300 hover:text-brand-yellow transition shrink-0" onclick="prefillGreet('Marhay na hapon Bicol!')">🌄 Marhay na hapon Bicol!</span>
+                        <span class="cursor-pointer text-[0.7rem] font-semibold py-1.5 px-3 rounded-xl border border-white/5 bg-zinc-800/40 hover:bg-brand-yellow/10 hover:border-brand-yellow/30 text-zinc-300 hover:text-brand-yellow transition shrink-0" onclick="prefillGreet('Requesting some great music from Nabua!')">📻 Nabua Listener</span>
+                        <span class="cursor-pointer text-[0.7rem] font-semibold py-1.5 px-3 rounded-xl border border-white/5 bg-zinc-800/40 hover:bg-brand-yellow/10 hover:border-brand-yellow/30 text-zinc-300 hover:text-brand-yellow transition shrink-0" onclick="prefillGreet('Rhythm 101 Bicol No. 1 Online Radio!')">📻 Station No.1</span>
+                        <span class="cursor-pointer text-[0.7rem] font-semibold py-1.5 px-3 rounded-xl border border-white/5 bg-zinc-800/40 hover:bg-brand-yellow/10 hover:border-brand-yellow/30 text-zinc-300 hover:text-brand-yellow transition shrink-0" onclick="prefillGreet('Shoutout saindo gabos dyan sa Nabua!')">👋 Shoutout!</span>
+                    </div>
+                </div>
+
+                <div id="chatError" class="chat-error text-red-500 text-xs text-center mb-2 hidden"></div>
+
+                <!-- Input form fields -->
+                <div class="flex flex-col md:flex-row gap-3">
+                    <input type="text" id="chatName" class="bg-black/45 border border-white/5 rounded-2xl py-3 px-5 text-white placeholder-zinc-500 text-sm outline-none focus:border-brand-yellow md:w-1/3" placeholder="Full Name (First & Last Name)" maxlength="50">
+                    <div class="flex-1 flex gap-3">
+                        <input type="text" id="chatInput" class="flex-1 bg-black/45 border border-white/5 rounded-2xl py-3 px-5 text-white placeholder-zinc-500 text-sm outline-none focus:border-brand-yellow" placeholder="Type your song request or greeting message..." autocomplete="off">
+                        <button id="sendBtn" class="bg-brand-yellow hover:bg-yellow-500 text-black font-extrabold px-8 rounded-2xl tracking-widest transition text-xs font-orbitron">SUBMIT</button>
+                    </div>
+                </div>
+
+                <!-- Clocks inside chat board footer -->
+                <div class="mt-6 pt-4 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+                    <div class="flex items-center gap-4">
+                        <span class="text-brand-yellow font-bold uppercase tracking-wider font-orbitron text-[0.65rem]">Device Time:</span>
+                        <span id="localTime" class="font-mono text-zinc-300 font-bold">--:--:--</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-brand-yellow font-bold uppercase tracking-wider font-orbitron text-[0.65rem]">Philippines Time (Manila):</span>
+                        <span id="phTime" class="font-mono text-zinc-300 font-bold">--:--:--</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- RADAR MAPS AND COMMUNITY LINK (Alternated Left and Right reveal) -->
+    <section id="weather" class="py-16 max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12">
+        <!-- Weather Radar (Slide from Left) -->
+        <div class="bg-brand-cardBg border border-brand-cardBorder rounded-[32px] p-8 shadow-xl scroll-reveal reveal-left">
+            <h2 class="text-xl md:text-2xl font-bold font-orbitron text-brand-yellow mb-4 uppercase">WEATHER RADAR CONSOLE</h2>
+            <p class="text-zinc-300 text-sm leading-relaxed mb-6">
+                Stay updated with weather conditions, wind patterns, and precipitation tracks across the Bicol Region using Windy's radar system.
+            </p>
+            <div class="h-80 rounded-2xl overflow-hidden border border-white/5">
+                <iframe class="w-full h-full border-none" src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=mm&metricTemp=%C2%B0C&metricWind=km/h&zoom=5&overlay=wind&product=ecmwf&level=surface&lat=13.5&lon=123.3" scrolling="no"></iframe>
+            </div>
+        </div>
+
+        <!-- Community Facebook board (Slide from Right) -->
+        <div class="bg-brand-cardBg border border-brand-cardBorder rounded-[32px] p-8 shadow-xl scroll-reveal reveal-right">
+            <h2 class="text-xl md:text-2xl font-bold font-orbitron text-brand-yellow mb-4 uppercase">COMMUNITY FB BOARD</h2>
+            <p class="text-zinc-300 text-sm leading-relaxed mb-6">
+                Read announcements, promotion schedules, and local updates directly from the official social hub of Rhythm 101 FM.
+            </p>
+            <div class="h-80 rounded-2xl overflow-hidden border border-white/5 bg-zinc-950 flex items-center justify-center relative">
+                <iframe class="w-full h-full border-none" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FRHYTHM101FM&tabs=timeline&width=450&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" scrolling="no" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/5 bg-brand-cardBg py-10 text-center relative z-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="text-zinc-400 text-sm tracking-wider">
+                Developed By <span class="text-brand-yellow font-semibold">Devcoderz PH</span> | Established 2025
+            </p>
+            <p class="text-zinc-600 text-xs mt-2 uppercase tracking-widest font-bold">
+                Rhythm 101 Online Broadcaster — All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- MODULE SCRIPTS -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, collection, addDoc, onSnapshot, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // --- CUSTOM MODAL LOGIC (Replaces alert, prompt, confirm) ---
-        function showModal({ title, message, type = 'alert', onConfirm = null }) {
+        // Declaring explicit global audio context variable to prevent strict-mode ReferenceErrors on load
+        let audioCtx;
+
+        // --- CUSTOM MODAL LOGIC (Replaces browser alert/confirm prompts) ---
+        window.showModal = function({ title, message, type = 'alert', onConfirm = null }) {
             const modal = document.getElementById('customModal');
             const titleEl = document.getElementById('modalTitle');
             const msgEl = document.getElementById('modalMessage');
@@ -761,113 +565,169 @@
 
             btnConfirm.addEventListener('click', handleConfirm);
             btnCancel.addEventListener('click', handleCancel);
-        }
+        };
 
-        // --- PRELOADER AND INTERNET LOGIC ---
+        // --- SCROLL ACTION CONTROLLER ---
+        window.scrollToPlayer = function() {
+            document.getElementById('premiumPlayer').scrollIntoView({ behavior: 'smooth' });
+        };
+
+        // --- NETWORK DETECTOR CONTROL ---
         const preloader = document.getElementById('preloader');
-        const mainContent = document.getElementById('mainAppContent');
-        const preloaderText = document.getElementById('preloaderText');
-        const loaderBars = document.getElementById('loaderBars');
         const offlineMessage = document.getElementById('offlineMessage');
         let isWindowLoaded = false;
 
         function checkInternetConnection() {
             if (!navigator.onLine) {
-                loaderBars.style.display = 'none';
-                preloaderText.style.display = 'none';
-                offlineMessage.style.display = 'block';
+                offlineMessage.classList.remove('hidden');
             } else {
-                loaderBars.style.display = 'flex';
-                preloaderText.style.display = 'block';
-                offlineMessage.style.display = 'none';
+                offlineMessage.classList.add('hidden');
                 if (isWindowLoaded) {
                     setTimeout(() => {
-                        preloader.classList.add('hidden');
-                        mainContent.classList.add('show-content'); 
+                        preloader.classList.add('opacity-0', 'pointer-events-none');
                     }, 800); 
                 }
             }
         }
-        window.addEventListener('load', () => { isWindowLoaded = true; checkInternetConnection(); });
+        
+        // Start loops on window load
+        window.addEventListener('load', () => { 
+            isWindowLoaded = true; 
+            checkInternetConnection(); 
+            // Fall/decay loop runs continuously on window load
+            drawVisualizerLoop();
+            initScrollReveal();
+        });
         window.addEventListener('online', checkInternetConnection);
         window.addEventListener('offline', checkInternetConnection);
 
-        // --- THEME & PLAYER LOGIC ---
+        // --- ACTIVE BROADCAST STREAM SYSTEM ---
         const audio1 = document.getElementById('audioStream1');
         const audio2 = document.getElementById('audioStream2');
-        let audio = audio1; // Current active audio element
+        let audio = audio1; 
         
         const playBtn = document.getElementById('playBtn');
         const playIcon = document.getElementById('playIcon');
         const pauseIcon = document.getElementById('pauseIcon');
-        const container = document.getElementById('playerContainer');
-        const statusText = document.getElementById('statusText');
-        const volumeControl = document.getElementById('volumeControl');
-        const volIcon = document.getElementById('volIcon');
-        const themeToggleBtn = document.getElementById('themeToggle');
+        const premiumPlayer = document.getElementById('premiumPlayer');
+        
+        // --- MASTER ROTARY VOLUME KNOB CONTROLLER (Horizontal drag-to-rotate left and right) ---
+        const volumeKnob = document.getElementById('volumeKnob');
+        const rotaryVolumeContainer = document.getElementById('rotaryVolumeContainer');
+        const dbIndicator = document.getElementById('dbIndicator');
+        let isDragging = false;
+        let startX = 0;
+        let startRotation = 67.5; // Starts at 75% volume (range: -135deg to 135deg)
+        let currentRotation = 67.5;
+        
+        function updateVolumeByRotation(rotationDeg) {
+            // Map -135deg to 135deg into 0 to 1
+            let normVal = (rotationDeg + 135) / 270;
+            normVal = Math.max(0, Math.min(1, normVal));
+            
+            audio1.volume = normVal;
+            audio2.volume = normVal;
 
-        // FIX: Automatically detect System Theme Preference (Dark Mode / Light Mode)
-        const savedTheme = localStorage.getItem('theme');
-        const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-        // Load light mode if explicitly saved, OR if no save exists and system is light mode
-        if (savedTheme === 'light' || (!savedTheme && !systemPrefersDark)) { 
-            document.body.classList.add('light-mode'); 
-            themeToggleBtn.innerText = '🌙'; 
-        } else {
-            // Default to dark mode
-            themeToggleBtn.innerText = '🌞'; 
+            let db = -42.0;
+            if (normVal > 0) {
+                db = Math.round(20 * Math.log10(normVal) * 10) / 10;
+            }
+            dbIndicator.innerText = `OUTPUT: ${db === -Infinity ? '-42.0' : db.toFixed(1)} dBFS`;
         }
 
-        themeToggleBtn.addEventListener('click', () => {
-            document.body.classList.toggle('light-mode');
-            if (document.body.classList.contains('light-mode')) {
-                themeToggleBtn.innerText = '🌙'; localStorage.setItem('theme', 'light');
-            } else {
-                themeToggleBtn.innerText = '🌞'; localStorage.setItem('theme', 'dark');
-            }
+        // Initial synchronization of volume level to match default knob rotation
+        updateVolumeByRotation(currentRotation);
+        volumeKnob.style.transform = `rotate(${currentRotation}deg)`;
+
+        // Mouse Drag Controls for Volume Dial
+        rotaryVolumeContainer.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX;
+            startRotation = currentRotation;
+            e.preventDefault();
         });
 
-        volumeControl.addEventListener('input', (e) => {
-            const vol = parseFloat(e.target.value);
-            // Apply volume to both invisible players
-            audio1.volume = vol;
-            audio2.volume = vol;
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            let dx = e.clientX - startX;
+            currentRotation = startRotation + (dx * 1.2); // Sensitivity multiplier
+            currentRotation = Math.max(-135, Math.min(135, currentRotation));
             
-            if (vol === 0) volIcon.innerText = "🔇";
-            else if (vol < 0.5) volIcon.innerText = "🔉";
-            else volIcon.innerText = "🔊";
+            volumeKnob.style.transform = `rotate(${currentRotation}deg)`;
+            updateVolumeByRotation(currentRotation);
         });
 
-        // --- REAL-TIME AUDIO VISUALIZER LOGIC ---
-        let audioCtx;
+        document.addEventListener('mouseup', () => { isDragging = false; });
+
+        // Touch Drag Controls for Volume Dial (Mobile)
+        rotaryVolumeContainer.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            const touch = e.touches[0];
+            startX = touch.clientX;
+            startRotation = currentRotation;
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const touch = e.touches[0];
+            let dx = touch.clientX - startX;
+            currentRotation = startRotation + (dx * 1.2);
+            currentRotation = Math.max(-135, Math.min(135, currentRotation));
+            
+            volumeKnob.style.transform = `rotate(${currentRotation}deg)`;
+            updateVolumeByRotation(currentRotation);
+        });
+
+        document.addEventListener('touchend', () => { isDragging = false; });
+
+        // --- STEREOPHONIC HORIZONTAL LED DOTS GRAPHICS (image_4c6a53.png) ---
+        const ledRowLeft = document.getElementById('ledRowLeft');
+        const ledRowRight = document.getElementById('ledRowRight');
+        const totalLeds = 24; 
+
+        function buildLedsMarkup(container) {
+            container.innerHTML = '';
+            for (let i = 0; i < totalLeds; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'led-dot ';
+                
+                // Color scaling blocks matching image_4c6a53.png
+                if (i < 14) {
+                    dot.className += 'led-green';
+                } else if (i < 17) {
+                    dot.className += 'led-yellow';
+                } else if (i < 20) {
+                    dot.className += 'led-orange';
+                } else {
+                    dot.className += 'led-red';
+                }
+                container.appendChild(dot);
+            }
+        }
+        buildLedsMarkup(ledRowLeft);
+        buildLedsMarkup(ledRowRight);
+
+        const leftLedDots = ledRowLeft.querySelectorAll('.led-dot');
+        const rightLedDots = ledRowRight.querySelectorAll('.led-dot');
+
+        // --- DYNAMIC AUDIO ANALYSIS ENGINE (Web Audio API) ---
         let analyser;
         let source1;
-        let source2;
         let dataArray;
-        const bars = document.querySelectorAll('.bar');
-        const vuNeedleLeft = document.getElementById('vuNeedleLeft');
-        const vuNeedleRight = document.getElementById('vuNeedleRight');
-        let isVisualizerRunning = false;
-        
-        // State arrays for simulated visualizer (used for Stream 2)
-        let fakeTargets = [5, 5, 5, 5, 5, 5, 5];
-        let currentHeights = [5, 5, 5, 5, 5, 5, 5];
-        
-        // VU Meter simulated states
-        let currentDegL = -45;
-        let currentDegR = -45;
-        let targetDegL = -45;
+
+        function initAudioContext() {
+            if (!audioCtx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                audioCtx = new AudioContext();
+            }
+        }
 
         function initVisualizer() {
-            if (!audioCtx) return; // Wait for user gesture initialization
+            initAudioContext();
             if (!analyser) {
                 analyser = audioCtx.createAnalyser();
-                
-                // I-connect LAMANG ang Stream 1. Pag kinonekta ang Stream 2, mumu-mute ito dahil walang CORS.
                 source1 = audioCtx.createMediaElementSource(audio1);
                 source1.connect(analyser);
-                
                 analyser.connect(audioCtx.destination);
                 
                 analyser.fftSize = 64; 
@@ -877,232 +737,298 @@
             if (audioCtx.state === 'suspended') {
                 audioCtx.resume();
             }
-            if (!isVisualizerRunning) {
-                drawVisualizer();
-            }
         }
 
-        function drawVisualizer() {
-            // Stop visualizer if audio is paused
-            if (audio.paused) {
-                isVisualizerRunning = false;
-                bars.forEach(bar => bar.style.height = '5px');
-                vuNeedleLeft.style.transform = `rotate(-45deg)`;
-                vuNeedleRight.style.transform = `rotate(-45deg)`;
-                return;
-            }
-            isVisualizerRunning = true;
-            requestAnimationFrame(drawVisualizer);
-            
-            if (audio === audio1 && analyser) {
-                // REAL VISUALIZER: Gumagamit ng totoong audio beat data ang Stream 1
-                analyser.getByteFrequencyData(dataArray);
-                
-                let sumL = 0;
-                let sumR = 0;
+        // --- REAL-TIME STEREO METERS WITH DECAY (Pabagsak na Animation) ---
+        let lastValueL = 0;
+        let lastValueR = 0;
+        const decayRate = 0.055; // Fallback decay rate when paused
 
-                for (let i = 0; i < bars.length; i++) {
-                    let freqIndex = i * 3; 
-                    let value = dataArray[freqIndex] || 0;
-                    let height = Math.max(5, (value / 255) * 50);
-                    bars[i].style.height = height + 'px';
-                }
-                
-                // Alternate frequency bins so both meters get an equal mix of Bass and Treble
-                for (let i = 0; i < 32; i++) {
-                    if (i % 2 === 0) {
-                        sumL += dataArray[i] || 0;
-                    } else {
-                        sumR += dataArray[i] || 0;
+        function drawVisualizerLoop() {
+            let targetAmp = 0;
+
+            // Fetch live data from active playing streams
+            if (!audio.paused) {
+                if (audio === audio1 && analyser) {
+                    analyser.getByteFrequencyData(dataArray);
+                    let sum = 0;
+                    for (let i = 0; i < dataArray.length; i++) {
+                        sum += dataArray[i];
                     }
+                    targetAmp = sum / (255 * dataArray.length);
+                } else {
+                    // Procedural wave generator for Stream 2
+                    targetAmp = 0.14 + (Math.sin(Date.now() / 140) * 0.1) + (Math.random() * 0.12);
                 }
-                
-                let rawL = sumL / 4080; // normalize against 255 * 16 max theoretical value
-                let rawR = sumR / 4080;
-                
-                // Needles sweep from -45deg to +45deg (90 degrees total)
-                let degL = -45 + (rawL * 90 * 1.5); 
-                let degR = -45 + (rawR * 90 * 1.5);
-                
-                // Clamp angles to not spin out of bounds
-                degL = Math.max(-45, Math.min(45, degL));
-                degR = Math.max(-45, Math.min(45, degR));
-                
-                vuNeedleLeft.style.transform = `rotate(${degL}deg)`;
-                vuNeedleRight.style.transform = `rotate(${degR}deg)`;
             } else {
-                // FAKE VISUALIZER: Simulated movement para sa Stream 2 (Balanced Left and Right)
-                for (let i = 0; i <= 3; i++) {
-                    if (Math.random() > 0.8) {
-                        fakeTargets[i] = 10 + Math.random() * 40; // Simulate jump (Beat)
-                    }
-                    currentHeights[i] += (fakeTargets[i] - currentHeights[i]) * 0.2; // Smooth transition
-                    fakeTargets[i] = Math.max(5, fakeTargets[i] - 1.5); // Gravity/Decay
-                    
-                    bars[i].style.height = currentHeights[i] + 'px';
-                    
-                    // Copy height to the mirrored bar on the right
-                    if (i < 3) {
-                        bars[6 - i].style.height = currentHeights[i] + 'px';
-                        currentHeights[6 - i] = currentHeights[i];
-                        fakeTargets[6 - i] = fakeTargets[i];
-                    }
-                }
-
-                // Fake VU Logic for Stream 2
-                if (Math.random() > 0.85) {
-                    targetDegL = -15 + Math.random() * 60; 
-                }
-                currentDegL += (targetDegL - currentDegL) * 0.15;
-                targetDegL = Math.max(-45, targetDegL - 2.5); // Rapid fallback decay
-                
-                // Force exact mirror balance to the right needle
-                currentDegR = currentDegL; 
-                
-                vuNeedleLeft.style.transform = `rotate(${currentDegL}deg)`;
-                vuNeedleRight.style.transform = `rotate(${currentDegR}deg)`;
+                // Return to 0 smoothly when paused or signal is lost
+                targetAmp = 0;
             }
+
+            // Smooth linear interpolation decay fall-off
+            let currentAmpL = lastValueL + (targetAmp - lastValueL) * (targetAmp > lastValueL ? 0.35 : decayRate);
+            let currentAmpR = lastValueR + (targetAmp - lastValueR) * (targetAmp > lastValueR ? 0.35 : decayRate);
+
+            lastValueL = currentAmpL;
+            lastValueR = currentAmpR;
+
+            // Clamp output ranges
+            currentAmpL = Math.max(0, Math.min(1, currentAmpL));
+            currentAmpR = Math.max(0, Math.min(1, currentAmpR));
+
+            // Dynamic variations to keep left/right stereo independent
+            const variance = !audio.paused ? ((Math.sin(Date.now() / 75) * 0.07) + (Math.random() * 0.04 - 0.02)) : 0;
+            let ampL = currentAmpL;
+            let ampR = currentAmpR + (currentAmpR > 0 ? variance : 0);
+
+            ampL = Math.max(0, Math.min(1, ampL));
+            ampR = Math.max(0, Math.min(1, ampR));
+
+            // Map levels to total LED counts
+            const thresholdL = Math.round(ampL * totalLeds * 1.6);
+            const thresholdR = Math.round(ampR * totalLeds * 1.6);
+
+            // Left Channel
+            for (let i = 0; i < totalLeds; i++) {
+                if (i < thresholdL) {
+                    leftLedDots[i].classList.add('active');
+                } else {
+                    leftLedDots[i].classList.remove('active');
+                }
+            }
+
+            // Right Channel
+            for (let i = 0; i < totalLeds; i++) {
+                if (i < thresholdR) {
+                    rightLedDots[i].classList.add('active');
+                } else {
+                    rightLedDots[i].classList.remove('active');
+                }
+            }
+
+            requestAnimationFrame(drawVisualizerLoop);
         }
 
-        playBtn.addEventListener('click', () => {
-            // FIX: Initialize AudioContext synchronously on first user gesture (Safari/iOS requirement)
-            if (!audioCtx) {
-                const AudioContext = window.AudioContext || window.webkitAudioContext;
-                audioCtx = new AudioContext();
+        // --- HIGH PERFORMANCE, SANDBOX-FRIENDLY SCROLL REVEAL ENGINE ---
+        function initScrollReveal() {
+            const revealElements = document.querySelectorAll('.scroll-reveal');
+            
+            function checkReveal() {
+                const windowHeight = window.innerHeight;
+                revealElements.forEach(el => {
+                    const elementTop = el.getBoundingClientRect().top;
+                    const elementBottom = el.getBoundingClientRect().bottom;
+                    const revealPoint = 80; // Distance trigger
+                    
+                    // Toggle visibility state dynamically
+                    if (elementTop < windowHeight - revealPoint && elementBottom > 0) {
+                        el.classList.add('revealed');
+                    } else {
+                        el.classList.remove('revealed');
+                    }
+                });
             }
-            if (audioCtx.state === 'suspended') {
-                audioCtx.resume();
-            }
+            
+            window.addEventListener('scroll', checkReveal);
+            window.addEventListener('resize', checkReveal);
+            
+            // Execute on load with a slight delay to capture correct offsets
+            setTimeout(checkReveal, 200);
+        }
 
+        // --- AUDIO METADATA, CONNECTION STATE & ERROR EVENT HANDLERS ---
+        let isAudioCaught = false;
+        let isConnecting = false;
+        let connectionTimeout = null;
+
+        function handleStreamPlay() {
+            isAudioCaught = false;
+            isConnecting = true;
+            updateNowPlayingText();
+            
+            // Set a timeout to detect failure to connect/catch stream (e.g. 7 seconds)
+            if (connectionTimeout) clearTimeout(connectionTimeout);
+            connectionTimeout = setTimeout(() => {
+                if (!isAudioCaught && !audio.paused) {
+                    isConnecting = false;
+                    updateNowPlayingText(); // Displays DISCONNECTED since isAudioCaught is false
+                }
+            }, 7000);
+        }
+
+        function handleStreamPlaying() {
+            isAudioCaught = true;
+            isConnecting = false;
+            if (connectionTimeout) clearTimeout(connectionTimeout);
+            updateNowPlayingText();
+        }
+
+        function handleStreamError() {
+            isAudioCaught = false;
+            isConnecting = false;
+            if (connectionTimeout) clearTimeout(connectionTimeout);
+            updateNowPlayingText();
+        }
+
+        [audio1, audio2].forEach(aud => {
+            aud.addEventListener('play', handleStreamPlay);
+            aud.addEventListener('playing', handleStreamPlaying);
+            aud.addEventListener('error', handleStreamError);
+            aud.addEventListener('stalled', handleStreamError);
+            aud.addEventListener('waiting', () => {
+                // If it buffers mid-stream, give it a moment, otherwise show disconnected
+                setTimeout(() => {
+                    if (aud.seeking || aud.readyState < 3) {
+                        isAudioCaught = false;
+                        updateNowPlayingText();
+                    }
+                }, 4000);
+            });
+        });
+
+        // Play/Pause button controller
+        playBtn.addEventListener('click', () => {
+            initAudioContext();
             if (audio.paused) {
                 if (audio.readyState === 0) audio.load();
-                statusText.innerText = "Connecting...";
                 audio.play().then(() => {
-                    playIcon.style.display = 'none'; pauseIcon.style.display = 'block';
-                    container.classList.add('playing'); statusText.innerText = "On Air • Live";
-                    initVisualizer(); 
-                }).catch(err => {
-                    statusText.innerText = "Offline/Off Air";
-                    playIcon.style.display = 'block'; pauseIcon.style.display = 'none';
-                    container.classList.remove('playing');
-                    showModal({ title: "Playback Error", message: "Stream failed to load. It may be offline or blocked by your browser." });
+                    playIcon.classList.add('hidden');
+                    pauseIcon.classList.remove('hidden');
+                    premiumPlayer.classList.add('playing'); // Spins vinyl and moves needle
+                    initVisualizer();
+                }).catch(() => {
+                    showModal({ title: "Playback Error", message: "Failed to load broadcast. Try switching to Backup Server 2." });
+                    handleStreamError();
                 });
             } else {
                 audio.pause();
-                playIcon.style.display = 'block'; pauseIcon.style.display = 'none';
-                container.classList.remove('playing'); statusText.innerText = "Paused";
+                playIcon.classList.remove('hidden');
+                playIcon.classList.add('inline-block');
+                pauseIcon.classList.add('hidden');
+                premiumPlayer.classList.remove('playing'); // Freezes vinyl in current rotation position
+                updateNowPlayingText();
             }
         });
 
-        function handleAudioError(e) {
-            statusText.innerText = "Station Offline"; container.classList.remove('playing');
-            playIcon.style.display = 'block'; pauseIcon.style.display = 'none';
-        }
-        
-        audio1.addEventListener('error', handleAudioError);
-        audio2.addEventListener('error', handleAudioError);
-
-        // --- ZENO FM METADATA & STREAM SWITCHING ---
+        // --- METADATA REALTIME BROADCAST RECEIVER ---
         let metadataEventSource = null;
-        
+        let lastMetadata = "";
+        let isMetadataConnected = false;
+
+        function updateNowPlayingText() {
+            const titleEl = document.getElementById('nowPlayingText');
+            if (audio.paused) {
+                titleEl.innerText = "READY TO PLAY";
+            } else {
+                if (isConnecting) {
+                    titleEl.innerText = "CONNECTING STREAM CHANNEL...";
+                } else if (!isAudioCaught) {
+                    titleEl.innerText = "DISCONNECTED";
+                } else {
+                    if (audio === audio1) {
+                        if (isMetadataConnected && lastMetadata) {
+                            titleEl.innerText = `NOW PLAYING: ${lastMetadata}`;
+                        } else {
+                            titleEl.innerText = "NOW PLAYING: RHYTHM 101 FM";
+                        }
+                    } else {
+                        titleEl.innerText = "NOW PLAYING: ACTIVE BACKUP SIGNAL - SERVER 2";
+                    }
+                }
+            }
+        }
+
         function initStreamMetadata(streamNumber) {
             const titleEl = document.getElementById('nowPlayingText');
-            
-            // Close existing connection if any
             if (metadataEventSource) {
                 metadataEventSource.close();
                 metadataEventSource = null;
             }
+            isMetadataConnected = false;
 
             if (streamNumber === 1) {
                 metadataEventSource = new EventSource('https://api.zeno.fm/mounts/metadata/subscribe/tzn3ovjs0nbvv');
+                
+                metadataEventSource.onopen = function() {
+                    isMetadataConnected = true;
+                    updateNowPlayingText();
+                };
+
                 metadataEventSource.onmessage = function(event) {
                     try {
                         const data = JSON.parse(event.data);
                         if (data.streamTitle && data.streamTitle.trim() !== "") {
-                            titleEl.innerText = data.streamTitle; titleEl.title = data.streamTitle; 
+                            lastMetadata = data.streamTitle.toUpperCase();
+                            isMetadataConnected = true;
                         } else {
-                            titleEl.innerText = "Rhythm 101 FM"; titleEl.title = "Rhythm 101 FM";
+                            lastMetadata = "RHYTHM 101 FM - YOUR RADIO ESSENTIAL";
+                            isMetadataConnected = true;
                         }
-                    } catch (e) { }
+                    } catch (e) {
+                        isMetadataConnected = false;
+                    }
+                    updateNowPlayingText();
                 };
-                metadataEventSource.onerror = function(error) { titleEl.innerText = "Rhythm 101 FM"; };
+
+                metadataEventSource.onerror = function() {
+                    isMetadataConnected = false;
+                    updateNowPlayingText();
+                };
             } else {
-                // Stream 2 Fallback text since it's not on Zeno
-                titleEl.innerText = "Streaming via Server 2"; 
-                titleEl.title = "Streaming via Server 2";
+                lastMetadata = "ACTIVE BACKUP SIGNAL - SERVER 2";
+                isMetadataConnected = true;
+                updateNowPlayingText();
             }
         }
-        
-        // Initialize default metadata (Stream 1)
         initStreamMetadata(1);
 
-        // Stream Selector Logic
+        // Channel switching controllers
         const streamBtns = document.querySelectorAll('.stream-btn');
         streamBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                streamBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
+                streamBtns.forEach(b => {
+                    b.classList.remove('active', 'text-brand-yellow', 'bg-zinc-800');
+                    b.classList.add('text-zinc-400');
+                });
+                btn.classList.add('active', 'text-brand-yellow', 'bg-zinc-800');
 
                 const streamId = parseInt(btn.dataset.stream);
                 const isPlaying = !audio.paused;
 
-                // Stop current stream before switching
                 audio.pause();
-
-                if (streamId === 1) {
-                    audio = audio1;
-                } else {
-                    audio = audio2;
-                }
-
+                audio = (streamId === 1) ? audio1 : audio2;
                 initStreamMetadata(streamId);
-                
-                // Force reload to grab fresh stream chunks
                 audio.load();
 
                 if (isPlaying) {
-                    statusText.innerText = "Connecting...";
                     audio.play().then(() => {
-                        statusText.innerText = "On Air • Live";
-                        initVisualizer(); // FIX: Call this unconditionally so Stream 2 doesn't freeze
-                    }).catch(err => {
-                        statusText.innerText = "Offline/Off Air";
-                        playIcon.style.display = 'block'; pauseIcon.style.display = 'none';
-                        container.classList.remove('playing');
-                        showModal({ title: "Playback Error", message: "Stream failed to load. It may be offline or blocked by your browser." });
+                        initVisualizer();
+                    }).catch(() => {
+                        showModal({ title: "Signal Lost", message: "Failed to establish stream link." });
+                        handleStreamError();
                     });
-                } else {
-                    playIcon.style.display = 'block'; pauseIcon.style.display = 'none';
-                    container.classList.remove('playing'); statusText.innerText = "Ready to Play";
                 }
             });
         });
 
-        // --- CLOCKS ---
-        function updateClocks() {
+        // --- REAL TIME BROADCAST TIMER AND CLOCKS ---
+        function updateClocksAndDJs() {
             const now = new Date();
             
-            // 1. Local Time (Auto-detects user's current device time/timezone)
+            // Local clock
             document.getElementById('localTime').innerText = now.toLocaleTimeString('en-US', { 
-                hour: '2-digit', 
-                minute: '2-digit', 
-                second: '2-digit',
-                hour12: true 
+                hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true 
             });
             
-            // 2. Philippines Time (Strictly locked to Manila Time, independent of where user is)
-            document.getElementById('phTime').innerText = now.toLocaleTimeString('en-US', { 
-                timeZone: 'Asia/Manila', 
-                hour: '2-digit', 
-                minute: '2-digit', 
-                second: '2-digit',
-                hour12: true 
+            // Manila Time (Independent of device location)
+            const manilaTimeStr = now.toLocaleTimeString('en-US', { 
+                timeZone: 'Asia/Manila', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true 
             });
+            document.getElementById('phTime').innerText = manilaTimeStr;
         }
-        setInterval(updateClocks, 1000); updateClocks();
+        setInterval(updateClocksAndDJs, 1000); updateClocksAndDJs();
 
-        // --- FIREBASE CHATBOX LOGIC ---
+        // --- FIREBASE LIVE CHATBOX INTEGRATION ---
         const myFirebaseConfig = {
             apiKey: "AIzaSyDDjVL_LMCtFa2XGUJWS05XNyBHKTbKEaM",
             authDomain: "rhythm-101-broadcast.firebaseapp.com",
@@ -1126,28 +1052,32 @@
         let currentMessages = [];
         let isAdmin = localStorage.getItem('rhythmAdmin') === 'true';
 
-        // Admin Secret Login via Custom Modal
+        window.prefillGreet = function(txt) {
+            chatInput.value = txt;
+            chatInput.focus();
+        };
+
         chatTitle.addEventListener('dblclick', () => {
             if (!isAdmin) {
                 showModal({
-                    title: "Admin Access",
-                    message: "Enter Admin Password to enable deletion:",
+                    title: "Studio Admin Verification",
+                    message: "Please enter station credentials code to verify admin access:",
                     type: "password",
                     onConfirm: (pwd) => {
                         if (pwd === "rhythm101") { 
                             isAdmin = true;
                             localStorage.setItem('rhythmAdmin', 'true');
-                            showModal({ title: "Success", message: "Admin mode enabled. You can now delete messages." });
+                            showModal({ title: "Access Granted", message: "Admin authorization verified. Message removal controls unlocked." });
                             renderMessages(currentMessages);
                         } else if (pwd !== null) {
-                            showModal({ title: "Error", message: "Incorrect password." });
+                            showModal({ title: "Incorrect Password", message: "Incorrect security credentials." });
                         }
                     }
                 });
             } else {
                 showModal({
-                    title: "Disable Admin",
-                    message: "Disable Admin mode?",
+                    title: "Deauthorize Access",
+                    message: "Log out of station administrator status?",
                     type: "confirm",
                     onConfirm: (res) => {
                         if (res) {
@@ -1161,7 +1091,7 @@
         });
 
         if (!firebaseConfig.apiKey || firebaseConfig.apiKey === "YOUR_API_KEY") {
-            chatMessagesEl.innerHTML = '<div style="color:#ff5e62; text-align:center; padding: 20px; font-size: 0.85rem; line-height: 1.5;">⚠️ <b>Live Chat is Offline</b><br><br>The chat database is not connected.</div>';
+            chatMessagesEl.innerHTML = '<div class="text-red-500 text-center py-10">⚠️ The database connection is offline. Live requests are temporarily disabled.</div>';
             chatInput.disabled = true;
             sendBtn.disabled = true;
         } else {
@@ -1186,7 +1116,7 @@
                     chatInput.disabled = false;
                     sendBtn.disabled = false;
                 } else {
-                    if(unsubscribeMessages) unsubscribeMessages();
+                    if (unsubscribeMessages) unsubscribeMessages();
                 }
             });
 
@@ -1202,7 +1132,6 @@
                     snapshot.forEach(docSnap => {
                         const data = docSnap.data();
                         if (now - data.timestamp > oneDayMs) {
-                            // Suppress errors for deletion if no permission
                             deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'requests', docSnap.id)).catch(() => {});
                         } else {
                             messages.push({ id: docSnap.id, ...data });
@@ -1212,18 +1141,14 @@
                     messages.sort((a, b) => a.timestamp - b.timestamp);
                     currentMessages = messages;
                     renderMessages(currentMessages);
-                }, (error) => {
-                    console.error("Error fetching messages:", error);
-                    chatMessagesEl.innerHTML = '<div style="color:red; text-align:center;">Failed to load chat.</div>';
                 });
             }
 
             function renderMessages(messages) {
-                // FIX: Check if user is scrolled to bottom before updating DOM
                 const isScrolledToBottom = chatMessagesEl.scrollHeight - chatMessagesEl.clientHeight <= chatMessagesEl.scrollTop + 50;
 
                 if (messages.length === 0) {
-                    chatMessagesEl.innerHTML = '<div style="opacity: 0.5; text-align: center; margin-top: auto; margin-bottom: auto;">No active requests yet. Be the first!</div>';
+                    chatMessagesEl.innerHTML = '<div class="text-zinc-500 text-center py-12 text-sm">No live requests yet. Send a shoutout to start!</div>';
                     return;
                 }
 
@@ -1232,28 +1157,24 @@
                     const isSelf = currentUser && msg.userId === currentUser.uid;
                     
                     const wrapper = document.createElement('div');
-                    wrapper.className = `chat-message ${isSelf ? 'self' : 'other'}`;
+                    wrapper.className = `p-4 rounded-2xl max-w-[85%] text-sm border ${isSelf ? 'bg-gradient-to-br from-brand-yellow/20 to-brand-yellow/5 border-brand-yellow/20 self-end rounded-br-none' : 'bg-zinc-800/40 border-white/5 self-start rounded-bl-none'}`;
                     
                     if (msg.name) {
                         const nameDiv = document.createElement('div');
-                        nameDiv.className = 'chat-sender-name';
+                        nameDiv.className = 'font-bold text-xs text-brand-yellow mb-1 tracking-wider uppercase';
                         nameDiv.textContent = isSelf ? 'You' : msg.name;
                         wrapper.appendChild(nameDiv);
                     }
 
                     const textDiv = document.createElement('div');
+                    textDiv.className = 'text-zinc-200 font-medium leading-relaxed break-words';
                     textDiv.textContent = msg.text; 
 
                     const metaDiv = document.createElement('div');
-                    metaDiv.style.display = 'flex';
-                    metaDiv.style.justifyContent = isSelf ? 'flex-end' : 'flex-start';
-                    metaDiv.style.alignItems = 'center';
-                    metaDiv.style.gap = '10px';
-                    metaDiv.style.marginTop = '6px';
+                    metaDiv.className = 'flex items-center gap-3 justify-between mt-2.5';
 
                     const timeSpan = document.createElement('span');
-                    timeSpan.className = 'chat-time';
-                    timeSpan.style.marginTop = '0';
+                    timeSpan.className = 'text-[0.65rem] text-zinc-500 font-bold';
                     const date = new Date(msg.timestamp);
                     timeSpan.textContent = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
@@ -1262,22 +1183,18 @@
                     if (isAdmin) {
                         const delBtn = document.createElement('span');
                         delBtn.textContent = '🗑️';
-                        delBtn.style.cursor = 'pointer';
-                        delBtn.style.fontSize = '0.85rem';
+                        delBtn.className = 'cursor-pointer text-xs hover:text-red-500 transition ml-3';
                         delBtn.title = "Delete Request";
                         delBtn.onclick = () => {
                             showModal({
-                                title: "Delete Request",
-                                message: "Delete this request?",
+                                title: "Confirm deletion",
+                                message: "Are you sure you want to delete this shoutout message?",
                                 type: "confirm",
                                 onConfirm: async (res) => {
                                     if(res) {
                                         try {
                                             await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'requests', msg.id));
-                                        } catch(e) {
-                                            console.error("Error deleting:", e);
-                                            showModal({ title: "Error", message: "Failed to delete message." });
-                                        }
+                                        } catch(e) {}
                                     }
                                 }
                             });
@@ -1290,7 +1207,6 @@
                     chatMessagesEl.appendChild(wrapper);
                 });
                 
-                // FIX: Only auto-scroll if the user was already at the bottom
                 if (isScrolledToBottom || chatMessagesEl.scrollTop === 0) {
                     chatMessagesEl.scrollTop = chatMessagesEl.scrollHeight;
                 }
@@ -1299,28 +1215,17 @@
             async function handleSendMessage() {
                 const text = chatInput.value.trim();
                 const name = chatName.value.trim();
-                
-                // Validate Real Full Name (Must have at least two words)
                 const nameParts = name.split(' ').filter(part => part.length > 0);
                 
                 if (nameParts.length < 2) {
-                    chatName.style.borderColor = 'var(--primary-color)';
-                    chatName.value = '';
-                    chatName.placeholder = 'First & Last name required!';
-                    
-                    chatErrorEl.textContent = "Please enter your Real Full Name (First & Last) to send a request.";
-                    chatErrorEl.style.display = 'block';
-                    setTimeout(() => chatErrorEl.style.display = 'none', 4000);
-                    
                     chatName.focus();
+                    chatErrorEl.innerText = "Please enter your full name (First & Last name) to request!";
+                    chatErrorEl.classList.remove('hidden');
+                    setTimeout(() => chatErrorEl.classList.add('hidden'), 4000);
                     return;
-                } else {
-                    chatName.style.borderColor = 'var(--glass-border)';
-                    localStorage.setItem('rhythmChatName', name);
                 }
 
                 if (!text || !currentUser) return;
-                
                 chatInput.value = ''; 
                 
                 try {
@@ -1332,10 +1237,9 @@
                         userId: currentUser.uid
                     });
                 } catch (error) {
-                    console.error("Error sending request:", error);
-                    chatErrorEl.textContent = "Could not send request. Please try again.";
-                    chatErrorEl.style.display = 'block';
-                    setTimeout(() => chatErrorEl.style.display = 'none', 4000);
+                    chatErrorEl.innerText = "Failed to send message. Please check connection and try again.";
+                    chatErrorEl.classList.remove('hidden');
+                    setTimeout(() => chatErrorEl.classList.add('hidden'), 4000);
                 }
             }
 
@@ -1344,7 +1248,6 @@
                 if (e.key === 'Enter') handleSendMessage();
             });
 
-            // Load saved name on startup
             chatName.value = localStorage.getItem('rhythmChatName') || '';
         }
     </script>
